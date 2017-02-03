@@ -155,13 +155,15 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-hello-world"
+            <article id="post-for"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017年02月03日 19:25" datetime="2017-02-03T11:25:53.781Z"  itemprop="datePublished">2017-02-03</time>
+        <time class="post-time" title="2017年02月03日 21:57" datetime="2017-02-03T13:57:39.729Z"  itemprop="datePublished">2017-02-03</time>
 
         
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Exercise/">Exercise</a></li></ul>
+
 
 
         
@@ -173,7 +175,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/02/03/hello-world/">Hello World</a>
+      <a class="post-title-link" href="/2017/02/03/for/">事件监听—addEventListener</a>
     </h3>
   
 
@@ -183,11 +185,217 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Qu...
+        123elementObj.addEventListener(type,listener,useCapture);当监听对象触发指定的事件后，执行指定回调函数。
+addEventListener相对于attachEvent优点：
+
+一个事件可注册多个listener。
+Listener的触发可以选择capture/bubbling。
+对任何DOM元素都有效。
+
+
+ 在内存问题上，使用预先声明...
     
 
-        <a href="/2017/02/03/hello-world/" class="post-more waves-effect waves-button">
+        <a href="/2017/02/03/for/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-night"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017年01月23日 8:55" datetime="2017-01-23T00:55:29.000Z"  itemprop="datePublished">2017-01-23</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Exercise/">Exercise</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/01/23/night/">一道关于this和作用域的题目引发的思考</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        题目引发思考：
+一天在freecodecamp的群里，讨论到this的问题，最后有一道这样的题目:
+
+123456789101112131415161718var name = 'global';var A = &#123;	name: 'obj',	test: function()&#123;		var name = 'gaga';		this.name = 'dose';		return...
+    
+
+        <a href="/2017/01/23/night/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-seven"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016年11月20日 8:55" datetime="2016-11-20T00:55:29.000Z"  itemprop="datePublished">2016-11-20</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Exercise/">Exercise</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2016/11/20/seven/">从柯里化函数，加深对递归的运用</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        遇到过这么一道面试题
+
+写出函数，实现 sum(2)(3) , sum(2,3)
+
+当时我是这么写的：12345678910function sum(a)&#123;	if(arguments.length == 2)&#123;		return arguments[0] + arguments[1];	&#125;	else&#123;		return function (b)&#123;...
+    
+
+        <a href="/2016/11/20/seven/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-eight"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016年11月11日 8:55" datetime="2016-11-11T00:55:29.000Z"  itemprop="datePublished">2016-11-11</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Exercise/">Exercise</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2016/11/11/eight/">Ajax 笔记</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        工作原理创建 和 Code
+创建XMLHttpRequest()对象；
+创建HTTP请求，链接服务器，设置请求动作FET/POST，URL，异步/同步；
+发送HTTP请求；（三次握手四次挥手）
+设置响应状态变化时间onreadystatechange；
+接受返回数据(responseText,readyState,status等)；
+使用Javascript DOM 操作，实现局部刷新。
+
+...
+    
+
+        <a href="/2016/11/11/eight/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-five"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016年11月11日 8:55" datetime="2016-11-11T00:55:29.000Z"  itemprop="datePublished">2016-11-11</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Exercise/">Exercise</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2016/11/11/five/">快速排序</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        思路
+选一基准元素 point
+分区操作(partition)：小于point放左边，大于point放右边，point最后的位置就是排序完成的位置。
+重复步骤1.2
+                
+                    
+                    
+                
+                
+            
+
+
+123456...
+    
+
+        <a href="/2016/11/11/five/" class="post-more waves-effect waves-button">
             阅读全文...
         </a>
     </div>
@@ -201,7 +409,7 @@ Qu...
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2014年11月09日 8:55" datetime="2014-11-09T00:55:29.000Z"  itemprop="datePublished">2014-11-09</time>
+        <time class="post-time" title="2016年11月08日 8:55" datetime="2016-11-08T00:55:29.000Z"  itemprop="datePublished">2016-11-08</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Exercise/">Exercise</a></li></ul>
@@ -217,7 +425,7 @@ Qu...
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2014/11/09/newthr/">第3篇文章</a>
+      <a class="post-title-link" href="/2016/11/08/newthr/">重新认识-盒子模型</a>
     </h3>
   
 
@@ -227,10 +435,14 @@ Qu...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        111111122222223333333
+        
+最近被问到盒子模型，却发现自己顿了一下，会用，却说不出个所以然。这就是基础知识不扎实的漏洞！！！所以，以最短的语言自我归纳了n遍！
+
+首先，什么是盒子模型？简单来说，就是元素大小的呈现方式。有一句话这么说来着 “every element in web design is a rectangular box.”
+每个盒子有四条边界：1外边距边界margin edge + 边框边界 bord...
     
 
-        <a href="/2014/11/09/newthr/" class="post-more waves-effect waves-button">
+        <a href="/2016/11/08/newthr/" class="post-more waves-effect waves-button">
             阅读全文...
         </a>
     </div>
@@ -244,7 +456,7 @@ Qu...
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2014年11月08日 8:55" datetime="2014-11-08T00:55:29.000Z"  itemprop="datePublished">2014-11-08</time>
+        <time class="post-time" title="2016年11月06日 8:55" datetime="2016-11-06T00:55:29.000Z"  itemprop="datePublished">2016-11-06</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Exercise/">Exercise</a></li></ul>
@@ -260,7 +472,7 @@ Qu...
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2014/11/08/newtwo/">第二篇文章</a>
+      <a class="post-title-link" href="/2016/11/06/newtwo/">setTimeout()和setInterval()的单细胞感情</a>
     </h3>
   
 
@@ -270,10 +482,14 @@ Qu...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        111111122222223333333
+        一、简单的语法与浅层的区别语法：12var setT= window.setTimeout(func/code,delay);var setI = window.setInterval(func/code,delay);
+嗯，基本上是一样的，相对还有clearTimeout(setT)和clearInterval(setI)。
+
+当第二个参数delay缺省时，默认为0
+当指定的值小于4毫秒，...
     
 
-        <a href="/2014/11/08/newtwo/" class="post-more waves-effect waves-button">
+        <a href="/2016/11/06/newtwo/" class="post-more waves-effect waves-button">
             阅读全文...
         </a>
     </div>
@@ -287,7 +503,7 @@ Qu...
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2014年11月07日 8:55" datetime="2014-11-07T00:55:29.000Z"  itemprop="datePublished">2014-11-07</time>
+        <time class="post-time" title="2016年11月05日 8:55" datetime="2016-11-05T00:55:29.000Z"  itemprop="datePublished">2016-11-05</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Exercise/">Exercise</a></li></ul>
@@ -303,7 +519,7 @@ Qu...
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2014/11/07/newone/">第一篇文章</a>
+      <a class="post-title-link" href="/2016/11/05/newone/">Math.random()随机数的一些事一些情</a>
     </h3>
   
 
@@ -313,10 +529,54 @@ Qu...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        111111122222223333333
+        Math.random()随机数的一些事一些情一、预备知识Math()12345678910111213141516Math.ceil();  //向上取整。Math.floor();  //向下取整。Math.round();  //四舍五入。Math.random();  //[0,1) 之间的一个伪随机数。Math.ceil(Math.random()*10);  // 获取从1到10...
     
 
-        <a href="/2014/11/07/newone/" class="post-more waves-effect waves-button">
+        <a href="/2016/11/05/newone/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-six"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016年11月05日 8:55" datetime="2016-11-05T00:55:29.000Z"  itemprop="datePublished">2016-11-05</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Exercise/">Exercise</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2016/11/05/six/">插入排序</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        算法原理：设有一组关键字｛K1， K2，…， Kn｝；排序开始就认为 K1 是一个有序序列；让 K2 插入上述表长为 1 的有序序列，使之成为一个表长为 2 的有序序列；然后让 K3 插入上述表长为 2 的有序序列，使之成为一个表长为 3 的有序序列；依次类推，最后让 Kn 插入上述表长为 n-1 的有序序列，得一个表长为 n 的有序序列。
+个人实现思路：1.设第一个elem( n=0 ) ...
+    
+
+        <a href="/2016/11/05/six/" class="post-more waves-effect waves-button">
             阅读全文...
         </a>
     </div>

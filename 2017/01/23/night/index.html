@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>一道关于this和作用域的题目引发的思考 | SammieHo&#39;s 学习慢炖 | null</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="题目引发思考：
+一天在freecodecamp的群里，讨论到this的问题，最后有一道这样的题目:
+
+123456789101112131415161718var name = &apos;global&apos;;var A = &amp;#123;	name: &apos;obj&apos;,	test: function()&amp;#123;		var name = &apos;gaga&apos;;		this.name = &apos;dose&apos;;		return fu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一道关于this和作用域的题目引发的思考">
+<meta property="og:url" content="http://yoursite.com/2017/01/23/night/index.html">
+<meta property="og:site_name" content="SammieHo's 学习慢炖">
+<meta property="og:description" content="题目引发思考：
+一天在freecodecamp的群里，讨论到this的问题，最后有一道这样的题目:
+
+123456789101112131415161718var name = &apos;global&apos;;var A = &amp;#123;	name: &apos;obj&apos;,	test: function()&amp;#123;		var name = &apos;gaga&apos;;		this.name = &apos;dose&apos;;		return fu">
+<meta property="og:image" content="http://i1.piimg.com/567571/b8446ab5316bdfc1.png">
+<meta property="og:updated_time" content="2017-02-03T14:03:08.895Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一道关于this和作用域的题目引发的思考">
+<meta name="twitter:description" content="题目引发思考：
+一天在freecodecamp的群里，讨论到this的问题，最后有一道这样的题目:
+
+123456789101112131415161718var name = &apos;global&apos;;var A = &amp;#123;	name: &apos;obj&apos;,	test: function()&amp;#123;		var name = &apos;gaga&apos;;		this.name = &apos;dose&apos;;		return fu">
+<meta name="twitter:image" content="http://i1.piimg.com/567571/b8446ab5316bdfc1.png">
+    
+        <link rel="alternative" href="/atom.xml" title="SammieHo&#39;s 学习慢炖" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sammieho</h5>
+          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yscoder" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">一道关于this和作用域的题目引发的思考</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">一道关于this和作用域的题目引发的思考</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-01-23T00:55:29.000Z" itemprop="datePublished" class="page-time">
+  2017-01-23
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Exercise/">Exercise</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#题目引发思考："><span class="post-toc-number">1.</span> <span class="post-toc-text">题目引发思考：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#尝试："><span class="post-toc-number">2.</span> <span class="post-toc-text">尝试：</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#借此题重温this的机制："><span class="post-toc-number"></span> <span class="post-toc-text">借此题重温this的机制：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#this的绑定规则："><span class="post-toc-number"></span> <span class="post-toc-text">this的绑定规则：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#this的好："><span class="post-toc-number"></span> <span class="post-toc-text">this的好：</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#最后谨记！"><span class="post-toc-number"></span> <span class="post-toc-text">最后谨记！</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#this是在函数调用时才指定的。"><span class="post-toc-number">0.1.</span> <span class="post-toc-text">this是在函数调用时才指定的。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#作用域是在写函数的时候已经确定了。"><span class="post-toc-number">0.2.</span> <span class="post-toc-text">作用域是在写函数的时候已经确定了。</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-night"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">一道关于this和作用域的题目引发的思考</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年01月23日 8:55" datetime="2017-01-23T00:55:29.000Z"  itemprop="datePublished">2017-01-23</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Exercise/">Exercise</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="题目引发思考："><a href="#题目引发思考：" class="headerlink" title="题目引发思考："></a>题目引发思考：</h3><blockquote>
+<p>一天在freecodecamp的群里，讨论到this的问题，最后有一道这样的题目:</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'global'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> A = &#123;</div><div class="line">	<span class="attr">name</span>: <span class="string">'obj'</span>,</div><div class="line">	<span class="attr">test</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> name = <span class="string">'gaga'</span>;</div><div class="line">		<span class="keyword">this</span>.name = <span class="string">'dose'</span>;</div><div class="line">		<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="built_in">console</span>.log(name);</div><div class="line">			<span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">		&#125;;</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> B = A.test;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log( A.test()() );</div><div class="line"><span class="built_in">console</span>.log( B()() );</div></pre></td></tr></table></figure>
+<p>我的初始答案是这样：<br><em>gaga,dose</em><br><em>gaga,global</em><br>然而是错的…/(ㄒoㄒ)/~~</p>
+<blockquote>
+<p>我百思不得其解，为什么会这样呢？再想了一遍，思维很混乱，开始怀疑人生（抖腿）。</p>
+</blockquote>
+<p>第二天起来，脑海一直浮现一句话：<br><strong> this 是在函数调用时才指定的！</strong><br><strong> this 是在函数调用时才指定的！</strong><br><strong> this 是在函数调用时才指定的！</strong></p>
+<h3 id="尝试："><a href="#尝试：" class="headerlink" title="尝试："></a>尝试：</h3><p>**为了理清思路，找到 this 的指向，我做了一些尝试：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://i1.piimg.com/567571/b8446ab5316bdfc1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">** 最后得出：**</div><div class="line">A.test() 实际上调用了 foo() , this 的隐式绑定，指向 A 内部。所以 this.name = &quot;dose&quot; 是给 A.name 赋值。</div><div class="line">A.test()() 返回匿名函数，默认指向全局，此时 this.name 就是 window.name，输出 &quot;global&quot;。</div><div class="line"></div><div class="line">B() 实际等于全局的 foo()，此时 foo 内的 this 指向 window ，this.name 等于给 window.name 赋值，所以 B()()返回 &quot;dose&quot;</div></pre></td></tr></table></figure>
+<h2 id="借此题重温this的机制："><a href="#借此题重温this的机制：" class="headerlink" title="借此题重温this的机制："></a>借此题重温this的机制：</h2><blockquote>
+<p>this是在运行时进行绑定的，他的绑定与函数声明的位置没有关系，只取决于函数的调用方式。</p>
+<p>当一个函数被调用时，会创建一个活动对象（执行上下文），这个记录会包含函数在哪里被调用、函数的调用方式、传入的参数等信息，this就是这个记录的一个属性，会在函数执行过程中用到。</p>
+</blockquote>
+<h2 id="this的绑定规则："><a href="#this的绑定规则：" class="headerlink" title="this的绑定规则："></a>this的绑定规则：</h2><ul>
+<li>new</li>
+<li>显示绑定</li>
+<li>隐式绑定</li>
+<li>默认绑定</li>
+</ul>
+<h2 id="this的好："><a href="#this的好：" class="headerlink" title="this的好："></a>this的好：</h2><p>可以在不同的上下文对象中重复使用函数，不用针对每个对象编写不同版本的函数。</p>
+<p><strong> 举个栗子：</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">identify</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name.toUpperCase();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">speak</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> greet = <span class="string">"Hello,"</span> + identify.call( <span class="keyword">this</span> );</div><div class="line">    <span class="built_in">console</span>.log( greet );</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> me = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">"Kyle"</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> you =&#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">"Read"</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log( identify.call( me ) );</div><div class="line"><span class="built_in">console</span>.log( identify.call( you ) );</div><div class="line"></div><div class="line">speak.call( me );</div><div class="line">speak.call( you );</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p><strong>Conclusion:</strong><br>函数可以自动引用合适的上下文。<br>this 提供了一种更优雅的方式来隐式“传递”一个对象饮用，因此可以将API设计得更加简洁和易于复用。</p>
+</blockquote>
+<h1 id="最后谨记！"><a href="#最后谨记！" class="headerlink" title="最后谨记！"></a>最后谨记！</h1><ul>
+<li><h4 id="this是在函数调用时才指定的。"><a href="#this是在函数调用时才指定的。" class="headerlink" title="this是在函数调用时才指定的。"></a>this是在函数调用时才指定的。</h4></li>
+<li><h4 id="作用域是在写函数的时候已经确定了。"><a href="#作用域是在写函数的时候已经确定了。" class="headerlink" title="作用域是在写函数的时候已经确定了。"></a>作用域是在写函数的时候已经确定了。</h4></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-03T14:03:08.895Z" itemprop="dateUpdated">2017年2月3日 22:03</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/01/23/night/" target="_blank" rel="external">http://yoursite.com/2017/01/23/night/</a>
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Sammieho">
+            Sammieho
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/01/23/night/&title=《一道关于this和作用域的题目引发的思考》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/01/23/night/&title=《一道关于this和作用域的题目引发的思考》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/01/23/night/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《一道关于this和作用域的题目引发的思考》 — SammieHo's 学习慢炖&url=http://yoursite.com/2017/01/23/night/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/01/23/night/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/02/03/for/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">事件监听—addEventListener</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/11/20/seven/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">从柯里化函数，加深对递归的运用</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="night" data-title="一道关于this和作用域的题目引发的思考" data-url="http://yoursite.com/2017/01/23/night/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'ysblog', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.7');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>SammieHo's 学习慢炖 &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/01/23/night/&title=《一道关于this和作用域的题目引发的思考》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/01/23/night/&title=《一道关于this和作用域的题目引发的思考》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/01/23/night/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《一道关于this和作用域的题目引发的思考》 — SammieHo's 学习慢炖&url=http://yoursite.com/2017/01/23/night/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/01/23/night/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2017/01/23/night/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

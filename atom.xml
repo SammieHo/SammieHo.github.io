@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-03T11:25:53.795Z</updated>
+  <updated>2017-02-03T13:58:36.002Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,44 +16,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2017/02/03/hello-world/"/>
-    <id>http://yoursite.com/2017/02/03/hello-world/</id>
-    <published>2017-02-03T11:25:53.781Z</published>
-    <updated>2017-02-03T11:25:53.795Z</updated>
+    <title>事件监听—addEventListener</title>
+    <link href="http://yoursite.com/2017/02/03/for/"/>
+    <id>http://yoursite.com/2017/02/03/for/</id>
+    <published>2017-02-03T13:57:39.729Z</published>
+    <updated>2017-02-03T13:58:36.002Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">elementObj.addEventListener(type,listener,useCapture);</div><div class="line"></div><div class="line">当监听对象触发指定的事件后，执行指定回调函数。</div></pre></td></tr></table></figure>
+<p><strong>addEventListener相对于attachEvent优点：</strong></p>
+<ul>
+<li>一个事件可注册多个listener。</li>
+<li>Listener的触发可以选择capture/bubbling。</li>
+<li>对任何DOM元素都有效。</li>
+</ul>
+<blockquote>
+<p> 在内存问题上，使用预先声明的函数，比匿名函数的消耗更小。</p>
+</blockquote>
+<p><strong>移除指定的事件：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">removeEventListener(event,function,capture/bubble);</div></pre></td></tr></table></figure>
+<p><strong>event.target 在处理事件时会被用到，例如：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function hide(event)&#123;</div><div class="line">        var target = event.target || event.srcElement;//target兼容处理</div><div class="line">	event.target.style.display = &apos;none&apos;;</div><div class="line">&#125;</div><div class="line">obj.addEventListener(&apos;click&apos;,hide,false);</div></pre></td></tr></table></figure></p>
+<p><strong>兼容：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function addEvent(obj,type,func)&#123;</div><div class="line">	if(window.addEventListener)&#123;</div><div class="line">		obj.addEventListener(type,func,false);</div><div class="line">	&#125;</div><div class="line">	else&#123;</div><div class="line">		obj.addEventListener(&apos;on&apos;+type,func);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">or:</div><div class="line"></div><div class="line">function addEvent(obj,type,listener)&#123;</div><div class="line">	obj.addEventListener? obj.addEventListener(type,func,false) : obj.addEventListener(&apos;on&apos;+type,func);</div><div class="line">	return obj;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>第3篇文章</title>
-    <link href="http://yoursite.com/2014/11/09/newthr/"/>
-    <id>http://yoursite.com/2014/11/09/newthr/</id>
-    <published>2014-11-09T00:55:29.000Z</published>
-    <updated>2017-02-03T11:37:35.359Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="1111111"><a href="#1111111" class="headerlink" title="1111111"></a>1111111</h1><h2 id="2222222"><a href="#2222222" class="headerlink" title="2222222"></a>2222222</h2><h3 id="3333333"><a href="#3333333" class="headerlink" title="3333333"></a>3333333</h3>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;1111111&quot;&gt;&lt;a href=&quot;#1111111&quot; class=&quot;headerlink&quot; title=&quot;1111111&quot;&gt;&lt;/a&gt;1111111&lt;/h1&gt;&lt;h2 id=&quot;2222222&quot;&gt;&lt;a href=&quot;#2222222&quot; class=&quot;headerlink
+      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
     
     </summary>
     
@@ -63,17 +50,56 @@
   </entry>
   
   <entry>
-    <title>第二篇文章</title>
-    <link href="http://yoursite.com/2014/11/08/newtwo/"/>
-    <id>http://yoursite.com/2014/11/08/newtwo/</id>
-    <published>2014-11-08T00:55:29.000Z</published>
-    <updated>2017-02-03T11:37:06.487Z</updated>
+    <title>一道关于this和作用域的题目引发的思考</title>
+    <link href="http://yoursite.com/2017/01/23/night/"/>
+    <id>http://yoursite.com/2017/01/23/night/</id>
+    <published>2017-01-23T00:55:29.000Z</published>
+    <updated>2017-02-03T14:03:08.895Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="1111111"><a href="#1111111" class="headerlink" title="1111111"></a>1111111</h1><h2 id="2222222"><a href="#2222222" class="headerlink" title="2222222"></a>2222222</h2><h3 id="3333333"><a href="#3333333" class="headerlink" title="3333333"></a>3333333</h3>]]></content>
+    <content type="html"><![CDATA[<h3 id="题目引发思考："><a href="#题目引发思考：" class="headerlink" title="题目引发思考："></a>题目引发思考：</h3><blockquote>
+<p>一天在freecodecamp的群里，讨论到this的问题，最后有一道这样的题目:</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'global'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> A = &#123;</div><div class="line">	<span class="attr">name</span>: <span class="string">'obj'</span>,</div><div class="line">	<span class="attr">test</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> name = <span class="string">'gaga'</span>;</div><div class="line">		<span class="keyword">this</span>.name = <span class="string">'dose'</span>;</div><div class="line">		<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="built_in">console</span>.log(name);</div><div class="line">			<span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">		&#125;;</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> B = A.test;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log( A.test()() );</div><div class="line"><span class="built_in">console</span>.log( B()() );</div></pre></td></tr></table></figure>
+<p>我的初始答案是这样：<br><em>gaga,dose</em><br><em>gaga,global</em><br>然而是错的…/(ㄒoㄒ)/~~</p>
+<blockquote>
+<p>我百思不得其解，为什么会这样呢？再想了一遍，思维很混乱，开始怀疑人生（抖腿）。</p>
+</blockquote>
+<p>第二天起来，脑海一直浮现一句话：<br><strong> this 是在函数调用时才指定的！</strong><br><strong> this 是在函数调用时才指定的！</strong><br><strong> this 是在函数调用时才指定的！</strong></p>
+<h3 id="尝试："><a href="#尝试：" class="headerlink" title="尝试："></a>尝试：</h3><p>**为了理清思路，找到 this 的指向，我做了一些尝试：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://i1.piimg.com/567571/b8446ab5316bdfc1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">** 最后得出：**</div><div class="line">A.test() 实际上调用了 foo() , this 的隐式绑定，指向 A 内部。所以 this.name = &quot;dose&quot; 是给 A.name 赋值。</div><div class="line">A.test()() 返回匿名函数，默认指向全局，此时 this.name 就是 window.name，输出 &quot;global&quot;。</div><div class="line"></div><div class="line">B() 实际等于全局的 foo()，此时 foo 内的 this 指向 window ，this.name 等于给 window.name 赋值，所以 B()()返回 &quot;dose&quot;</div></pre></td></tr></table></figure>
+<h2 id="借此题重温this的机制："><a href="#借此题重温this的机制：" class="headerlink" title="借此题重温this的机制："></a>借此题重温this的机制：</h2><blockquote>
+<p>this是在运行时进行绑定的，他的绑定与函数声明的位置没有关系，只取决于函数的调用方式。</p>
+<p>当一个函数被调用时，会创建一个活动对象（执行上下文），这个记录会包含函数在哪里被调用、函数的调用方式、传入的参数等信息，this就是这个记录的一个属性，会在函数执行过程中用到。</p>
+</blockquote>
+<h2 id="this的绑定规则："><a href="#this的绑定规则：" class="headerlink" title="this的绑定规则："></a>this的绑定规则：</h2><ul>
+<li>new</li>
+<li>显示绑定</li>
+<li>隐式绑定</li>
+<li>默认绑定</li>
+</ul>
+<h2 id="this的好："><a href="#this的好：" class="headerlink" title="this的好："></a>this的好：</h2><p>可以在不同的上下文对象中重复使用函数，不用针对每个对象编写不同版本的函数。</p>
+<p><strong> 举个栗子：</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">identify</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name.toUpperCase();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">speak</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> greet = <span class="string">"Hello,"</span> + identify.call( <span class="keyword">this</span> );</div><div class="line">    <span class="built_in">console</span>.log( greet );</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> me = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">"Kyle"</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> you =&#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">"Read"</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log( identify.call( me ) );</div><div class="line"><span class="built_in">console</span>.log( identify.call( you ) );</div><div class="line"></div><div class="line">speak.call( me );</div><div class="line">speak.call( you );</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p><strong>Conclusion:</strong><br>函数可以自动引用合适的上下文。<br>this 提供了一种更优雅的方式来隐式“传递”一个对象饮用，因此可以将API设计得更加简洁和易于复用。</p>
+</blockquote>
+<h1 id="最后谨记！"><a href="#最后谨记！" class="headerlink" title="最后谨记！"></a>最后谨记！</h1><ul>
+<li><h4 id="this是在函数调用时才指定的。"><a href="#this是在函数调用时才指定的。" class="headerlink" title="this是在函数调用时才指定的。"></a>this是在函数调用时才指定的。</h4></li>
+<li><h4 id="作用域是在写函数的时候已经确定了。"><a href="#作用域是在写函数的时候已经确定了。" class="headerlink" title="作用域是在写函数的时候已经确定了。"></a>作用域是在写函数的时候已经确定了。</h4></li>
+</ul>
+]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;1111111&quot;&gt;&lt;a href=&quot;#1111111&quot; class=&quot;headerlink&quot; title=&quot;1111111&quot;&gt;&lt;/a&gt;1111111&lt;/h1&gt;&lt;h2 id=&quot;2222222&quot;&gt;&lt;a href=&quot;#2222222&quot; class=&quot;headerlink
+      &lt;h3 id=&quot;题目引发思考：&quot;&gt;&lt;a href=&quot;#题目引发思考：&quot; class=&quot;headerlink&quot; title=&quot;题目引发思考：&quot;&gt;&lt;/a&gt;题目引发思考：&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;一天在freecodecamp的群里，讨论到this的问题，最后有一道这样
     
     </summary>
     
@@ -83,17 +109,455 @@
   </entry>
   
   <entry>
-    <title>第一篇文章</title>
-    <link href="http://yoursite.com/2014/11/07/newone/"/>
-    <id>http://yoursite.com/2014/11/07/newone/</id>
-    <published>2014-11-07T00:55:29.000Z</published>
-    <updated>2017-02-03T11:35:41.210Z</updated>
+    <title>从柯里化函数，加深对递归的运用</title>
+    <link href="http://yoursite.com/2016/11/20/seven/"/>
+    <id>http://yoursite.com/2016/11/20/seven/</id>
+    <published>2016-11-20T00:55:29.000Z</published>
+    <updated>2017-02-03T14:01:22.886Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="1111111"><a href="#1111111" class="headerlink" title="1111111"></a>1111111</h1><h2 id="2222222"><a href="#2222222" class="headerlink" title="2222222"></a>2222222</h2><h3 id="3333333"><a href="#3333333" class="headerlink" title="3333333"></a>3333333</h3>]]></content>
+    <content type="html"><![CDATA[<p><strong>遇到过这么一道面试题</strong></p>
+<blockquote>
+<p>写出函数，实现 sum(2)(3) , sum(2,3)</p>
+</blockquote>
+<p>当时我是这么写的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function sum(a)&#123;</div><div class="line">	if(arguments.length == 2)&#123;</div><div class="line">		return arguments[0] + arguments[1];</div><div class="line">	&#125;</div><div class="line">	else&#123;</div><div class="line">		return function (b)&#123;</div><div class="line">			return a + b;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后我就想不会这么简单吧吧吧吧吧吧吧！！应该是要写n个参数，或者回调的情况下的通用函数，最后，我就画画画，没写出来，还搞到答卷“花面猫”似的。</p>
+<p>回来，我搜索了一下，涉及到curry，柯里化函数。我懵逼了，这素啥。原来是递归的原理，分次接收参数。嗯，我要的就是这效果。</p>
+<p><strong>下面是实现</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">function curry(fn,curryArgs)&#123;</div><div class="line"></div><div class="line">	return function()&#123;</div><div class="line"></div><div class="line">		var args = Array.prototype.slice.call(arguments,0);</div><div class="line">               // 首次调用时未提供最后一个参数</div><div class="line">		if(curryArgs !== undefined)&#123;</div><div class="line">			args = args.concat(curryArgs);</div><div class="line">		&#125;</div><div class="line">                // 递归边界</div><div class="line">		if( !arguments.length )&#123;</div><div class="line">			return fn.apply(null, args);</div><div class="line">		&#125;</div><div class="line">		else&#123;</div><div class="line">			return curry(fn, args);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function sumOf()&#123;</div><div class="line"></div><div class="line">	var total = 0;</div><div class="line"></div><div class="line">	for(var i=0; i&lt;arguments.length; i++)&#123;</div><div class="line">		total += arguments[i];</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return total;</div><div class="line">&#125;</div><div class="line">// 改造普通函数，返回柯里函数</div><div class="line">var sum = curry(sumOf);</div><div class="line"></div><div class="line">sum(2, 3)(1)(1)(1, 2, 3)();</div></pre></td></tr></table></figure>
+<p><strong>另一个方法：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">function add() &#123;</div><div class="line">	var total = 0;</div><div class="line"></div><div class="line">	if (arguments.length) &#123;</div><div class="line"></div><div class="line">		var arr1 = Array.prototype.slice.call(arguments);</div><div class="line">		var mytotal = arrayAdder(arr1);</div><div class="line">		return sum(mytotal);</div><div class="line">	&#125;</div><div class="line">	else &#123;</div><div class="line">		return sum();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	function sum() &#123;</div><div class="line">		if (arguments.length) &#123;</div><div class="line">			var arr = Array.prototype.slice.call(arguments);</div><div class="line">			total = total + arrayAdder(arr);</div><div class="line">			return sum;</div><div class="line">		&#125; else &#123;</div><div class="line">			return total;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	function arrayAdder(arr) &#123;</div><div class="line">		var x = 0;</div><div class="line">		for (var i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">			x = x + arr[i];</div><div class="line">		&#125;;</div><div class="line">		return x;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">add(2, 3)(1)(1)(1, 2, 3)();</div></pre></td></tr></table></figure></p>
+<p>最后一点！很重要！<br>上面的解决方法是我参考了别人的文章/回答，总结下来的，若涉及到版权问题，请联系我删除，抱歉。<br>目前，未能深入理解柯里化函数，我会在接下来继续思考。</p>
+<h2 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h2><ul>
+<li><a href="http://ewind.us/2016/sum-to-curry/" target="_blank" rel="external">从 sum(2)(3) == sum(2, 3) 到实现柯里化函数</a></li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2013/02/js-currying/" target="_blank" rel="external">JS中的柯里化(currying)</a></li>
+<li><a href="http://web.jobbole.com/84171/" target="_blank" rel="external">JavaScript的柯里化函数</a></li>
+<li><a href="http://www.cnblogs.com/zztt/p/4142891.html" target="_blank" rel="external">浅析 JavaScript 中的 函数 currying 柯里化</a></li>
+<li><a href="https://segmentfault.com/a/1190000003733107" target="_blank" rel="external">js 函数式编程之函数柯里化</a></li>
+<li>另外一个方法式在stackflow 找到的回答。</li>
+</ul>
+]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;1111111&quot;&gt;&lt;a href=&quot;#1111111&quot; class=&quot;headerlink&quot; title=&quot;1111111&quot;&gt;&lt;/a&gt;1111111&lt;/h1&gt;&lt;h2 id=&quot;2222222&quot;&gt;&lt;a href=&quot;#2222222&quot; class=&quot;headerlink
+      &lt;p&gt;&lt;strong&gt;遇到过这么一道面试题&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;写出函数，实现 sum(2)(3) , sum(2,3)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;当时我是这么写的：&lt;br&gt;&lt;figure class=&quot;highlight p
+    
+    </summary>
+    
+      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Ajax 笔记</title>
+    <link href="http://yoursite.com/2016/11/11/eight/"/>
+    <id>http://yoursite.com/2016/11/11/eight/</id>
+    <published>2016-11-11T00:55:29.000Z</published>
+    <updated>2017-02-03T14:02:18.334Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><h3 id="创建-和-Code"><a href="#创建-和-Code" class="headerlink" title="创建 和 Code"></a>创建 和 Code</h3><ol>
+<li>创建XMLHttpRequest()对象；</li>
+<li>创建HTTP请求，链接服务器，设置请求动作FET/POST，URL，异步/同步；</li>
+<li>发送HTTP请求；（三次握手四次挥手）</li>
+<li>设置响应状态变化时间onreadystatechange；</li>
+<li>接受返回数据(responseText,readyState,status等)；</li>
+<li>使用Javascript DOM 操作，实现局部刷新。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function ajaxDemo()&#123;</div><div class="line">	var objXml;</div><div class="line">    </div><div class="line">	if(window.XMLHttpRequest)&#123;</div><div class="line">		objXml = new XMLHttpRequest();</div><div class="line">	&#125;</div><div class="line">	else&#123;</div><div class="line">		objXml = ActiveXObject(&quot;Microsoft.XMLHttp&quot;);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	objXml.open(&apos;get&apos;,&apos;demo.php&apos;,true);</div><div class="line"></div><div class="line">	objXml.onreadystatechange = function()&#123;</div><div class="line">		if(objXml.readyState == 2 &amp;&amp; objXml.status ==200)&#123;</div><div class="line">			//do something...</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	objXml.send();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="XHR对象属性"><a href="#XHR对象属性" class="headerlink" title="XHR对象属性"></a>XHR对象属性</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">onreadystatechange</td>
+<td style="text-align:left">每次状态改变所触发事件的事件处理程序。</td>
+</tr>
+<tr>
+<td style="text-align:left">responseText</td>
+<td style="text-align:left">从服务器进程返回数据的字符串形式。</td>
+</tr>
+<tr>
+<td style="text-align:left">responseXML:</td>
+<td style="text-align:left">从服务器进程返回的DOM兼容的文档数据对象。</td>
+</tr>
+<tr>
+<td style="text-align:left">status</td>
+<td style="text-align:left">从服务器返回的数字代码，比如常见的404（未找到）和200（已就绪）</td>
+</tr>
+<tr>
+<td style="text-align:left">statusText</td>
+<td style="text-align:left">伴随状态码的字符串信息</td>
+</tr>
+</tbody>
+</table>
+<h4 id="readyState的返回值"><a href="#readyState的返回值" class="headerlink" title="readyState的返回值"></a>readyState的返回值</h4><table>
+<thead>
+<tr>
+<th>返回值</th>
+<th>状态说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0：</td>
+<td>请求未初始化，open未调用；</td>
+</tr>
+<tr>
+<td>1：</td>
+<td>Server链接已建立，open已调用；</td>
+</tr>
+<tr>
+<td>2：</td>
+<td>请求已接收，接收到头信息了；</td>
+</tr>
+<tr>
+<td>3：</td>
+<td>请求处理中，接收到响应主体了；</td>
+</tr>
+<tr>
+<td>4：</td>
+<td>请求已完成，且响应已就绪 =&gt; 响应完成了。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="HTTP-状态码"><a href="#HTTP-状态码" class="headerlink" title="HTTP 状态码"></a>HTTP 状态码</h4><table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1xx：</td>
+<td>信息类。表示接受到浏览器请求，进一步处理。</td>
+</tr>
+<tr>
+<td>2xx：</td>
+<td>成功。请求被正确接收，理解和处理。</td>
+</tr>
+<tr>
+<td>3xx：</td>
+<td>重定向。请求失败，客户采取进一步操作。</td>
+</tr>
+<tr>
+<td>4xx：</td>
+<td>客户端错误。</td>
+</tr>
+<tr>
+<td>5xx：</td>
+<td>服务器错误。服务器不能完成请求。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="XHR对象方法"><a href="#XHR对象方法" class="headerlink" title="XHR对象方法"></a>XHR对象方法</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">abort()</td>
+<td style="text-align:left">导致当前正在执行的请求被取消</td>
+</tr>
+<tr>
+<td style="text-align:left">getAllResponseHeaders()</td>
+<td style="text-align:left">返回包含所有响应头的名称和值的单个字符</td>
+</tr>
+<tr>
+<td style="text-align:left">getResponseHeader(name)</td>
+<td style="text-align:left">返回响应头中指定的名称和值</td>
+</tr>
+<tr>
+<td style="text-align:left">open(method,url,async,username,pwd)</td>
+<td style="text-align:left">设置HTTP方法（get或post）等</td>
+</tr>
+<tr>
+<td style="text-align:left">send(content)</td>
+<td style="text-align:left">发出带有指定主体内容的请求</td>
+</tr>
+<tr>
+<td style="text-align:left">setRequestHeader(name,value);</td>
+<td style="text-align:left">使用指定的名称和值设置请求头</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Ajax-的-优缺点"><a href="#Ajax-的-优缺点" class="headerlink" title="Ajax 的 优缺点"></a>Ajax 的 优缺点</h2><h3 id="Ajax的优点"><a href="#Ajax的优点" class="headerlink" title="Ajax的优点"></a>Ajax的优点</h3><h3 id="传统Ajax的问题"><a href="#传统Ajax的问题" class="headerlink" title="传统Ajax的问题"></a>传统Ajax的问题</h3><ol>
+<li>可以无刷新改变页面内容，但无法改变页面URL。</li>
+<li>改变URL 的hash不能很好的处理浏览器的前后，后退问题。</li>
+</ol>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><ul>
+<li><p>GET 与 POST</p>
+</li>
+<li><p>异步 与 同步</p>
+</li>
+<li><p>三次握手四次挥手</p>
+</li>
+</ul>
+<h2 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h2><ul>
+<li><a href="https://segmentfault.com/a/1190000000691919#articleHeader3" target="_blank" rel="external">JavaScript学习总结（七）Ajax和Http状态字</a></li>
+<li><a href="#">Javascript 高级编程（第三版）</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;工作原理&quot;&gt;&lt;a href=&quot;#工作原理&quot; class=&quot;headerlink&quot; title=&quot;工作原理&quot;&gt;&lt;/a&gt;工作原理&lt;/h2&gt;&lt;h3 id=&quot;创建-和-Code&quot;&gt;&lt;a href=&quot;#创建-和-Code&quot; class=&quot;headerlink&quot; title=
+    
+    </summary>
+    
+      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>快速排序</title>
+    <link href="http://yoursite.com/2016/11/11/five/"/>
+    <id>http://yoursite.com/2016/11/11/five/</id>
+    <published>2016-11-11T00:55:29.000Z</published>
+    <updated>2017-02-03T14:00:13.425Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>选一基准元素 point</li>
+<li>分区操作(partition)：小于point放左边，大于point放右边，point最后的位置就是排序完成的位置。</li>
+<li>重复步骤1.2<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">function quickSort(array) &#123;</div><div class="line"></div><div class="line">	//交换元素位置</div><div class="line">	function swap(arr, i, k) &#123;</div><div class="line">		var temp = arr[i];</div><div class="line">		arr[i] = arr[k];</div><div class="line">		arr[k] = temp;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//分区操作，左小右大</div><div class="line">	function partition(arr, left, right) &#123;</div><div class="line"></div><div class="line">		var sortIndex = left;</div><div class="line">		var point = arr[right];//直接选最右的作为基准元素</div><div class="line"></div><div class="line">		for (var i = left; i &lt; right; i++) &#123;</div><div class="line"></div><div class="line">			if (arr[i] &lt;= point) &#123;</div><div class="line">				swap(arr, i, sortIndex);</div><div class="line">				sortIndex++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		swap(arr, sortIndex, right);//将基准元素放置在最后的正确位置</div><div class="line">		//console.log(arr);</div><div class="line">		return sortIndex;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	function sort(arr, left, right) &#123;</div><div class="line">		if (left &gt; right) &#123;</div><div class="line">			return;</div><div class="line">		&#125;</div><div class="line">		var sortIndex = partition(arr, left, right);</div><div class="line">		sort(arr,left,sortIndex-1);</div><div class="line">		sort(arr, sortIndex + 1, right);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	sort(arr, 0, arr.length - 1);</div><div class="line"></div><div class="line">	return array;</div><div class="line">&#125;</div><div class="line"></div><div class="line">quickSort(arr);</div></pre></td></tr></table></figure>
+<p><strong>算法分析</strong></p>
+<p>快速排序的时间主要耗费在划分操作上，对长度为 k 的区间进行划分，共需 k-1 次关键字的比较。</p>
+<p><strong>最坏时间复杂度</strong></p>
+<p>最坏情况是每次划分选取的基准都是当前无序区中关键字最小(或最大)的记录，划分的结果是基准左边的子区间为空(或右边的子区间为空)， 而划分所得的另一个非空的子区间中记录数目，仅仅比划分前的无序区中记录个数减少一个。 因此，快速排序必须做 n-1 次划分， 第i次划分开始时区间长度为 n-i+1，所需的比较次数为 n-i(1≤i≤n-1)，故总的比较次数达到最大值：Cmax = n(n-1)/2=O(n^2)</p>
+<p>如果按上面给出的划分算法，每次取当前无序区的第 1 个记录为基准，那么当文件的记录已按递增序(或递减序)排列时， 每次划分所取的基准就是当前无序区中关键字最小(或最大)的记录，则快速排序所需的比较次数反而最多。</p>
+<p><strong>最好时间复杂度</strong></p>
+<p>在最好情况下，每次划分所取的基准都是当前无序区的”中值”记录，划分的结果是基准的左、右两个无序子区间的长度大致相等。 总的关键字比较次数：O(nlgn)</p>
+<p>注意： 用递归树来分析最好情况下的比较次数更简单。因为每次划分后左、右子区间长度大致相等，故递归树的高度为 O(lgn)， 而递归树每一层上各结点所对应的划分过程中所需要的关键字比较次数总和不超过n，故整个排序过程所需要的关键字比较总次数 C(n)=O(nlgn)。</p>
+<p>因为快速排序的记录移动次数不大于比较的次数，所以快速排序的最坏时间复杂度应为 O(n^2)，最好时间复杂度为 O(nlgn)。</p>
+<p><strong>平均时间复杂度</strong></p>
+<p>尽管快速排序的最坏时间为 O(n^2)，但就平均性能而言，它是基于关键字比较的内部排序算法中速度最快者，快速排序亦因此而得名。 它的平均时间复杂度为 O(nlgn)。</p>
+<p><strong>基准关键字的选取</strong></p>
+<p>在当前无序区中选取划分的基准关键字是决定算法性能的关键。</p>
+<ul>
+<li>”三者取中”的规则</li>
+</ul>
+<p>“三者取中”规则，即在当前区间里，将该区间首、尾和中间位置上的关键字比较，取三者之中值所对应的记录作为基准， 在划分开始前将该基准记录和该区伺的第1个记录进行交换，此后的划分过程与上面所给的 Partition 算法完全相同。</p>
+<ul>
+<li>取位于 low 和 high 之间的随机数k(low≤k≤high)，用 R[k] 作为基准</li>
+</ul>
+<p>选取基准最好的方法是用一个随机函数产生一个取位于 low 和 high 之间的随机数 k(low≤k≤high)，用 R[k] 作为基准， 这相当于强迫R[low..high]中的记录是随机分布的。用此方法所得到的快速排序一般称为随机的快速排序。</p>
+<blockquote>
+<p>注意： 随机化的快速排序与一般的快速排序算法差别很小。但随机化后，算法的性能大大地提高了，尤其是对初始有序的文件， 一般不可能导致最坏情况的发生。算法的随机化不仅仅适用于快速排序，也适用于其它需要数据随机分布的算法。</p>
+</blockquote>
+<p><strong>空间复杂度</strong></p>
+<p>快速排序在系统内部需要一个栈来实现递归。若每次划分较为均匀，则其递归树的高度为 O(lgn)，故递归后需栈空间为 O(lgn)。 最坏情况下，递归树的高度为 O(n)，所需的栈空间为 O(n)。</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="http://bubkoo.com/2014/01/12/sort-algorithm/quick-sort/" target="_blank" rel="external">常见排序算法 - 快速排序 (Quick Sort)</a></li>
+<li><a href="http://souly.cn/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/2016/04/07/%E7%90%86%E8%A7%A3%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" target="_blank" rel="external">理解快速排序算法</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;选一基准元素 point&lt;/li&gt;
+&lt;li&gt;分区操作(partition)：小于point放左边，大于point放右边，poin
+    
+    </summary>
+    
+      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>重新认识-盒子模型</title>
+    <link href="http://yoursite.com/2016/11/08/newthr/"/>
+    <id>http://yoursite.com/2016/11/08/newthr/</id>
+    <published>2016-11-08T00:55:29.000Z</published>
+    <updated>2017-02-03T13:56:41.010Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p><strong>最近被问到盒子模型，却发现自己顿了一下，会用，却说不出个所以然。<br>这就是基础知识不扎实的漏洞！！！<br>所以，以最短的语言自我归纳了n遍！</strong></p>
+</blockquote>
+<p>首先，什么是盒子模型？简单来说，就是元素大小的呈现方式。<br>有一句话这么说来着 “every element in web design is a rectangular box.”</p>
+<p><strong>每个盒子有四条边界：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">外边距边界margin edge + 边框边界 border edge + 内边距边界padding edge + 内容边界content edge.</div></pre></td></tr></table></figure></p>
+<p><strong>然后有两种模式：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">标准盒模型：content width 和 content height 只包含内容的宽/高，不包含padding,border,margin。</div><div class="line"></div><div class="line">IE6- 怪异模式：content width 与 content height 包括 padding 和 border，不包括 margin。</div></pre></td></tr></table></figure></p>
+<p>好，预（hu）备（shuo）知（ba）识（dao）说完，进入运用。</p>
+<h1 id="Box-sizing"><a href="#Box-sizing" class="headerlink" title="Box-sizing"></a>Box-sizing</h1><p>用来改变CSS盒模型对元素宽高的计算方式。</p>
+<p><strong>语法：</strong><br><code>-moz-box-sizing | box-sizing : content-box | border-box | padding-box ;</code></p>
+<p><strong>值：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">content-box : 默认值，标准盒模型。</div><div class="line">实际width = content width + padding + border + margin</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">border-box : IE6- 怪异模式</div><div class="line"></div><div class="line">实际width = 内容的宽 (包含 padding-left + padding-right + border-left + border-right) + margin</div></pre></td></tr></table></figure>
+<h1 id="margin叠加"><a href="#margin叠加" class="headerlink" title="margin叠加"></a>margin叠加</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">发生在普通文档流中块元素的垂直方向外边距，</div><div class="line">此时外边框高度取两者间较大的那个，</div><div class="line">行内框、 浮动框或绝对定位框之间的外边距不会叠加。</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;最近被问到盒子模型，却发现自己顿了一下，会用，却说不出个所以然。&lt;br&gt;这就是基础知识不扎实的漏洞！！！&lt;br&gt;所以，以最短的语言自我归纳了n遍！&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;首先，什么是盒子模型？简
+    
+    </summary>
+    
+      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>setTimeout()和setInterval()的单细胞感情</title>
+    <link href="http://yoursite.com/2016/11/06/newtwo/"/>
+    <id>http://yoursite.com/2016/11/06/newtwo/</id>
+    <published>2016-11-06T00:55:29.000Z</published>
+    <updated>2017-02-03T13:56:04.935Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一、简单的语法与浅层的区别"><a href="#一、简单的语法与浅层的区别" class="headerlink" title="一、简单的语法与浅层的区别"></a>一、简单的语法与浅层的区别</h1><p><strong>语法：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var setT= window.setTimeout(func/code,delay);</div><div class="line">var setI = window.setInterval(func/code,delay);</div></pre></td></tr></table></figure></p>
+<p>嗯，基本上是一样的，相对还有clearTimeout(setT)和clearInterval(setI)。</p>
+<ul>
+<li>当第二个参数delay缺省时，默认为0</li>
+<li>当指定的值小于4毫秒，则增加到4ms<br>（4ms是HTML5标准指定的，对于2010年及之前的浏览器则是10ms）</li>
+</ul>
+<p><strong>区别：</strong></p>
+<ul>
+<li>setTimeout() 延时，只执行一次</li>
+<li>setInterval() 每隔一段时间，循环执行。</li>
+</ul>
+<blockquote>
+<p>一点点题外话，setTimeout递归调用自己~是可以模拟setInterval滴。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var setT = setTimeout(ourself(),100);</div><div class="line">function ourself()&#123;</div><div class="line">	/*code*/</div><div class="line">	setTimeout(ourself(),100);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="二、定时器与线程的一些事情"><a href="#二、定时器与线程的一些事情" class="headerlink" title="二、定时器与线程的一些事情"></a>二、定时器与线程的一些事情</h1><h3 id="先讲讲Javascript的工作方式，不然后面就聊不下去咯"><a href="#先讲讲Javascript的工作方式，不然后面就聊不下去咯" class="headerlink" title="先讲讲Javascript的工作方式，不然后面就聊不下去咯~"></a><strong>先讲讲Javascript的工作方式，不然后面就聊不下去咯~</strong></h3><p><strong>1. Javascript是单线程的</strong></p>
+<blockquote>
+<p>每个window执行一个js线程，在某个特定时刻只有特定的代码块能够执行，其他代码块被阻塞（后来的要排队是中华人民共和国的传统美德）。</p>
+<p>因为Javascript的作用是 进行 交互 和 DOM操作，如果JS是多线程，那么试想一下一个线程在修改节点的内容，另一个线程要删除这个节点，那么，是修改还是删除？不知道。所以，为了避免复杂性，JS是单线程的。</p>
+</blockquote>
+<p><strong>2.通过回调函数进行异步</strong></p>
+<blockquote>
+<p>异步，就是当B等待A时，B去干别的事，当有通知时（即被告知A已完成时）B再去做该做的，而通知通过回调函数来完成。耗时几乎可忽略不计。<br>例如鼠标点击，定时器触发，或者一个XMLHttpRequest完成等</p>
+</blockquote>
+<p><strong>3.不靠谱的setInterval</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function formatDate()&#123;</div><div class="line">	//code...</div><div class="line">&#125;</div><div class="line">var timer, i = 0;</div><div class="line">function test()&#123;</div><div class="line">	dateStart = new Date();</div><div class="line">	timer = setInterval(function()&#123;</div><div class="line">		i++;</div><div class="line">		console.log(&apos;Interval&apos; + i);</div><div class="line">	&#125;,8000);</div><div class="line"></div><div class="line">	for(var i = 0;i &lt; 5; i++)&#123;</div><div class="line">		formatDate(dateStart);</div><div class="line">		//5 second</div><div class="line">		while( new Date() - dateStart &lt; 5*1000 )&#123;</div><div class="line">		&#125;</div><div class="line">		dateStart = new Date();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">test();</div></pre></td></tr></table></figure>
+<p>主函数test()执行时间约5*5=25。</p>
+<p>按理来说：<br>执行主函数期间setInterval被触发25/8=3次，s1,s2,s3<br>那么test()执行完应立即回调3次，而回调时间基本不耗时。</p>
+<p>实际上：<br>在chrome下，执行以上代码，显示，<br>setInterval在主函数执行完后，只回调了一次，</p>
+<p>所以，定时器智能化，在任务队列里面只保留一个回调任务，时刻8秒，s1放进去，然后时刻16秒，主逻辑还在执行，s1还在等待，那么s2被丢弃，同理，s3被丢弃。</p>
+<blockquote>
+<p>原因：<br>如果在一个非常大的javascript代码块执行过程中把每次间隔定时器触发的回调函数都放入队列的话，导致的结果是当这个大javascript代码块执行完毕时，有很多的回调函数会被无延迟的依次执行（这和我们当初需要间隔执行的目的相违背），所以，浏览器采用的作法是当等待队列中没有间隔定时器的回调函数时才会放入一个间隔定时器的回调函数。</p>
+</blockquote>
+<p><strong>假设把定时器间隔设定为9秒，那么在主逻辑执行到25秒时间内，有如下调用：</strong></p>
+<blockquote>
+<p>时刻9秒生成回调s1，<br>时刻18秒生成回调s2（丢弃），<br>时刻27秒生成回调s3</p>
+</blockquote>
+<p>结果，大概在第25秒主逻辑执行完毕，从任务队列里面取出s1执行，然后在第27秒，生成s3放到任务队列，然后JS运行时取出执行，s3-s1之间间隔，大概27-25=2s，</p>
+<p>所以，定时器不靠谱不靠谱不靠谱！！不能保证每次执行会间隔起码9秒。</p>
+<p>这种情况下，可以用setTimeout()嵌套调用，递归。</p>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><ul>
+<li>setTimeout和setInterval的原理是不同的。</li>
+<li>如果一个普通的定时器被阻塞了，他会等待直到有合适的时间。</li>
+<li>如果间隔定时器回调函数执行时间过长，有可能无间隔的执行。</li>
+</ul>
+<p>——————————   2016.11.24 更新   ———————————————</p>
+<h1 id="三、对于setTimeOut与setInterval的深入思考"><a href="#三、对于setTimeOut与setInterval的深入思考" class="headerlink" title="三、对于setTimeOut与setInterval的深入思考"></a>三、对于setTimeOut与setInterval的深入思考</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">setTimeOut 是用来设定延迟时间1000ms和回调函数fn的定时器，</div><div class="line">那么，</div><div class="line">究竟是什么在计算时间呢？</div><div class="line">回调函数是在什么时候执行的呢？是在等待1000ms的时候？还是一开始就执行了呢？</div></pre></td></tr></table></figure>
+<h3 id="1-是什么在计算时间"><a href="#1-是什么在计算时间" class="headerlink" title="1 是什么在计算时间"></a>1 是什么在计算时间</h3><p>浏览器内核相应模块(例如Webkit 的 Timer 模块)。</p>
+<h3 id="2-回调函数的执行"><a href="#2-回调函数的执行" class="headerlink" title="2 回调函数的执行"></a>2 回调函数的执行</h3><ul>
+<li>这里跟Event Loop 有关系了。我将js理解为2个线程，1个是主线程，同步；另一个是 任务队列，异步回调的函数就在此处排队。待主线程空闲，就从任务队列中读取事件，这个过程就是事件循环 Event Loop。</li>
+<li>当调用setTimeout()方法时，浏览器内核相应模块开始延时方法的处理，当延时方法到达触发条件时，方法被添加到用于回调的任务队列，只要执行引擎栈中的代码执行完毕，主线程就会去读取任务队列，依次执行那些满足触发条件的回调函数。</li>
+</ul>
+<h2 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h2><p><a href="http://qingbob.com/difference-between-settimeout-setinterval/" target="_blank" rel="external">你真的了解setTimeout和setInterval吗?</a><br><a href="http://www.jeffjade.com/2016/01/10/2016-01-10-javaScript-setInterval/" target="_blank" rel="external">你所不知道的setInterval</a><br><a href="http://www.alloyteam.com/2015/10/turning-to-javascript-series-from-settimeout-said-the-event-loop-model/" target="_blank" rel="external">TAT.ronnie【转向Javascript系列】从setTimeout说事件循环模型</a><br><a href="http://ejohn.org/blog/how-javascript-timers-work/" target="_blank" rel="external">How JavaScript Timers Work</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、简单的语法与浅层的区别&quot;&gt;&lt;a href=&quot;#一、简单的语法与浅层的区别&quot; class=&quot;headerlink&quot; title=&quot;一、简单的语法与浅层的区别&quot;&gt;&lt;/a&gt;一、简单的语法与浅层的区别&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;语法：&lt;/strong&gt;&lt;br&gt;&lt;f
+    
+    </summary>
+    
+      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Math.random()随机数的一些事一些情</title>
+    <link href="http://yoursite.com/2016/11/05/newone/"/>
+    <id>http://yoursite.com/2016/11/05/newone/</id>
+    <published>2016-11-05T00:55:29.000Z</published>
+    <updated>2017-02-03T13:55:15.485Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Math-random-随机数的一些事一些情"><a href="#Math-random-随机数的一些事一些情" class="headerlink" title="Math.random()随机数的一些事一些情"></a><strong>Math.random()随机数的一些事一些情</strong></h1><h3 id="一、预备知识"><a href="#一、预备知识" class="headerlink" title="一、预备知识"></a>一、预备知识</h3><h4 id="Math"><a href="#Math" class="headerlink" title="Math()"></a>Math()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">Math.ceil();  //向上取整。</div><div class="line"></div><div class="line">Math.floor();  //向下取整。</div><div class="line"></div><div class="line">Math.round();  //四舍五入。</div><div class="line"></div><div class="line">Math.random();  //[0,1) 之间的一个伪随机数。</div><div class="line"></div><div class="line">Math.ceil(Math.random()*10);  // 获取从1到10的随机整数 ，取0的概率极小。</div><div class="line"></div><div class="line">Math.round(Math.random());   //可均衡获取0到1的随机整数。</div><div class="line"></div><div class="line">Math.floor(Math.random()*10);  //可均衡获取0到9的随机整数。</div><div class="line"></div><div class="line">Math.round(Math.random()*10);  //基本均衡获取0到10的随机整数，其中获取最小值0和最大值10的几率少一半。</div><div class="line">//因为结果在0~0.4 为0，0.5到1.4为1...8.5到9.4为9，9.5到9.9为10。所以头尾的分布区间只有其他数字的一半。</div></pre></td></tr></table></figure>
+<h4 id="Date"><a href="#Date" class="headerlink" title="Date()"></a>Date()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var d = new Date();</div><div class="line"></div><div class="line">var n = d.getSeconds(); //生成0到59的随机数</div><div class="line"></div><div class="line">var n1 = d.getMilliseconds(); //生成0到999的随机数</div><div class="line"></div><div class="line">var n2 = d.getMilliseconds() % 201; //生成0到200的随机数</div><div class="line">//除了取 Date 的秒和微秒外，还可以取小时和分钟（跟取秒生成的随机数相同）。</div></pre></td></tr></table></figure>
+<h4 id="String"><a href="#String" class="headerlink" title="String()"></a>String()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">String.toString() //返回用字符串表示的特定对象</div><div class="line"></div><div class="line">String.substr(start[, length]) //返回字符串中从指定位置开始到指定长度的子字符串</div><div class="line"></div><div class="line">String.substring(indexStart[, indexEnd]) //返回字符串两个索引之间（或到字符串末尾）的子串</div><div class="line"></div><div class="line">String.slice(beginSlice[, endSlice]) //浅复制，提取字符串并返回新字符串</div><div class="line"></div><div class="line">RegExp</div><div class="line"></div><div class="line">字母ASCII码:A-65,a-97</div></pre></td></tr></table></figure>
+<h3 id="二、应用"><a href="#二、应用" class="headerlink" title="二、应用"></a>二、应用</h3><blockquote>
+<p>产生10个随机数</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arr = [],r;</div><div class="line">for(var i=0;i&lt;10;i++)&#123;</div><div class="line">	r = (Math.random()/(new Date()-0)).toString(36).replace(/\d/g,&apos;&apos;).slice(1);</div><div class="line">	arr[i] ? (arr[i]+=1) : (arr[i]=r);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>长度为5的随机数</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var c = &apos;&apos;; c.length &lt; 5;) &#123;</div><div class="line">	c += Math.random().toString(36).substr(2,1)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>利用字母ASCII码[65,97]，生成长度为x的随机数</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function rand(x) &#123;</div><div class="line"></div><div class="line">	var s = &quot;&quot;;</div><div class="line"></div><div class="line">	while (s.length &lt; x &amp;&amp; x &gt; 0) &#123;</div><div class="line">		var r = Math.random();</div><div class="line">		s += String.fromCharCode(Math.floor(r * 26) + (r &gt; 0.5 ? 97 : 65));</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return s;</div><div class="line">&#125;</div><div class="line">rand(x);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>生成指定范围随机数</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">Math.floor(Math.random() * (上限 - 下限 + 1) + 下限);</div><div class="line"></div><div class="line">Math.ceil(Math.random() * (上限 - 下限) + 下限);</div><div class="line"></div><div class="line">parseInt(Math.random() * (上限 - 下限 + 1) + 下限);</div><div class="line"></div><div class="line">//under：上限; over：下限; ceil</div><div class="line">function getRandom(under, over) &#123;</div><div class="line">	switch (arguments.length) &#123;</div><div class="line">		case 1:</div><div class="line">			return Math.ceil(Math.random() * under);</div><div class="line">		case 2:</div><div class="line">			return Math.ceil(Math.random() * (over - under) + under);</div><div class="line">		default:</div><div class="line">			return 0;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>随机背景色</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//方1</div><div class="line">&apos;#&apos;+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);</div><div class="line"></div><div class="line">//方2</div><div class="line">&quot;#&quot;+(&quot;000000&quot;+Math.floor(Math.random()*16777216).toString(16)).substr(-6);</div><div class="line"></div><div class="line">//方3</div><div class="line">function randomColor()&#123;</div><div class="line">  var r=function()&#123;return Math.floor(Math.random()*256)&#125;;</div><div class="line">  return &quot;rgb(&quot;+r()+&quot;,&quot;+r()+&quot;,&quot;+r()+&quot;)&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>洗牌算法</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var i = 0,</div><div class="line">	data = [],</div><div class="line">	r;</div><div class="line"></div><div class="line">for (; i &lt; 10; data[i++] = i);</div><div class="line"></div><div class="line">while (--i) &#123;</div><div class="line"></div><div class="line">	r = Math.round(Math.random() * 9 + 1) - 1;</div><div class="line">	data[i] = data[i] + data[r], data[r] = data[i] - data[r], data[i] = data[i] - data[r];</div><div class="line">&#125;</div><div class="line">console.log(data)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>或者利用Array.prototype.sort()函数，这里可以不把里面的数值带进来运算。</p>
+<p>首先Math.random()会生成一个[0,1)之间的数值，用0.5这个比较公平的数值减去它，概率得到小于0，等于0,大于0三种状况，而Array.prototype.sort()期待的数值恰好是[-1,0,1]，是不是很省事。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var i = 0,</div><div class="line">	data = [],</div><div class="line">	r;</div><div class="line"></div><div class="line">for (; i &lt; 10; data[i++] = i);</div><div class="line"></div><div class="line">data.sort(function() &#123;</div><div class="line"></div><div class="line">	return .5 - Math.random();</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Math-random-随机数的一些事一些情&quot;&gt;&lt;a href=&quot;#Math-random-随机数的一些事一些情&quot; class=&quot;headerlink&quot; title=&quot;Math.random()随机数的一些事一些情&quot;&gt;&lt;/a&gt;&lt;strong&gt;Math.random
+    
+    </summary>
+    
+      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>插入排序</title>
+    <link href="http://yoursite.com/2016/11/05/six/"/>
+    <id>http://yoursite.com/2016/11/05/six/</id>
+    <published>2016-11-05T00:55:29.000Z</published>
+    <updated>2017-02-03T14:00:50.376Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="算法原理："><a href="#算法原理：" class="headerlink" title="算法原理："></a>算法原理：</h2><p>设有一组关键字｛K1， K2，…， Kn｝；排序开始就认为 K1 是一个有序序列；让 K2 插入上述表长为 1 的有序序列，使之成为一个表长为 2 的有序序列；然后让 K3 插入上述表长为 2 的有序序列，使之成为一个表长为 3 的有序序列；依次类推，最后让 Kn 插入上述表长为 n-1 的有序序列，得一个表长为 n 的有序序列。</p>
+<h2 id="个人实现思路："><a href="#个人实现思路：" class="headerlink" title="个人实现思路："></a>个人实现思路：</h2><p>1.设第一个elem( n=0 ) 已排好序A。<br>2.从第二个elem( n=1 )开始，<br>3.在找到准备插入的位置后，需要将该位置之后的数组元素往后挪一位；<br>  所以，在对比之前，要先记录自身元素的值。<br>4.【从后→前】对比，若 A[last] &gt; elem ,那么交换位置，直到 A[elem] &lt; elem ,本轮结束，elem已排好位置。<br>5.重复步骤2-4，直至到达数组最后一位。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var arr = [1,3,9,6,5,2,7,2,3,4,8];</div><div class="line"></div><div class="line">function insertSort(arr)&#123;</div><div class="line">	</div><div class="line">	for(var i = 1; i &lt; arr.length; i++)&#123;</div><div class="line">		</div><div class="line">		var tmp = arr[i];</div><div class="line">		for( var j = i-1; j &gt; 0 , arr[j] &gt; tmp; j--)&#123;</div><div class="line">			arr[ j+1 ] = arr[ j ];</div><div class="line">			arr[ j ] = tmp;</div><div class="line">	&#125;</div><div class="line">	console.log(arr);</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">insertSort(arr);</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;算法原理：&quot;&gt;&lt;a href=&quot;#算法原理：&quot; class=&quot;headerlink&quot; title=&quot;算法原理：&quot;&gt;&lt;/a&gt;算法原理：&lt;/h2&gt;&lt;p&gt;设有一组关键字｛K1， K2，…， Kn｝；排序开始就认为 K1 是一个有序序列；让 K2 插入上述表长为 1 的有
     
     </summary>
     

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>从柯里化函数，加深对递归的运用 | SammieHo&#39;s 学习慢炖 | null</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="遇到过这么一道面试题
+
+写出函数，实现 sum(2)(3) , sum(2,3)
+
+当时我是这么写的：12345678910function sum(a)&amp;#123;	if(arguments.length == 2)&amp;#123;		return arguments[0] + arguments[1];	&amp;#125;	else&amp;#123;		return function (b)&amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从柯里化函数，加深对递归的运用">
+<meta property="og:url" content="http://yoursite.com/2016/11/20/seven/index.html">
+<meta property="og:site_name" content="SammieHo's 学习慢炖">
+<meta property="og:description" content="遇到过这么一道面试题
+
+写出函数，实现 sum(2)(3) , sum(2,3)
+
+当时我是这么写的：12345678910function sum(a)&amp;#123;	if(arguments.length == 2)&amp;#123;		return arguments[0] + arguments[1];	&amp;#125;	else&amp;#123;		return function (b)&amp;#123;">
+<meta property="og:updated_time" content="2017-02-03T14:01:22.886Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从柯里化函数，加深对递归的运用">
+<meta name="twitter:description" content="遇到过这么一道面试题
+
+写出函数，实现 sum(2)(3) , sum(2,3)
+
+当时我是这么写的：12345678910function sum(a)&amp;#123;	if(arguments.length == 2)&amp;#123;		return arguments[0] + arguments[1];	&amp;#125;	else&amp;#123;		return function (b)&amp;#123;">
+    
+        <link rel="alternative" href="/atom.xml" title="SammieHo&#39;s 学习慢炖" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sammieho</h5>
+          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yscoder" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">从柯里化函数，加深对递归的运用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">从柯里化函数，加深对递归的运用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-11-20T00:55:29.000Z" itemprop="datePublished" class="page-time">
+  2016-11-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Exercise/">Exercise</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考文章："><span class="post-toc-number">1.</span> <span class="post-toc-text">参考文章：</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-seven"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">从柯里化函数，加深对递归的运用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016年11月20日 8:55" datetime="2016-11-20T00:55:29.000Z"  itemprop="datePublished">2016-11-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Exercise/">Exercise</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><strong>遇到过这么一道面试题</strong></p>
+<blockquote>
+<p>写出函数，实现 sum(2)(3) , sum(2,3)</p>
+</blockquote>
+<p>当时我是这么写的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function sum(a)&#123;</div><div class="line">	if(arguments.length == 2)&#123;</div><div class="line">		return arguments[0] + arguments[1];</div><div class="line">	&#125;</div><div class="line">	else&#123;</div><div class="line">		return function (b)&#123;</div><div class="line">			return a + b;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后我就想不会这么简单吧吧吧吧吧吧吧！！应该是要写n个参数，或者回调的情况下的通用函数，最后，我就画画画，没写出来，还搞到答卷“花面猫”似的。</p>
+<p>回来，我搜索了一下，涉及到curry，柯里化函数。我懵逼了，这素啥。原来是递归的原理，分次接收参数。嗯，我要的就是这效果。</p>
+<p><strong>下面是实现</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">function curry(fn,curryArgs)&#123;</div><div class="line"></div><div class="line">	return function()&#123;</div><div class="line"></div><div class="line">		var args = Array.prototype.slice.call(arguments,0);</div><div class="line">               // 首次调用时未提供最后一个参数</div><div class="line">		if(curryArgs !== undefined)&#123;</div><div class="line">			args = args.concat(curryArgs);</div><div class="line">		&#125;</div><div class="line">                // 递归边界</div><div class="line">		if( !arguments.length )&#123;</div><div class="line">			return fn.apply(null, args);</div><div class="line">		&#125;</div><div class="line">		else&#123;</div><div class="line">			return curry(fn, args);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function sumOf()&#123;</div><div class="line"></div><div class="line">	var total = 0;</div><div class="line"></div><div class="line">	for(var i=0; i&lt;arguments.length; i++)&#123;</div><div class="line">		total += arguments[i];</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return total;</div><div class="line">&#125;</div><div class="line">// 改造普通函数，返回柯里函数</div><div class="line">var sum = curry(sumOf);</div><div class="line"></div><div class="line">sum(2, 3)(1)(1)(1, 2, 3)();</div></pre></td></tr></table></figure>
+<p><strong>另一个方法：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">function add() &#123;</div><div class="line">	var total = 0;</div><div class="line"></div><div class="line">	if (arguments.length) &#123;</div><div class="line"></div><div class="line">		var arr1 = Array.prototype.slice.call(arguments);</div><div class="line">		var mytotal = arrayAdder(arr1);</div><div class="line">		return sum(mytotal);</div><div class="line">	&#125;</div><div class="line">	else &#123;</div><div class="line">		return sum();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	function sum() &#123;</div><div class="line">		if (arguments.length) &#123;</div><div class="line">			var arr = Array.prototype.slice.call(arguments);</div><div class="line">			total = total + arrayAdder(arr);</div><div class="line">			return sum;</div><div class="line">		&#125; else &#123;</div><div class="line">			return total;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	function arrayAdder(arr) &#123;</div><div class="line">		var x = 0;</div><div class="line">		for (var i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">			x = x + arr[i];</div><div class="line">		&#125;;</div><div class="line">		return x;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">add(2, 3)(1)(1)(1, 2, 3)();</div></pre></td></tr></table></figure></p>
+<p>最后一点！很重要！<br>上面的解决方法是我参考了别人的文章/回答，总结下来的，若涉及到版权问题，请联系我删除，抱歉。<br>目前，未能深入理解柯里化函数，我会在接下来继续思考。</p>
+<h2 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h2><ul>
+<li><a href="http://ewind.us/2016/sum-to-curry/" target="_blank" rel="external">从 sum(2)(3) == sum(2, 3) 到实现柯里化函数</a></li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2013/02/js-currying/" target="_blank" rel="external">JS中的柯里化(currying)</a></li>
+<li><a href="http://web.jobbole.com/84171/" target="_blank" rel="external">JavaScript的柯里化函数</a></li>
+<li><a href="http://www.cnblogs.com/zztt/p/4142891.html" target="_blank" rel="external">浅析 JavaScript 中的 函数 currying 柯里化</a></li>
+<li><a href="https://segmentfault.com/a/1190000003733107" target="_blank" rel="external">js 函数式编程之函数柯里化</a></li>
+<li>另外一个方法式在stackflow 找到的回答。</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-03T14:01:22.886Z" itemprop="dateUpdated">2017年2月3日 22:01</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2016/11/20/seven/" target="_blank" rel="external">http://yoursite.com/2016/11/20/seven/</a>
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Sammieho">
+            Sammieho
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/11/20/seven/&title=《从柯里化函数，加深对递归的运用》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/11/20/seven/&title=《从柯里化函数，加深对递归的运用》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/11/20/seven/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从柯里化函数，加深对递归的运用》 — SammieHo's 学习慢炖&url=http://yoursite.com/2016/11/20/seven/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/11/20/seven/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/01/23/night/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">一道关于this和作用域的题目引发的思考</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/11/11/eight/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Ajax 笔记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="seven" data-title="从柯里化函数，加深对递归的运用" data-url="http://yoursite.com/2016/11/20/seven/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'ysblog', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.7');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>SammieHo's 学习慢炖 &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/11/20/seven/&title=《从柯里化函数，加深对递归的运用》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/11/20/seven/&title=《从柯里化函数，加深对递归的运用》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/11/20/seven/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从柯里化函数，加深对递归的运用》 — SammieHo's 学习慢炖&url=http://yoursite.com/2016/11/20/seven/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/11/20/seven/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2016/11/20/seven/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

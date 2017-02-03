@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>setTimeout()和setInterval()的单细胞感情 | SammieHo&#39;s 学习慢炖 | null</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="一、简单的语法与浅层的区别语法：12var setT= window.setTimeout(func/code,delay);var setI = window.setInterval(func/code,delay);
+嗯，基本上是一样的，相对还有clearTimeout(setT)和clearInterval(setI)。
+
+当第二个参数delay缺省时，默认为0
+当指定的值小于4毫秒，则增加">
+<meta property="og:type" content="article">
+<meta property="og:title" content="setTimeout()和setInterval()的单细胞感情">
+<meta property="og:url" content="http://yoursite.com/2016/11/06/newtwo/index.html">
+<meta property="og:site_name" content="SammieHo's 学习慢炖">
+<meta property="og:description" content="一、简单的语法与浅层的区别语法：12var setT= window.setTimeout(func/code,delay);var setI = window.setInterval(func/code,delay);
+嗯，基本上是一样的，相对还有clearTimeout(setT)和clearInterval(setI)。
+
+当第二个参数delay缺省时，默认为0
+当指定的值小于4毫秒，则增加">
+<meta property="og:updated_time" content="2017-02-03T13:56:04.935Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="setTimeout()和setInterval()的单细胞感情">
+<meta name="twitter:description" content="一、简单的语法与浅层的区别语法：12var setT= window.setTimeout(func/code,delay);var setI = window.setInterval(func/code,delay);
+嗯，基本上是一样的，相对还有clearTimeout(setT)和clearInterval(setI)。
+
+当第二个参数delay缺省时，默认为0
+当指定的值小于4毫秒，则增加">
+    
+        <link rel="alternative" href="/atom.xml" title="SammieHo&#39;s 学习慢炖" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sammieho</h5>
+          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yscoder" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">setTimeout()和setInterval()的单细胞感情</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">setTimeout()和setInterval()的单细胞感情</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-11-06T00:55:29.000Z" itemprop="datePublished" class="page-time">
+  2016-11-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Exercise/">Exercise</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、简单的语法与浅层的区别"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、简单的语法与浅层的区别</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、定时器与线程的一些事情"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、定时器与线程的一些事情</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#先讲讲Javascript的工作方式，不然后面就聊不下去咯"><span class="post-toc-number">2.0.1.</span> <span class="post-toc-text">先讲讲Javascript的工作方式，不然后面就聊不下去咯~</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结："><span class="post-toc-number">2.1.</span> <span class="post-toc-text">总结：</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、对于setTimeOut与setInterval的深入思考"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、对于setTimeOut与setInterval的深入思考</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-是什么在计算时间"><span class="post-toc-number">3.0.1.</span> <span class="post-toc-text">1 是什么在计算时间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-回调函数的执行"><span class="post-toc-number">3.0.2.</span> <span class="post-toc-text">2 回调函数的执行</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考文章："><span class="post-toc-number">3.1.</span> <span class="post-toc-text">参考文章：</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-newtwo"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">setTimeout()和setInterval()的单细胞感情</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016年11月06日 8:55" datetime="2016-11-06T00:55:29.000Z"  itemprop="datePublished">2016-11-06</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Exercise/">Exercise</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、简单的语法与浅层的区别"><a href="#一、简单的语法与浅层的区别" class="headerlink" title="一、简单的语法与浅层的区别"></a>一、简单的语法与浅层的区别</h1><p><strong>语法：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var setT= window.setTimeout(func/code,delay);</div><div class="line">var setI = window.setInterval(func/code,delay);</div></pre></td></tr></table></figure></p>
+<p>嗯，基本上是一样的，相对还有clearTimeout(setT)和clearInterval(setI)。</p>
+<ul>
+<li>当第二个参数delay缺省时，默认为0</li>
+<li>当指定的值小于4毫秒，则增加到4ms<br>（4ms是HTML5标准指定的，对于2010年及之前的浏览器则是10ms）</li>
+</ul>
+<p><strong>区别：</strong></p>
+<ul>
+<li>setTimeout() 延时，只执行一次</li>
+<li>setInterval() 每隔一段时间，循环执行。</li>
+</ul>
+<blockquote>
+<p>一点点题外话，setTimeout递归调用自己~是可以模拟setInterval滴。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var setT = setTimeout(ourself(),100);</div><div class="line">function ourself()&#123;</div><div class="line">	/*code*/</div><div class="line">	setTimeout(ourself(),100);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="二、定时器与线程的一些事情"><a href="#二、定时器与线程的一些事情" class="headerlink" title="二、定时器与线程的一些事情"></a>二、定时器与线程的一些事情</h1><h3 id="先讲讲Javascript的工作方式，不然后面就聊不下去咯"><a href="#先讲讲Javascript的工作方式，不然后面就聊不下去咯" class="headerlink" title="先讲讲Javascript的工作方式，不然后面就聊不下去咯~"></a><strong>先讲讲Javascript的工作方式，不然后面就聊不下去咯~</strong></h3><p><strong>1. Javascript是单线程的</strong></p>
+<blockquote>
+<p>每个window执行一个js线程，在某个特定时刻只有特定的代码块能够执行，其他代码块被阻塞（后来的要排队是中华人民共和国的传统美德）。</p>
+<p>因为Javascript的作用是 进行 交互 和 DOM操作，如果JS是多线程，那么试想一下一个线程在修改节点的内容，另一个线程要删除这个节点，那么，是修改还是删除？不知道。所以，为了避免复杂性，JS是单线程的。</p>
+</blockquote>
+<p><strong>2.通过回调函数进行异步</strong></p>
+<blockquote>
+<p>异步，就是当B等待A时，B去干别的事，当有通知时（即被告知A已完成时）B再去做该做的，而通知通过回调函数来完成。耗时几乎可忽略不计。<br>例如鼠标点击，定时器触发，或者一个XMLHttpRequest完成等</p>
+</blockquote>
+<p><strong>3.不靠谱的setInterval</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function formatDate()&#123;</div><div class="line">	//code...</div><div class="line">&#125;</div><div class="line">var timer, i = 0;</div><div class="line">function test()&#123;</div><div class="line">	dateStart = new Date();</div><div class="line">	timer = setInterval(function()&#123;</div><div class="line">		i++;</div><div class="line">		console.log(&apos;Interval&apos; + i);</div><div class="line">	&#125;,8000);</div><div class="line"></div><div class="line">	for(var i = 0;i &lt; 5; i++)&#123;</div><div class="line">		formatDate(dateStart);</div><div class="line">		//5 second</div><div class="line">		while( new Date() - dateStart &lt; 5*1000 )&#123;</div><div class="line">		&#125;</div><div class="line">		dateStart = new Date();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">test();</div></pre></td></tr></table></figure>
+<p>主函数test()执行时间约5*5=25。</p>
+<p>按理来说：<br>执行主函数期间setInterval被触发25/8=3次，s1,s2,s3<br>那么test()执行完应立即回调3次，而回调时间基本不耗时。</p>
+<p>实际上：<br>在chrome下，执行以上代码，显示，<br>setInterval在主函数执行完后，只回调了一次，</p>
+<p>所以，定时器智能化，在任务队列里面只保留一个回调任务，时刻8秒，s1放进去，然后时刻16秒，主逻辑还在执行，s1还在等待，那么s2被丢弃，同理，s3被丢弃。</p>
+<blockquote>
+<p>原因：<br>如果在一个非常大的javascript代码块执行过程中把每次间隔定时器触发的回调函数都放入队列的话，导致的结果是当这个大javascript代码块执行完毕时，有很多的回调函数会被无延迟的依次执行（这和我们当初需要间隔执行的目的相违背），所以，浏览器采用的作法是当等待队列中没有间隔定时器的回调函数时才会放入一个间隔定时器的回调函数。</p>
+</blockquote>
+<p><strong>假设把定时器间隔设定为9秒，那么在主逻辑执行到25秒时间内，有如下调用：</strong></p>
+<blockquote>
+<p>时刻9秒生成回调s1，<br>时刻18秒生成回调s2（丢弃），<br>时刻27秒生成回调s3</p>
+</blockquote>
+<p>结果，大概在第25秒主逻辑执行完毕，从任务队列里面取出s1执行，然后在第27秒，生成s3放到任务队列，然后JS运行时取出执行，s3-s1之间间隔，大概27-25=2s，</p>
+<p>所以，定时器不靠谱不靠谱不靠谱！！不能保证每次执行会间隔起码9秒。</p>
+<p>这种情况下，可以用setTimeout()嵌套调用，递归。</p>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><ul>
+<li>setTimeout和setInterval的原理是不同的。</li>
+<li>如果一个普通的定时器被阻塞了，他会等待直到有合适的时间。</li>
+<li>如果间隔定时器回调函数执行时间过长，有可能无间隔的执行。</li>
+</ul>
+<p>——————————   2016.11.24 更新   ———————————————</p>
+<h1 id="三、对于setTimeOut与setInterval的深入思考"><a href="#三、对于setTimeOut与setInterval的深入思考" class="headerlink" title="三、对于setTimeOut与setInterval的深入思考"></a>三、对于setTimeOut与setInterval的深入思考</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">setTimeOut 是用来设定延迟时间1000ms和回调函数fn的定时器，</div><div class="line">那么，</div><div class="line">究竟是什么在计算时间呢？</div><div class="line">回调函数是在什么时候执行的呢？是在等待1000ms的时候？还是一开始就执行了呢？</div></pre></td></tr></table></figure>
+<h3 id="1-是什么在计算时间"><a href="#1-是什么在计算时间" class="headerlink" title="1 是什么在计算时间"></a>1 是什么在计算时间</h3><p>浏览器内核相应模块(例如Webkit 的 Timer 模块)。</p>
+<h3 id="2-回调函数的执行"><a href="#2-回调函数的执行" class="headerlink" title="2 回调函数的执行"></a>2 回调函数的执行</h3><ul>
+<li>这里跟Event Loop 有关系了。我将js理解为2个线程，1个是主线程，同步；另一个是 任务队列，异步回调的函数就在此处排队。待主线程空闲，就从任务队列中读取事件，这个过程就是事件循环 Event Loop。</li>
+<li>当调用setTimeout()方法时，浏览器内核相应模块开始延时方法的处理，当延时方法到达触发条件时，方法被添加到用于回调的任务队列，只要执行引擎栈中的代码执行完毕，主线程就会去读取任务队列，依次执行那些满足触发条件的回调函数。</li>
+</ul>
+<h2 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h2><p><a href="http://qingbob.com/difference-between-settimeout-setinterval/" target="_blank" rel="external">你真的了解setTimeout和setInterval吗?</a><br><a href="http://www.jeffjade.com/2016/01/10/2016-01-10-javaScript-setInterval/" target="_blank" rel="external">你所不知道的setInterval</a><br><a href="http://www.alloyteam.com/2015/10/turning-to-javascript-series-from-settimeout-said-the-event-loop-model/" target="_blank" rel="external">TAT.ronnie【转向Javascript系列】从setTimeout说事件循环模型</a><br><a href="http://ejohn.org/blog/how-javascript-timers-work/" target="_blank" rel="external">How JavaScript Timers Work</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-03T13:56:04.935Z" itemprop="dateUpdated">2017年2月3日 21:56</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2016/11/06/newtwo/" target="_blank" rel="external">http://yoursite.com/2016/11/06/newtwo/</a>
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Sammieho">
+            Sammieho
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/11/06/newtwo/&title=《setTimeout()和setInterval()的单细胞感情》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/11/06/newtwo/&title=《setTimeout()和setInterval()的单细胞感情》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/11/06/newtwo/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《setTimeout()和setInterval()的单细胞感情》 — SammieHo's 学习慢炖&url=http://yoursite.com/2016/11/06/newtwo/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/11/06/newtwo/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/11/08/newthr/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">重新认识-盒子模型</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/11/05/newone/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Math.random()随机数的一些事一些情</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="newtwo" data-title="setTimeout()和setInterval()的单细胞感情" data-url="http://yoursite.com/2016/11/06/newtwo/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'ysblog', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.7');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>SammieHo's 学习慢炖 &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/11/06/newtwo/&title=《setTimeout()和setInterval()的单细胞感情》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/11/06/newtwo/&title=《setTimeout()和setInterval()的单细胞感情》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/11/06/newtwo/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《setTimeout()和setInterval()的单细胞感情》 — SammieHo's 学习慢炖&url=http://yoursite.com/2016/11/06/newtwo/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/11/06/newtwo/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2016/11/06/newtwo/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
