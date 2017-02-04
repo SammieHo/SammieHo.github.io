@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-03T13:58:36.002Z</updated>
+  <updated>2017-02-04T09:10:13.697Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>区别 client,page,offset,screen</title>
+    <link href="http://yoursite.com/2017/02/04/ten/"/>
+    <id>http://yoursite.com/2017/02/04/ten/</id>
+    <published>2017-02-04T08:36:08.133Z</published>
+    <updated>2017-02-04T09:10:13.697Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="client-客户区坐标位置"><a href="#client-客户区坐标位置" class="headerlink" title="client 客户区坐标位置"></a>client 客户区坐标位置</h2><p>顾名思义，相对于 <strong> 浏览器内容区域 视口 </strong> 而言的clientX，clientY （不包含页面滚动的距离）</p>
+<p>图示如下：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p1.bpimg.com/567571/243a402fbcdcef97.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="screen-屏幕坐标位置"><a href="#screen-屏幕坐标位置" class="headerlink" title="screen 屏幕坐标位置"></a>screen 屏幕坐标位置</h2><p>相对于 整个显示器的屏幕而言的 screenX，screenY</p>
+<p>图示如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://i1.piimg.com/567571/1f16c1ca560597ab.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="page，offset-页面坐标位置"><a href="#page，offset-页面坐标位置" class="headerlink" title="page，offset 页面坐标位置"></a>page，offset 页面坐标位置</h2><p>相对于整个网页，是算上滚动条的。</p>
+<p>例如：<br>网页的 width：980px; height: 3000px;<br>那么 page 和 offset 的最大值就是 980 和 3000。</p>
+<p>而 page 和 offset 的区别就是：IE8以下只支持offset。</p>
+<p>图示如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p1.bpimg.com/567571/ab9be4f683b83f9d.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>-《Javascript高程》</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;client-客户区坐标位置&quot;&gt;&lt;a href=&quot;#client-客户区坐标位置&quot; class=&quot;headerlink&quot; title=&quot;client 客户区坐标位置&quot;&gt;&lt;/a&gt;client 客户区坐标位置&lt;/h2&gt;&lt;p&gt;顾名思义，相对于 &lt;strong&gt; 浏览器内
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>事件监听—addEventListener</title>
