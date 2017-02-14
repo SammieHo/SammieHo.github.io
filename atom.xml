@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-14T00:21:15.738Z</updated>
+  <updated>2017-02-14T14:50:42.435Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,272 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>简单算法——Array与String的运用</title>
+    <link href="http://yoursite.com/2017/02/14/%E7%AE%80%E5%8D%95%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94Array%E4%B8%8EString%E7%9A%84%E8%BF%90%E7%94%A8/"/>
+    <id>http://yoursite.com/2017/02/14/简单算法——Array与String的运用/</id>
+    <published>2017-02-14T10:57:33.754Z</published>
+    <updated>2017-02-14T14:50:42.435Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="翻转字符串"><a href="#翻转字符串" class="headerlink" title="翻转字符串"></a>翻转字符串</h1><h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><p>先把string转换成array，再借助数组的reverse翻转数组顺序，最后再把array转化为string</p>
+<h4 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function reverseString(str)&#123;</div><div class="line">	return str.split(&quot;&quot;).reverse().join(&quot;&quot;);</div><div class="line">&#125;</div><div class="line">reverseString(&quot;I&apos;m beaty!&quot;);</div></pre></td></tr></table></figure>
+<h1 id="计算一个整数的阶乘"><a href="#计算一个整数的阶乘" class="headerlink" title="计算一个整数的阶乘"></a>计算一个整数的阶乘</h1><h4 id="思路：-1"><a href="#思路：-1" class="headerlink" title="思路："></a>思路：</h4><ol>
+<li>递归</li>
+<li>累乘</li>
+</ol>
+<h4 id="实现：-1"><a href="#实现：-1" class="headerlink" title="实现："></a>实现：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">1. 递归</div><div class="line">function factorialize(num)&#123;</div><div class="line">	if(num === 0)&#123;</div><div class="line">		return 1;</div><div class="line">	&#125;else if( num &gt; 0 )&#123;</div><div class="line">		return num*factorialize(num - 1);</div><div class="line">	&#125;else&#123;</div><div class="line">		alert(&quot;input right num.&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">factorialize(5); // 120</div><div class="line"></div><div class="line">2. 累乘</div><div class="line">function factorialize(num)&#123;</div><div class="line">	if( num === 0 )&#123;</div><div class="line">		return 1;</div><div class="line">	&#125;</div><div class="line">	for(var i = 1,multiply = 1; i &lt;= num; i++)&#123;</div><div class="line">		multiply *= i;</div><div class="line">	&#125;</div><div class="line">	return multiply;</div><div class="line">&#125;</div><div class="line">factorialize(5); // 120</div></pre></td></tr></table></figure>
+<h1 id="回文检测"><a href="#回文检测" class="headerlink" title="回文检测"></a>回文检测</h1><h4 id="规则："><a href="#规则：" class="headerlink" title="规则："></a>规则：</h4><p>如果一个字符串忽略标点符号、大小写和空格，正着读和反着读一模一样，那么这个字符串就是palindrome(回文)。</p>
+<h4 id="思路：-2"><a href="#思路：-2" class="headerlink" title="思路："></a>思路：</h4><p>先去掉标点符号，转换小写；再讲正向str与翻转后的str对比。</p>
+<h4 id="实现：-2"><a href="#实现：-2" class="headerlink" title="实现："></a>实现：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function palindrome(str)&#123;</div><div class="line">	str = str.replace(/[\W\s_,]/g,&quot;&quot;).toLowerCase();</div><div class="line">	reverseStr = str.split(&quot;&quot;).reverse().join(&quot;&quot;);</div><div class="line">	if(str === reverseStr)&#123;</div><div class="line">		return &quot;true&quot;;</div><div class="line">	&#125;else&#123;</div><div class="line">		return &quot;false&quot;;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">palindrome(&quot;aabaa&quot;);</div></pre></td></tr></table></figure>
+<h1 id="找到句子中最长的单词"><a href="#找到句子中最长的单词" class="headerlink" title="找到句子中最长的单词"></a>找到句子中最长的单词</h1><h4 id="思路：-3"><a href="#思路：-3" class="headerlink" title="思路："></a>思路：</h4><p>先去掉标点符号；再将string转化为数组,判断每个元素的长度。</p>
+<h4 id="实现：-3"><a href="#实现：-3" class="headerlink" title="实现："></a>实现：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function findLongestWord(str)&#123;</div><div class="line">	str = str.replace(/[_,.:!]/g,&quot;&quot;).split(&quot; &quot;);</div><div class="line">	var len = 0;</div><div class="line">	for(var i = 0; i &lt; str.length; i++)&#123;</div><div class="line">		if(str[i].length &gt; len )&#123;</div><div class="line">			len = str[i].length;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return len;</div><div class="line">&#125;</div><div class="line">findLongestWord(&quot;The quick brown fox jumped over the lazy dogaaaa.&quot;);</div></pre></td></tr></table></figure>
+<h1 id="首字母大写"><a href="#首字母大写" class="headerlink" title="首字母大写"></a>首字母大写</h1><h4 id="思路：-4"><a href="#思路：-4" class="headerlink" title="思路："></a>思路：</h4><p>将string全部小写后转化为数组，数组每一个元素的第一个子元素大写。</p>
+<h4 id="实现：-4"><a href="#实现：-4" class="headerlink" title="实现："></a>实现：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function titleCase(str)&#123;</div><div class="line">	str = str.toLowerCase().split(&quot; &quot;);</div><div class="line">	str = str.map(function(val)&#123;</div><div class="line">		return val.replace(val.charAt(0),val.charAt(0).toUpperCase());</div><div class="line">	&#125;);</div><div class="line">	return str.join(&quot; &quot;);</div><div class="line">&#125;</div><div class="line">titleCase(&quot;I&apos;m a little tea pot.&quot;);</div></pre></td></tr></table></figure>
+<h1 id="找出大数组中每个小数组的最大值"><a href="#找出大数组中每个小数组的最大值" class="headerlink" title="找出大数组中每个小数组的最大值"></a>找出大数组中每个小数组的最大值</h1><h4 id="思路：-5"><a href="#思路：-5" class="headerlink" title="思路："></a>思路：</h4><p>给每个小数组排序，将每个小数组的第一元素串联，形成新数组。</p>
+<h4 id="实现：-5"><a href="#实现：-5" class="headerlink" title="实现："></a>实现：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function largestOfArr(arr)&#123;</div><div class="line">	var str = [];</div><div class="line">	for(var i = 0; i &lt; arr.length; i ++)&#123;</div><div class="line">		arr[i].sort(function(a,b)&#123;</div><div class="line">			return b-a;</div><div class="line">		&#125;);</div><div class="line">		str.push(arr[i][0]);</div><div class="line">	&#125;</div><div class="line">	return str;</div><div class="line">&#125;</div><div class="line">largestOfArr([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);</div></pre></td></tr></table></figure>
+<h1 id="检查指定的字符串结尾"><a href="#检查指定的字符串结尾" class="headerlink" title="检查指定的字符串结尾"></a>检查指定的字符串结尾</h1><h4 id="思路：-6"><a href="#思路：-6" class="headerlink" title="思路："></a>思路：</h4><p>检查一个字符串(str)是否以指定的字符串(target)结尾。<br>如果是，返回true;如果不是，返回false。</p>
+<h4 id="实现：-6"><a href="#实现：-6" class="headerlink" title="实现："></a>实现：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function confirmEnding(str,target)&#123;</div><div class="line">	if(str.slice( target.length*(-1)) === target)&#123;</div><div class="line">		return &quot;true&quot;;</div><div class="line">	&#125;else&#123;</div><div class="line">		return &quot;false&quot;;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="重复字符串"><a href="#重复字符串" class="headerlink" title="重复字符串"></a>重复字符串</h1><h4 id="思路：-7"><a href="#思路：-7" class="headerlink" title="思路："></a>思路：</h4><p>重复制定的字符创 num 次，如果 num 为负则返回空字符创。</p>
+<h4 id="实现：-7"><a href="#实现：-7" class="headerlink" title="实现："></a>实现：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function repeatStr(str,num)&#123;</div><div class="line">	var newStr = &quot;&quot;;</div><div class="line">	if( num === 0)&#123;</div><div class="line">		return &quot; &quot;;</div><div class="line">	&#125;</div><div class="line">	while(num &gt; 0)&#123;</div><div class="line">		newStr += str;</div><div class="line">		num--;</div><div class="line">	&#125;</div><div class="line">	return newStr;</div><div class="line">&#125;</div><div class="line">repeatStr(&quot;aa,&quot;,3); //&quot;aa,aa,aa,&quot;</div></pre></td></tr></table></figure>
+<h1 id="截断一个字符串"><a href="#截断一个字符串" class="headerlink" title="截断一个字符串"></a>截断一个字符串</h1><h4 id="规则：-1"><a href="#规则：-1" class="headerlink" title="规则："></a>规则：</h4><p>如果字符串的长度比指定的参数num长，则把多余的部分用…来表示。</p>
+<p>切记，插入到字符串尾部的三个点号也会计入字符串的长度。</p>
+<p>但是，如果指定的参数num小于或等于3，则添加的三个点号不会计入字符串的长度。</p>
+<h4 id="思路：-8"><a href="#思路：-8" class="headerlink" title="思路："></a>思路：</h4><ol>
+<li>对比字符串strLen与参数num；</li>
+<li>strLen &gt; num ,截断str范围(0,num-3]，加”…”</li>
+<li>strLen &lt;= 3,不截断，直接加“…”</li>
+</ol>
+<h4 id="实现：-8"><a href="#实现：-8" class="headerlink" title="实现："></a>实现：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function truncate(str, num) &#123;</div><div class="line">  // Clear out that junk in your trunk</div><div class="line">  if(  str.length &gt; num &amp;&amp; num &gt; 3)&#123;</div><div class="line">    str = str.substr(0, num - 3) + &quot;...&quot;;</div><div class="line">  &#125;else if( str.length &lt;= num)&#123;</div><div class="line">    str = str;</div><div class="line">  &#125;</div><div class="line">  else&#123;</div><div class="line">    str = str.slice(0, num ) + &quot;...&quot;;</div><div class="line">  &#125;</div><div class="line">  return str;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="按制定size分割数组"><a href="#按制定size分割数组" class="headerlink" title="按制定size分割数组"></a>按制定size分割数组</h1><h4 id="思路：-9"><a href="#思路：-9" class="headerlink" title="思路："></a>思路：</h4><p>把一个数组arr按照指定的数组大小size分割成若干个数组块。</p>
+<p>Array.push();<br>Array.slice();</p>
+<p>例如:chunk([1,2,3,4],2)=[[1,2],[3,4]];</p>
+<p>chunk([1,2,3,4,5],2)=[[1,2],[3,4],[5]];</p>
+<h4 id="实现：-9"><a href="#实现：-9" class="headerlink" title="实现："></a>实现：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function chunk(arr, size) &#123;</div><div class="line">  var newArr = [];</div><div class="line">  for( var i = 0; i &lt; arr.length; i += size)&#123;</div><div class="line">    newArr.push(arr.slice(i,i+size));</div><div class="line">  &#125;</div><div class="line">  return newArr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">chunk([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;], 2);</div></pre></td></tr></table></figure>
+<h1 id="返回被截断的元素"><a href="#返回被截断的元素" class="headerlink" title="返回被截断的元素"></a>返回被截断的元素</h1><h4 id="规则：-2"><a href="#规则：-2" class="headerlink" title="规则："></a>规则：</h4><p>返回一个数组被截断n个元素后还剩余的元素，截断从索引0开始。</p>
+<h4 id="实现：-10"><a href="#实现：-10" class="headerlink" title="实现："></a>实现：</h4><p>Array.splice()的应用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function slasher(arr, howMany)&#123;</div><div class="line">	arr.splice(0, howMany);//返回被删除的元素组成的数组</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">slasher([1, 2, 3], 2);</div></pre></td></tr></table></figure>
+<h1 id="删除数组中的所有假值"><a href="#删除数组中的所有假值" class="headerlink" title="删除数组中的所有假值"></a>删除数组中的所有假值</h1><h4 id="思路：-10"><a href="#思路：-10" class="headerlink" title="思路："></a>思路：</h4><p>假值有false、null、0、””、undefined 和 NaN。<br>Boolean Objects<br>Array.filter()</p>
+<h4 id="实现：-11"><a href="#实现：-11" class="headerlink" title="实现："></a>实现：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function bouncer(arr) &#123;</div><div class="line">  // Don&apos;t show a false ID to this bouncer.</div><div class="line">  var newArr = arr.filter(function(val)&#123;</div><div class="line">    var x = new Boolean(val);</div><div class="line">    if( x )&#123;</div><div class="line">      return val;</div><div class="line">    &#125;</div><div class="line">  &#125;);</div><div class="line">  return newArr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">bouncer([7, &quot;ate&quot;, &quot;&quot;, false, 9]);</div></pre></td></tr></table></figure>
+<h1 id="摧毁函数"><a href="#摧毁函数" class="headerlink" title="摧毁函数"></a>摧毁函数</h1><h4 id="规则：-3"><a href="#规则：-3" class="headerlink" title="规则："></a>规则：</h4><p>第一个参数是待摧毁的数组，其余的参数是待摧毁的值。</p>
+<h4 id="思路：-11"><a href="#思路：-11" class="headerlink" title="思路："></a>思路：</h4><ol>
+<li>将除第一个参数意外的参数连接成数组comp；</li>
+<li>过滤，当第一个参数的元素不存在于comp时，符合返回。</li>
+</ol>
+<p>Array.filter();<br>Arguments object</p>
+<h4 id="实现：-12"><a href="#实现：-12" class="headerlink" title="实现："></a>实现：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">1. 初始做法</div><div class="line">function destroyer(arr) &#123;</div><div class="line">  // Remove all the values</div><div class="line">  var compareArgs = [].slice.call(arguments,1);</div><div class="line">  var newArr = arr.filter(function(val)&#123;</div><div class="line">  var len = compareArgs.length;</div><div class="line">     for(var i = 0;i &lt; len; i++)&#123;</div><div class="line">       if( val == compareArgs[i])&#123;</div><div class="line">           return false;</div><div class="line">       &#125;else if( val != compareArgs[i] &amp;&amp; i == len - 1 )&#123;</div><div class="line">         return val;</div><div class="line">       &#125;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">  &#125;);</div><div class="line">  return newArr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">2. 优化后</div><div class="line">function des(arr)&#123;</div><div class="line">  var comp = Array.prototype.slice.call(arguments,1);</div><div class="line">  return arr.filter(function(val)&#123;</div><div class="line">    if( comp.indexOf(val) &lt; 0 )&#123;</div><div class="line">      return val;</div><div class="line">    &#125;</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">des([1, 2, 3,5, 1, 2, 3], 2, 3);</div></pre></td></tr></table></figure>
+<h1 id="找到指定的值在数组的位置"><a href="#找到指定的值在数组的位置" class="headerlink" title="找到指定的值在数组的位置"></a>找到指定的值在数组的位置</h1><h4 id="思路：-12"><a href="#思路：-12" class="headerlink" title="思路："></a>思路：</h4><p>先给数组排序，然后找到指定的值在数组的位置，最后返回位置对应的索引。</p>
+<h4 id="实现：-13"><a href="#实现：-13" class="headerlink" title="实现："></a>实现：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">1. First</div><div class="line">function where(arr, num) &#123;</div><div class="line">  // Find my place in this sorted array.</div><div class="line"></div><div class="line">  arr.sort(function(a,b)&#123;</div><div class="line">    return a-b;</div><div class="line">  &#125;);</div><div class="line">  var i = 0;</div><div class="line">  while( arr[i] &lt; num)&#123;</div><div class="line">    i++;</div><div class="line">  &#125;</div><div class="line">  return i;</div><div class="line">&#125;</div><div class="line"></div><div class="line">2. two</div><div class="line">function whe(arr, num)&#123;</div><div class="line">  arr.sort();</div><div class="line"></div><div class="line">  for(var i = 0; i &lt; arr.length; i++)&#123;</div><div class="line">    if( arr[i] &gt; num )&#123;</div><div class="line">      return i;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  return arr.length;</div><div class="line">&#125;</div><div class="line"></div><div class="line">whe([70, 60], 80);</div></pre></td></tr></table></figure>
+<h1 id="凯撒密码"><a href="#凯撒密码" class="headerlink" title="凯撒密码"></a>凯撒密码</h1><h4 id="思路：-13"><a href="#思路：-13" class="headerlink" title="思路："></a>思路：</h4><p>右移13位</p>
+<h4 id="实现：-14"><a href="#实现：-14" class="headerlink" title="实现："></a>实现：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function rot13(str) &#123; // LBH QVQ VG!</div><div class="line">   str = str.split(&quot;&quot;);</div><div class="line"></div><div class="line">  var newStr = str.reduce(function(preVal,curVal)&#123;</div><div class="line">    if( curVal.match(/[A-Z]/) !== null )&#123;</div><div class="line">      curVal = curVal.charCodeAt(0) + 13;</div><div class="line">       if( curVal &gt; 90 )&#123;</div><div class="line">          curVal -= 26;</div><div class="line">        &#125;</div><div class="line">        return preVal += String.fromCharCode(curVal);</div><div class="line">      &#125;</div><div class="line">      else&#123;</div><div class="line">        return preVal += curVal;</div><div class="line">      &#125;</div><div class="line">    &#125;,&quot;&quot;);</div><div class="line">  return newStr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">rot13(&quot;SERR CVMMN!&quot;);</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;翻转字符串&quot;&gt;&lt;a href=&quot;#翻转字符串&quot; class=&quot;headerlink&quot; title=&quot;翻转字符串&quot;&gt;&lt;/a&gt;翻转字符串&lt;/h1&gt;&lt;h4 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/
+    
+    </summary>
+    
+      <category term="Array String Javascript" scheme="http://yoursite.com/categories/Array-String-Javascript/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>String 总结与示例</title>
+    <link href="http://yoursite.com/2017/02/14/String%E6%80%BB%E7%BB%93%E4%B8%8E%E7%A4%BA%E4%BE%8B/"/>
+    <id>http://yoursite.com/2017/02/14/String总结与示例/</id>
+    <published>2017-02-14T10:53:42.399Z</published>
+    <updated>2017-02-14T10:54:00.822Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><h4 id="array-length"><a href="#array-length" class="headerlink" title="array.length"></a>array.length</h4><ul>
+<li><p>返回一个数组中的元素个数。</p>
+</li>
+<li><p>Array.length 属性的属性特性：<br>writable    :true<br>enumerable    :false<br>configurable    :false</p>
+</li>
+<li><p>示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var items = [&quot;shoes&quot;, &quot;shirts&quot;, &quot;socks&quot;, &quot;sweaters&quot;];</div><div class="line"></div><div class="line">items.length;</div><div class="line"></div><div class="line">// 返回 4</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Array-prototype"><a href="#Array-prototype" class="headerlink" title="Array.prototype"></a>Array.prototype</h4><ul>
+<li><p>所有的数组实例都继承于 Array.prototype。</p>
+</li>
+<li><p>Array.prototype 属性的属性特性：<br>writable    :false<br>enumerable    :false<br>configurable    :false</p>
+</li>
+<li><p>注意：Array.prototype 本身是个空数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Array.isArray(Array.prototype) //true</div></pre></td></tr></table></figure>
+</li>
+<li><p>所有的数组方法都是定义在Array.prototype上，通过扩展其属性的方法来给所有数组示例增加方法。(构造函数的方式)</p>
+</li>
+</ul>
+<h1 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h1><h4 id="①-会改变自身"><a href="#①-会改变自身" class="headerlink" title="① 会改变自身"></a>① 会改变自身</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">概述</th>
+<th style="text-align:center">返回值</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">sort(compareFunction)</td>
+<td style="text-align:left">排序</td>
+<td style="text-align:center">新数组</td>
+<td>array.sort(func);</td>
+</tr>
+<tr>
+<td style="text-align:left">push(ele1,ele2,ele3)</td>
+<td style="text-align:left">在末尾添加元素</td>
+<td style="text-align:center">数组的新长度</td>
+<td>let a = [1,2]; a.push(3,4) // return 4</td>
+</tr>
+<tr>
+<td style="text-align:left">pop()</td>
+<td style="text-align:left">删除末尾的元素</td>
+<td style="text-align:center">返回该元素的值,会更改数组的长度</td>
+<td>let a = [1,2,3]; a.pop();//return 3</td>
+</tr>
+<tr>
+<td style="text-align:left">unshift(ele1,ele2,ele3)</td>
+<td style="text-align:left">在头部添加元素</td>
+<td style="text-align:center">数组的新长度</td>
+<td>类似push()</td>
+</tr>
+<tr>
+<td style="text-align:left">shift()</td>
+<td style="text-align:left">在头部删除元素</td>
+<td style="text-align:center">被删除元素的值</td>
+<td>类似pop()</td>
+</tr>
+<tr>
+<td style="text-align:left">reverse()</td>
+<td style="text-align:left">翻转数组</td>
+<td style="text-align:center">返回该数组的引用</td>
+<td>array.reverse()</td>
+</tr>
+<tr>
+<td style="text-align:left">splice(start, delCount, item1, …)</td>
+<td style="text-align:left">添加/删除特定元素</td>
+<td style="text-align:center">被删除元素组成的数组</td>
+<td>a.splice(2,0,”aa”)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="②-不会改变原数组"><a href="#②-不会改变原数组" class="headerlink" title="② 不会改变原数组"></a>② 不会改变原数组</h4><blockquote>
+<p> var a = [“a”,”b”,”c”],newA;</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">概述</th>
+<th style="text-align:left">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">concat(arr1,arr2)</td>
+<td style="text-align:left">连接</td>
+<td style="text-align:left">a.concat(“d”); //[“a”,”b”,”c”,”d”]</td>
+</tr>
+<tr>
+<td style="text-align:left">includes(num)</td>
+<td style="text-align:left">判断当前数组是否包含某指定的值,返回true/false</td>
+<td style="text-align:left">a.includes(“b”); //true</td>
+</tr>
+<tr>
+<td style="text-align:left">indexOf(ele)</td>
+<td style="text-align:left">返回数组中存在元素的第一个索引，没有则返回-1</td>
+<td style="text-align:left">a.indexOf(“b”); //1</td>
+</tr>
+<tr>
+<td style="text-align:left">lastIndexOf(ele)</td>
+<td style="text-align:left">与indexOf类似，不过从末尾开始寻找</td>
+<td style="text-align:left">a.lastIndexOf(“b”) // 1</td>
+</tr>
+<tr>
+<td style="text-align:left">join(“,”)</td>
+<td style="text-align:left">把数组按”,”连接成string</td>
+<td style="text-align:left">newA = a.join(“-“); //return a-b-c</td>
+</tr>
+<tr>
+<td style="text-align:left">slice(begin,end)</td>
+<td style="text-align:left">部分浅拷贝, 返回到从开始到结束（半开半闭区间）选择的新数组对象</td>
+<td style="text-align:left">newA = a.slice(1,2); // newA = [“b”];</td>
+</tr>
+<tr>
+<td style="text-align:left">toString()</td>
+<td style="text-align:left">返回一个字符串,由”,”连接</td>
+<td style="text-align:left">newA = a.toString(); // “a,b,c”</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="③-遍历方法"><a href="#③-遍历方法" class="headerlink" title="③ 遍历方法"></a>③ 遍历方法</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">概述</th>
+<th style="text-align:left">callback</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">forEach()</td>
+<td style="text-align:left">排序</td>
+<td style="text-align:left">function(val){return val;}</td>
+</tr>
+<tr>
+<td style="text-align:left">filter()</td>
+<td style="text-align:left">过滤出符合条件的元素，callback的参数作为当前迭代的项，返回true的项保留，false过滤。</td>
+<td style="text-align:left">function(val)</td>
+</tr>
+<tr>
+<td style="text-align:left">map()</td>
+<td style="text-align:left">根据callback来处理每个元素</td>
+<td style="text-align:left">function(val)</td>
+</tr>
+<tr>
+<td style="text-align:left">reduce(func,per(选))</td>
+<td style="text-align:left">迭代数组，并累计到一个值中。callback是个累加器</td>
+<td style="text-align:left">function(preVal,curVal)</td>
+</tr>
+<tr>
+<td style="text-align:left">every(callback[, thisArg])</td>
+<td style="text-align:left">每个元素都符合callback，返回T/F</td>
+<td style="text-align:left">func(element, index, array)</td>
+</tr>
+<tr>
+<td style="text-align:left">some()</td>
+<td style="text-align:left">其中一个符合callback，返回T/F</td>
+<td style="text-align:left">callback 被调用时传入三个参数：元素的值，元素的索引，被遍历的数组。</td>
+</tr>
+<tr>
+<td style="text-align:left">find()</td>
+<td style="text-align:left">返回数组中满足提供的测试函数的第一个元素的值,无则undefined</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">findIndex()</td>
+<td style="text-align:left">返回数组中满足提供的测试函数的第一个元素的索引。否则返回-1。</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;属性&quot;&gt;&lt;a href=&quot;#属性&quot; class=&quot;headerlink&quot; title=&quot;属性&quot;&gt;&lt;/a&gt;属性&lt;/h1&gt;&lt;h4 id=&quot;array-length&quot;&gt;&lt;a href=&quot;#array-length&quot; class=&quot;headerlink&quot; title=&quot;a
+    
+    </summary>
+    
+      <category term="String Javascript" scheme="http://yoursite.com/categories/String-Javascript/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Array 总结与示例</title>
@@ -645,71 +911,6 @@ Resolve：
   </entry>
   
   <entry>
-    <title>快速排序</title>
-    <link href="http://yoursite.com/2016/11/11/five/"/>
-    <id>http://yoursite.com/2016/11/11/five/</id>
-    <published>2016-11-11T00:55:29.000Z</published>
-    <updated>2017-02-03T14:00:13.425Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>选一基准元素 point</li>
-<li>分区操作(partition)：小于point放左边，大于point放右边，point最后的位置就是排序完成的位置。</li>
-<li>重复步骤1.2<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">function quickSort(array) &#123;</div><div class="line"></div><div class="line">	//交换元素位置</div><div class="line">	function swap(arr, i, k) &#123;</div><div class="line">		var temp = arr[i];</div><div class="line">		arr[i] = arr[k];</div><div class="line">		arr[k] = temp;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//分区操作，左小右大</div><div class="line">	function partition(arr, left, right) &#123;</div><div class="line"></div><div class="line">		var sortIndex = left;</div><div class="line">		var point = arr[right];//直接选最右的作为基准元素</div><div class="line"></div><div class="line">		for (var i = left; i &lt; right; i++) &#123;</div><div class="line"></div><div class="line">			if (arr[i] &lt;= point) &#123;</div><div class="line">				swap(arr, i, sortIndex);</div><div class="line">				sortIndex++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		swap(arr, sortIndex, right);//将基准元素放置在最后的正确位置</div><div class="line">		//console.log(arr);</div><div class="line">		return sortIndex;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	function sort(arr, left, right) &#123;</div><div class="line">		if (left &gt; right) &#123;</div><div class="line">			return;</div><div class="line">		&#125;</div><div class="line">		var sortIndex = partition(arr, left, right);</div><div class="line">		sort(arr,left,sortIndex-1);</div><div class="line">		sort(arr, sortIndex + 1, right);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	sort(arr, 0, arr.length - 1);</div><div class="line"></div><div class="line">	return array;</div><div class="line">&#125;</div><div class="line"></div><div class="line">quickSort(arr);</div></pre></td></tr></table></figure>
-<p><strong>算法分析</strong></p>
-<p>快速排序的时间主要耗费在划分操作上，对长度为 k 的区间进行划分，共需 k-1 次关键字的比较。</p>
-<p><strong>最坏时间复杂度</strong></p>
-<p>最坏情况是每次划分选取的基准都是当前无序区中关键字最小(或最大)的记录，划分的结果是基准左边的子区间为空(或右边的子区间为空)， 而划分所得的另一个非空的子区间中记录数目，仅仅比划分前的无序区中记录个数减少一个。 因此，快速排序必须做 n-1 次划分， 第i次划分开始时区间长度为 n-i+1，所需的比较次数为 n-i(1≤i≤n-1)，故总的比较次数达到最大值：Cmax = n(n-1)/2=O(n^2)</p>
-<p>如果按上面给出的划分算法，每次取当前无序区的第 1 个记录为基准，那么当文件的记录已按递增序(或递减序)排列时， 每次划分所取的基准就是当前无序区中关键字最小(或最大)的记录，则快速排序所需的比较次数反而最多。</p>
-<p><strong>最好时间复杂度</strong></p>
-<p>在最好情况下，每次划分所取的基准都是当前无序区的”中值”记录，划分的结果是基准的左、右两个无序子区间的长度大致相等。 总的关键字比较次数：O(nlgn)</p>
-<p>注意： 用递归树来分析最好情况下的比较次数更简单。因为每次划分后左、右子区间长度大致相等，故递归树的高度为 O(lgn)， 而递归树每一层上各结点所对应的划分过程中所需要的关键字比较次数总和不超过n，故整个排序过程所需要的关键字比较总次数 C(n)=O(nlgn)。</p>
-<p>因为快速排序的记录移动次数不大于比较的次数，所以快速排序的最坏时间复杂度应为 O(n^2)，最好时间复杂度为 O(nlgn)。</p>
-<p><strong>平均时间复杂度</strong></p>
-<p>尽管快速排序的最坏时间为 O(n^2)，但就平均性能而言，它是基于关键字比较的内部排序算法中速度最快者，快速排序亦因此而得名。 它的平均时间复杂度为 O(nlgn)。</p>
-<p><strong>基准关键字的选取</strong></p>
-<p>在当前无序区中选取划分的基准关键字是决定算法性能的关键。</p>
-<ul>
-<li>”三者取中”的规则</li>
-</ul>
-<p>“三者取中”规则，即在当前区间里，将该区间首、尾和中间位置上的关键字比较，取三者之中值所对应的记录作为基准， 在划分开始前将该基准记录和该区伺的第1个记录进行交换，此后的划分过程与上面所给的 Partition 算法完全相同。</p>
-<ul>
-<li>取位于 low 和 high 之间的随机数k(low≤k≤high)，用 R[k] 作为基准</li>
-</ul>
-<p>选取基准最好的方法是用一个随机函数产生一个取位于 low 和 high 之间的随机数 k(low≤k≤high)，用 R[k] 作为基准， 这相当于强迫R[low..high]中的记录是随机分布的。用此方法所得到的快速排序一般称为随机的快速排序。</p>
-<blockquote>
-<p>注意： 随机化的快速排序与一般的快速排序算法差别很小。但随机化后，算法的性能大大地提高了，尤其是对初始有序的文件， 一般不可能导致最坏情况的发生。算法的随机化不仅仅适用于快速排序，也适用于其它需要数据随机分布的算法。</p>
-</blockquote>
-<p><strong>空间复杂度</strong></p>
-<p>快速排序在系统内部需要一个栈来实现递归。若每次划分较为均匀，则其递归树的高度为 O(lgn)，故递归后需栈空间为 O(lgn)。 最坏情况下，递归树的高度为 O(n)，所需的栈空间为 O(n)。</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
-<li><a href="http://bubkoo.com/2014/01/12/sort-algorithm/quick-sort/" target="_blank" rel="external">常见排序算法 - 快速排序 (Quick Sort)</a></li>
-<li><a href="http://souly.cn/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/2016/04/07/%E7%90%86%E8%A7%A3%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" target="_blank" rel="external">理解快速排序算法</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;选一基准元素 point&lt;/li&gt;
-&lt;li&gt;分区操作(partition)：小于point放左边，大于point放右边，poin
-    
-    </summary>
-    
-      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Ajax 笔记</title>
     <link href="http://yoursite.com/2016/11/11/eight/"/>
     <id>http://yoursite.com/2016/11/11/eight/</id>
@@ -879,6 +1080,71 @@ Resolve：
   </entry>
   
   <entry>
+    <title>快速排序</title>
+    <link href="http://yoursite.com/2016/11/11/five/"/>
+    <id>http://yoursite.com/2016/11/11/five/</id>
+    <published>2016-11-11T00:55:29.000Z</published>
+    <updated>2017-02-03T14:00:13.425Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>选一基准元素 point</li>
+<li>分区操作(partition)：小于point放左边，大于point放右边，point最后的位置就是排序完成的位置。</li>
+<li>重复步骤1.2<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">function quickSort(array) &#123;</div><div class="line"></div><div class="line">	//交换元素位置</div><div class="line">	function swap(arr, i, k) &#123;</div><div class="line">		var temp = arr[i];</div><div class="line">		arr[i] = arr[k];</div><div class="line">		arr[k] = temp;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//分区操作，左小右大</div><div class="line">	function partition(arr, left, right) &#123;</div><div class="line"></div><div class="line">		var sortIndex = left;</div><div class="line">		var point = arr[right];//直接选最右的作为基准元素</div><div class="line"></div><div class="line">		for (var i = left; i &lt; right; i++) &#123;</div><div class="line"></div><div class="line">			if (arr[i] &lt;= point) &#123;</div><div class="line">				swap(arr, i, sortIndex);</div><div class="line">				sortIndex++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		swap(arr, sortIndex, right);//将基准元素放置在最后的正确位置</div><div class="line">		//console.log(arr);</div><div class="line">		return sortIndex;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	function sort(arr, left, right) &#123;</div><div class="line">		if (left &gt; right) &#123;</div><div class="line">			return;</div><div class="line">		&#125;</div><div class="line">		var sortIndex = partition(arr, left, right);</div><div class="line">		sort(arr,left,sortIndex-1);</div><div class="line">		sort(arr, sortIndex + 1, right);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	sort(arr, 0, arr.length - 1);</div><div class="line"></div><div class="line">	return array;</div><div class="line">&#125;</div><div class="line"></div><div class="line">quickSort(arr);</div></pre></td></tr></table></figure>
+<p><strong>算法分析</strong></p>
+<p>快速排序的时间主要耗费在划分操作上，对长度为 k 的区间进行划分，共需 k-1 次关键字的比较。</p>
+<p><strong>最坏时间复杂度</strong></p>
+<p>最坏情况是每次划分选取的基准都是当前无序区中关键字最小(或最大)的记录，划分的结果是基准左边的子区间为空(或右边的子区间为空)， 而划分所得的另一个非空的子区间中记录数目，仅仅比划分前的无序区中记录个数减少一个。 因此，快速排序必须做 n-1 次划分， 第i次划分开始时区间长度为 n-i+1，所需的比较次数为 n-i(1≤i≤n-1)，故总的比较次数达到最大值：Cmax = n(n-1)/2=O(n^2)</p>
+<p>如果按上面给出的划分算法，每次取当前无序区的第 1 个记录为基准，那么当文件的记录已按递增序(或递减序)排列时， 每次划分所取的基准就是当前无序区中关键字最小(或最大)的记录，则快速排序所需的比较次数反而最多。</p>
+<p><strong>最好时间复杂度</strong></p>
+<p>在最好情况下，每次划分所取的基准都是当前无序区的”中值”记录，划分的结果是基准的左、右两个无序子区间的长度大致相等。 总的关键字比较次数：O(nlgn)</p>
+<p>注意： 用递归树来分析最好情况下的比较次数更简单。因为每次划分后左、右子区间长度大致相等，故递归树的高度为 O(lgn)， 而递归树每一层上各结点所对应的划分过程中所需要的关键字比较次数总和不超过n，故整个排序过程所需要的关键字比较总次数 C(n)=O(nlgn)。</p>
+<p>因为快速排序的记录移动次数不大于比较的次数，所以快速排序的最坏时间复杂度应为 O(n^2)，最好时间复杂度为 O(nlgn)。</p>
+<p><strong>平均时间复杂度</strong></p>
+<p>尽管快速排序的最坏时间为 O(n^2)，但就平均性能而言，它是基于关键字比较的内部排序算法中速度最快者，快速排序亦因此而得名。 它的平均时间复杂度为 O(nlgn)。</p>
+<p><strong>基准关键字的选取</strong></p>
+<p>在当前无序区中选取划分的基准关键字是决定算法性能的关键。</p>
+<ul>
+<li>”三者取中”的规则</li>
+</ul>
+<p>“三者取中”规则，即在当前区间里，将该区间首、尾和中间位置上的关键字比较，取三者之中值所对应的记录作为基准， 在划分开始前将该基准记录和该区伺的第1个记录进行交换，此后的划分过程与上面所给的 Partition 算法完全相同。</p>
+<ul>
+<li>取位于 low 和 high 之间的随机数k(low≤k≤high)，用 R[k] 作为基准</li>
+</ul>
+<p>选取基准最好的方法是用一个随机函数产生一个取位于 low 和 high 之间的随机数 k(low≤k≤high)，用 R[k] 作为基准， 这相当于强迫R[low..high]中的记录是随机分布的。用此方法所得到的快速排序一般称为随机的快速排序。</p>
+<blockquote>
+<p>注意： 随机化的快速排序与一般的快速排序算法差别很小。但随机化后，算法的性能大大地提高了，尤其是对初始有序的文件， 一般不可能导致最坏情况的发生。算法的随机化不仅仅适用于快速排序，也适用于其它需要数据随机分布的算法。</p>
+</blockquote>
+<p><strong>空间复杂度</strong></p>
+<p>快速排序在系统内部需要一个栈来实现递归。若每次划分较为均匀，则其递归树的高度为 O(lgn)，故递归后需栈空间为 O(lgn)。 最坏情况下，递归树的高度为 O(n)，所需的栈空间为 O(n)。</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="http://bubkoo.com/2014/01/12/sort-algorithm/quick-sort/" target="_blank" rel="external">常见排序算法 - 快速排序 (Quick Sort)</a></li>
+<li><a href="http://souly.cn/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/2016/04/07/%E7%90%86%E8%A7%A3%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" target="_blank" rel="external">理解快速排序算法</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;选一基准元素 point&lt;/li&gt;
+&lt;li&gt;分区操作(partition)：小于point放左边，大于point放右边，poin
+    
+    </summary>
+    
+      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>重新认识-盒子模型</title>
     <link href="http://yoursite.com/2016/11/08/newthr/"/>
     <id>http://yoursite.com/2016/11/08/newthr/</id>
@@ -986,28 +1252,6 @@ Resolve：
   </entry>
   
   <entry>
-    <title>插入排序</title>
-    <link href="http://yoursite.com/2016/11/05/six/"/>
-    <id>http://yoursite.com/2016/11/05/six/</id>
-    <published>2016-11-05T00:55:29.000Z</published>
-    <updated>2017-02-03T14:00:50.376Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="算法原理："><a href="#算法原理：" class="headerlink" title="算法原理："></a>算法原理：</h2><p>设有一组关键字｛K1， K2，…， Kn｝；排序开始就认为 K1 是一个有序序列；让 K2 插入上述表长为 1 的有序序列，使之成为一个表长为 2 的有序序列；然后让 K3 插入上述表长为 2 的有序序列，使之成为一个表长为 3 的有序序列；依次类推，最后让 Kn 插入上述表长为 n-1 的有序序列，得一个表长为 n 的有序序列。</p>
-<h2 id="个人实现思路："><a href="#个人实现思路：" class="headerlink" title="个人实现思路："></a>个人实现思路：</h2><p>1.设第一个elem( n=0 ) 已排好序A。<br>2.从第二个elem( n=1 )开始，<br>3.在找到准备插入的位置后，需要将该位置之后的数组元素往后挪一位；<br>  所以，在对比之前，要先记录自身元素的值。<br>4.【从后→前】对比，若 A[last] &gt; elem ,那么交换位置，直到 A[elem] &lt; elem ,本轮结束，elem已排好位置。<br>5.重复步骤2-4，直至到达数组最后一位。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var arr = [1,3,9,6,5,2,7,2,3,4,8];</div><div class="line"></div><div class="line">function insertSort(arr)&#123;</div><div class="line">	</div><div class="line">	for(var i = 1; i &lt; arr.length; i++)&#123;</div><div class="line">		</div><div class="line">		var tmp = arr[i];</div><div class="line">		for( var j = i-1; j &gt; 0 , arr[j] &gt; tmp; j--)&#123;</div><div class="line">			arr[ j+1 ] = arr[ j ];</div><div class="line">			arr[ j ] = tmp;</div><div class="line">	&#125;</div><div class="line">	console.log(arr);</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">insertSort(arr);</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;算法原理：&quot;&gt;&lt;a href=&quot;#算法原理：&quot; class=&quot;headerlink&quot; title=&quot;算法原理：&quot;&gt;&lt;/a&gt;算法原理：&lt;/h2&gt;&lt;p&gt;设有一组关键字｛K1， K2，…， Kn｝；排序开始就认为 K1 是一个有序序列；让 K2 插入上述表长为 1 的有
-    
-    </summary>
-    
-      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Math.random()随机数的一些事一些情</title>
     <link href="http://yoursite.com/2016/11/05/newone/"/>
     <id>http://yoursite.com/2016/11/05/newone/</id>
@@ -1051,6 +1295,28 @@ Resolve：
     <summary type="html">
     
       &lt;h1 id=&quot;Math-random-随机数的一些事一些情&quot;&gt;&lt;a href=&quot;#Math-random-随机数的一些事一些情&quot; class=&quot;headerlink&quot; title=&quot;Math.random()随机数的一些事一些情&quot;&gt;&lt;/a&gt;&lt;strong&gt;Math.random
+    
+    </summary>
+    
+      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>插入排序</title>
+    <link href="http://yoursite.com/2016/11/05/six/"/>
+    <id>http://yoursite.com/2016/11/05/six/</id>
+    <published>2016-11-05T00:55:29.000Z</published>
+    <updated>2017-02-03T14:00:50.376Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="算法原理："><a href="#算法原理：" class="headerlink" title="算法原理："></a>算法原理：</h2><p>设有一组关键字｛K1， K2，…， Kn｝；排序开始就认为 K1 是一个有序序列；让 K2 插入上述表长为 1 的有序序列，使之成为一个表长为 2 的有序序列；然后让 K3 插入上述表长为 2 的有序序列，使之成为一个表长为 3 的有序序列；依次类推，最后让 Kn 插入上述表长为 n-1 的有序序列，得一个表长为 n 的有序序列。</p>
+<h2 id="个人实现思路："><a href="#个人实现思路：" class="headerlink" title="个人实现思路："></a>个人实现思路：</h2><p>1.设第一个elem( n=0 ) 已排好序A。<br>2.从第二个elem( n=1 )开始，<br>3.在找到准备插入的位置后，需要将该位置之后的数组元素往后挪一位；<br>  所以，在对比之前，要先记录自身元素的值。<br>4.【从后→前】对比，若 A[last] &gt; elem ,那么交换位置，直到 A[elem] &lt; elem ,本轮结束，elem已排好位置。<br>5.重复步骤2-4，直至到达数组最后一位。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var arr = [1,3,9,6,5,2,7,2,3,4,8];</div><div class="line"></div><div class="line">function insertSort(arr)&#123;</div><div class="line">	</div><div class="line">	for(var i = 1; i &lt; arr.length; i++)&#123;</div><div class="line">		</div><div class="line">		var tmp = arr[i];</div><div class="line">		for( var j = i-1; j &gt; 0 , arr[j] &gt; tmp; j--)&#123;</div><div class="line">			arr[ j+1 ] = arr[ j ];</div><div class="line">			arr[ j ] = tmp;</div><div class="line">	&#125;</div><div class="line">	console.log(arr);</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">insertSort(arr);</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;算法原理：&quot;&gt;&lt;a href=&quot;#算法原理：&quot; class=&quot;headerlink&quot; title=&quot;算法原理：&quot;&gt;&lt;/a&gt;算法原理：&lt;/h2&gt;&lt;p&gt;设有一组关键字｛K1， K2，…， Kn｝；排序开始就认为 K1 是一个有序序列；让 K2 插入上述表长为 1 的有
     
     </summary>
     
