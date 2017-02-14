@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-05T08:27:16.926Z</updated>
+  <updated>2017-02-14T00:21:15.738Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,202 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Array 总结与示例</title>
+    <link href="http://yoursite.com/2017/02/13/Array%E6%80%BB%E7%BB%93%E4%B8%8E%E7%A4%BA%E4%BE%8B/"/>
+    <id>http://yoursite.com/2017/02/13/Array总结与示例/</id>
+    <published>2017-02-13T14:06:30.484Z</published>
+    <updated>2017-02-14T00:21:15.738Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><h4 id="array-length"><a href="#array-length" class="headerlink" title="array.length"></a>array.length</h4><ul>
+<li><p>返回一个数组中的元素个数。</p>
+</li>
+<li><p>Array.length 属性的属性特性：<br>writable    :true<br>enumerable    :false<br>configurable    :false</p>
+</li>
+<li><p>示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var items = [&quot;shoes&quot;, &quot;shirts&quot;, &quot;socks&quot;, &quot;sweaters&quot;];</div><div class="line"></div><div class="line">items.length;</div><div class="line"></div><div class="line">// 返回 4</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Array-prototype"><a href="#Array-prototype" class="headerlink" title="Array.prototype"></a>Array.prototype</h4><ul>
+<li><p>所有的数组实例都继承于 Array.prototype。</p>
+</li>
+<li><p>Array.prototype 属性的属性特性：<br>writable    :false<br>enumerable    :false<br>configurable    :false</p>
+</li>
+<li><p>注意：Array.prototype 本身是个空数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Array.isArray(Array.prototype) //true</div></pre></td></tr></table></figure>
+</li>
+<li><p>所有的数组方法都是定义在Array.prototype上，通过扩展其属性的方法来给所有数组示例增加方法。(构造函数的方式)</p>
+</li>
+</ul>
+<h1 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h1><h4 id="①-会改变自身"><a href="#①-会改变自身" class="headerlink" title="① 会改变自身"></a>① 会改变自身</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">概述</th>
+<th style="text-align:center">返回值</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">sort(compareFunction)</td>
+<td style="text-align:left">排序</td>
+<td style="text-align:center">新数组</td>
+<td>array.sort(func);</td>
+</tr>
+<tr>
+<td style="text-align:left">push(ele1,ele2,ele3)</td>
+<td style="text-align:left">在末尾添加元素</td>
+<td style="text-align:center">数组的新长度</td>
+<td>let a = [1,2]; a.push(3,4) // return 4</td>
+</tr>
+<tr>
+<td style="text-align:left">pop()</td>
+<td style="text-align:left">删除末尾的元素</td>
+<td style="text-align:center">返回该元素的值,会更改数组的长度</td>
+<td>let a = [1,2,3]; a.pop();//return 3</td>
+</tr>
+<tr>
+<td style="text-align:left">unshift(ele1,ele2,ele3)</td>
+<td style="text-align:left">在头部添加元素</td>
+<td style="text-align:center">数组的新长度</td>
+<td>类似push()</td>
+</tr>
+<tr>
+<td style="text-align:left">shift()</td>
+<td style="text-align:left">在头部删除元素</td>
+<td style="text-align:center">被删除元素的值</td>
+<td>类似pop()</td>
+</tr>
+<tr>
+<td style="text-align:left">reverse()</td>
+<td style="text-align:left">翻转数组</td>
+<td style="text-align:center">返回该数组的引用</td>
+<td>array.reverse()</td>
+</tr>
+<tr>
+<td style="text-align:left">splice(start, delCount, item1, …)</td>
+<td style="text-align:left">添加/删除特定元素</td>
+<td style="text-align:center">被删除元素组成的数组</td>
+<td>a.splice(2,0,”aa”)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="②-不会改变原数组"><a href="#②-不会改变原数组" class="headerlink" title="② 不会改变原数组"></a>② 不会改变原数组</h4><blockquote>
+<p> var a = [“a”,”b”,”c”],newA;</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">概述</th>
+<th style="text-align:left">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">concat(arr1,arr2)</td>
+<td style="text-align:left">连接</td>
+<td style="text-align:left">a.concat(“d”); //[“a”,”b”,”c”,”d”]</td>
+</tr>
+<tr>
+<td style="text-align:left">includes(num)</td>
+<td style="text-align:left">判断当前数组是否包含某指定的值,返回true/false</td>
+<td style="text-align:left">a.includes(“b”); //true</td>
+</tr>
+<tr>
+<td style="text-align:left">indexOf(ele)</td>
+<td style="text-align:left">返回数组中存在元素的第一个索引，没有则返回-1</td>
+<td style="text-align:left">a.indexOf(“b”); //1</td>
+</tr>
+<tr>
+<td style="text-align:left">lastIndexOf(ele)</td>
+<td style="text-align:left">与indexOf类似，不过从末尾开始寻找</td>
+<td style="text-align:left">a.lastIndexOf(“b”) // 1</td>
+</tr>
+<tr>
+<td style="text-align:left">join(“,”)</td>
+<td style="text-align:left">把数组按”,”连接成string</td>
+<td style="text-align:left">newA = a.join(“-“); //return a-b-c</td>
+</tr>
+<tr>
+<td style="text-align:left">slice(begin,end)</td>
+<td style="text-align:left">部分浅拷贝, 返回到从开始到结束（半开半闭区间）选择的新数组对象</td>
+<td style="text-align:left">newA = a.slice(1,2); // newA = [“b”];</td>
+</tr>
+<tr>
+<td style="text-align:left">toString()</td>
+<td style="text-align:left">返回一个字符串,由”,”连接</td>
+<td style="text-align:left">newA = a.toString(); // “a,b,c”</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="③-遍历方法"><a href="#③-遍历方法" class="headerlink" title="③ 遍历方法"></a>③ 遍历方法</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">概述</th>
+<th style="text-align:left">callback</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">forEach()</td>
+<td style="text-align:left">排序</td>
+<td style="text-align:left">function(val){return val;}</td>
+</tr>
+<tr>
+<td style="text-align:left">filter()</td>
+<td style="text-align:left">过滤出符合条件的元素，callback的参数作为当前迭代的项，返回true的项保留，false过滤。</td>
+<td style="text-align:left">function(val)</td>
+</tr>
+<tr>
+<td style="text-align:left">map()</td>
+<td style="text-align:left">根据callback来处理每个元素</td>
+<td style="text-align:left">function(val)</td>
+</tr>
+<tr>
+<td style="text-align:left">reduce(func,per(选))</td>
+<td style="text-align:left">迭代数组，并累计到一个值中。callback是个累加器</td>
+<td style="text-align:left">function(preVal,curVal)</td>
+</tr>
+<tr>
+<td style="text-align:left">every(callback[, thisArg])</td>
+<td style="text-align:left">每个元素都符合callback，返回T/F</td>
+<td style="text-align:left">func(element, index, array)</td>
+</tr>
+<tr>
+<td style="text-align:left">some()</td>
+<td style="text-align:left">其中一个符合callback，返回T/F</td>
+<td style="text-align:left">callback 被调用时传入三个参数：元素的值，元素的索引，被遍历的数组。</td>
+</tr>
+<tr>
+<td style="text-align:left">find()</td>
+<td style="text-align:left">返回数组中满足提供的测试函数的第一个元素的值,无则undefined</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">findIndex()</td>
+<td style="text-align:left">返回数组中满足提供的测试函数的第一个元素的索引。否则返回-1。</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;属性&quot;&gt;&lt;a href=&quot;#属性&quot; class=&quot;headerlink&quot; title=&quot;属性&quot;&gt;&lt;/a&gt;属性&lt;/h1&gt;&lt;h4 id=&quot;array-length&quot;&gt;&lt;a href=&quot;#array-length&quot; class=&quot;headerlink&quot; title=&quot;a
+    
+    </summary>
+    
+      <category term="Array" scheme="http://yoursite.com/categories/Array/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>JSON发送数据</title>
@@ -34,6 +230,234 @@
 &lt;p&gt;“
     
     </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Ajax 的 深入学习</title>
+    <link href="http://yoursite.com/2017/02/05/ajaxNote/"/>
+    <id>http://yoursite.com/2017/02/05/ajaxNote/</id>
+    <published>2017-02-05T03:04:15.030Z</published>
+    <updated>2017-02-14T00:21:27.420Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Ajax-起步"><a href="#Ajax-起步" class="headerlink" title="Ajax 起步"></a>Ajax 起步</h2><ol>
+<li><p>创建一个新的XMLHttpRequest 对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var httpRequest = new XMLHttpRequest();</div></pre></td></tr></table></figure>
+</li>
+<li><p>给 readystatechange 事件设置一个事件处理器handlerResponse</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">httpRequest.onreadystatechange = handlerResponse;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>然后，告诉 XMLHttpRequest 对象你想要做什么：</p>
+</blockquote>
+</li>
+<li><p>使用 open 方法来指定 HTTP 方法和需要请求的URL</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">httpRequest.open( &quot;get&quot;, e.target.innerHTML + &quot;.html&quot; );</div></pre></td></tr></table></figure>
+</li>
+<li><p>调用send() 方法，向服务器发送数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">httpRequest.send();</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h6 id="HTTP-方法："><a href="#HTTP-方法：" class="headerlink" title="HTTP 方法："></a>HTTP 方法：</h6><ul>
+<li>GET：适合安全的交互行为，那些可以反复发起而不会带来副作用的请求。</li>
+<li>POST：适合不安全的交互行为，每一个请求都会导致服务器端发生变化，而重复的请求可能会带来问题。</li>
+</ul>
+<h2 id="处理响应"><a href="#处理响应" class="headerlink" title="处理响应"></a>处理响应</h2><p>一旦脚本调用了send方法，浏览器在后台发送请求到服务器，而 Ajax 依靠时间来通知请求的进展。</p>
+<p>此处用 handlerResponse 来处理这些事件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function handlerResponse(e)&#123;</div><div class="line">	if( e.target.reayState == XMLHttpRequest.DONE &amp;&amp; e.target.status == 200)&#123;</div><div class="line">		document.getElementById(&quot;target&quot;).innerHTML = e.target.responseText;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>DONE状态并不意味着请求成功，只代表请求已完成。<br>通过status属性获得HTTP状态码，会返回一个数值（例如200表示成功）。<br>只有结合 <strong> readyState 和 status</strong> 属性的值才能够<strong> 确定请求的结果</strong>。<br><strong>用 XMLHttpRequest.responseText 属性获得服务器发送的数据。</strong></p>
+<h4 id="XMLHttpRequest-readyState-属性的值"><a href="#XMLHttpRequest-readyState-属性的值" class="headerlink" title="XMLHttpRequest readyState 属性的值"></a>XMLHttpRequest readyState 属性的值</h4><table>
+<thead>
+<tr>
+<th>值</th>
+<th>数值</th>
+<th>状态说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UNSENT</td>
+<td>0</td>
+<td>已创建XMLHttpRequest对象，请求未初始化，open未调用；</td>
+</tr>
+<tr>
+<td>OPENED</td>
+<td>1</td>
+<td>Server链接已建立，open已调用；</td>
+</tr>
+<tr>
+<td>HEADERS_RECEIVED</td>
+<td>2</td>
+<td>已收到服务器响应的标头</td>
+</tr>
+<tr>
+<td>LOADING</td>
+<td>3</td>
+<td>请求处理中，已收到服务器响应</td>
+</tr>
+<tr>
+<td>DONE</td>
+<td>4</td>
+<td>响应完成或已失败。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="HTTP-状态码"><a href="#HTTP-状态码" class="headerlink" title="HTTP 状态码"></a>HTTP 状态码</h4><table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1xx：</td>
+<td>信息类。表示接受到浏览器请求，进一步处理。</td>
+</tr>
+<tr>
+<td>2xx：</td>
+<td>成功。请求被正确接收，理解和处理。</td>
+</tr>
+<tr>
+<td>3xx：</td>
+<td>重定向。请求失败，客户采取进一步操作。</td>
+</tr>
+<tr>
+<td>4xx：</td>
+<td>客户端错误。</td>
+</tr>
+<tr>
+<td>5xx：</td>
+<td>服务器错误。服务器不能完成请求。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="完整代码如下"><a href="#完整代码如下" class="headerlink" title="完整代码如下"></a>完整代码如下</h4><pre><code>// 用户点击一个按钮，
+// 浏览器在后台向服务器请求一个文档，
+// 当它到达时处理一个事件，并显示被请求文档的内容。
+var btn = document.getElementsByTagName(&apos;button&apos;);
+var tar = document.getElementById(&quot;target&quot;);
+
+for(let i = 0; i &lt; btn.length; i++){
+    btn[i].onclick = handlerBtnPress;
+}
+
+function handlerBtnPress(e){
+
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.open( &quot;GET&quot;, e.target.innerHTML + &quot;.html&quot;);
+    httpRequest.onreadystatechange = handlerResponse;
+    httpRequest.send();
+}
+
+function handlerResponse(e){
+    if(e.target.readyState === 4 &amp;&amp; e.target.status === 200){
+        tar.innerHTML = e.target.responseText;
+    }
+}
+</code></pre><h3 id="兼容-Opera"><a href="#兼容-Opera" class="headerlink" title="兼容 Opera"></a>兼容 Opera</h3><blockquote>
+<pre><code>Queation 1：
+Opera 在出发readystatechange事件时不会生成一个Event对象。
+
+Resolve：
+把XMLHttpRequest对象指派给一个全局变量。
+</code></pre></blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var httpRequest;</div><div class="line"></div><div class="line">function handlerBtnPress(e)&#123;</div><div class="line"></div><div class="line">	httpRequest = new XMLHttpRequest();</div><div class="line">	httpRequest.open( &quot;GET&quot;, e.target.innerHTML + &quot;.html&quot;);</div><div class="line">	httpRequest.onreadystatechange = handlerResponse;</div><div class="line">	httpRequest.send();</div><div class="line">&#125;</div><div class="line"></div><div class="line">function handlerResponse(e)&#123;</div><div class="line">	if(httpRequest.readyState === 4 &amp;&amp; httpRequest.status === 200)&#123;</div><div class="line">		tar.innerHTML = httpRequest.responseText;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="使用-Ajax-事件"><a href="#使用-Ajax-事件" class="headerlink" title="使用 Ajax 事件"></a>使用 Ajax 事件</h2><h4 id="XMLHttpRequest-对象定义的事件"><a href="#XMLHttpRequest-对象定义的事件" class="headerlink" title="XMLHttpRequest 对象定义的事件"></a>XMLHttpRequest 对象定义的事件</h4><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>事件类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>abort</td>
+<td>在请求被终止时触发</td>
+<td>ProgressEvent</td>
+</tr>
+<tr>
+<td>error</td>
+<td>在请求是被时触发</td>
+<td>ProgressEvent</td>
+</tr>
+<tr>
+<td>load</td>
+<td>请求成功完成时触发</td>
+<td>ProgressEvent</td>
+</tr>
+<tr>
+<td>loadend</td>
+<td>请求已完成时触发，无论成功还是发生错误</td>
+<td>ProgressEvent</td>
+</tr>
+<tr>
+<td>loadstart</td>
+<td>请求开始时触发</td>
+<td>ProgressEvent</td>
+</tr>
+<tr>
+<td>progress</td>
+<td>触发以提示请求的进度</td>
+<td>ProgressEvent</td>
+</tr>
+<tr>
+<td>readystatechange</td>
+<td>在请求生命周期的不同阶段触发</td>
+<td>Event</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>请求超时则触发</td>
+<td>ProgressEvent</td>
+</tr>
+</tbody>
+</table>
+<p>####ProgressEvent 定义的额外属性</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>事件类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lengthComputable</td>
+<td>如果能够计算数据流的总长度则返回true</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>loaded</td>
+<td>返回当前已载入的数据量</td>
+<td>number</td>
+</tr>
+<tr>
+<td>total</td>
+<td>返回可用的数据总量</td>
+<td>number</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>使用XMLHttpRequest定义的一次性事件</p>
+</blockquote>
+<p>这是之前示例的一种变量，为一些事件注册了处理函数，并在一个table内为处理的时间创建了记录，以看清楚浏览器是如何处罚这些事件的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'button'</span>);</div><div class="line"><span class="keyword">var</span> tar = <span class="built_in">document</span>.getElementById(<span class="string">"target"</span>);</div><div class="line"><span class="keyword">var</span> eve = <span class="built_in">document</span>.getElementById(<span class="string">"eve"</span>);</div><div class="line"><span class="keyword">var</span> httpRequest;</div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; btn.length; i++)&#123;</div><div class="line">	btn[i].onclick = handlerBtnPress;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handlerBtnPress</span>(<span class="params">e</span>)</span>&#123;</div><div class="line"></div><div class="line">	clearEveDetails();</div><div class="line"></div><div class="line">	httpRequest = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line"></div><div class="line">	httpRequest.onreadystatechange = handlerResponse;</div><div class="line">	httpRequest.onerror = handlerError;</div><div class="line">	httpRequest.onload = handlerLoad;</div><div class="line">	httpRequest.onloadstart = handlerLoadstart;</div><div class="line">	httpRequest.onloadend = handlerLoadend;</div><div class="line">	httpRequest.onprogress = handlerProgress;</div><div class="line"></div><div class="line">	httpRequest.open( <span class="string">"GET"</span>, e.target.innerHTML + <span class="string">".html"</span>);</div><div class="line">	httpRequest.send();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handlerResponse</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">	displayEveDetails(<span class="string">"readystate("</span> + httpRequest.readyState + <span class="string">")"</span>);</div><div class="line">	<span class="keyword">if</span>(httpRequest.readyState === <span class="number">4</span> &amp;&amp; httpRequest.status === <span class="number">200</span>)&#123;</div><div class="line">		tar.innerHTML = httpRequest.responseText;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handlerError</span>(<span class="params">e</span>)</span>&#123; displayEveDetails(<span class="string">"error"</span>,e); &#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handlerLoad</span>(<span class="params">e</span>)</span>&#123; displayEveDetails(<span class="string">"load"</span>,e); &#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handlerLoadstart</span>(<span class="params">e</span>)</span>&#123; displayEveDetails(<span class="string">"loadstart"</span>,e); &#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handlerLoadend</span>(<span class="params">e</span>)</span>&#123; displayEveDetails(<span class="string">"loadend"</span>,e); &#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handlerProgress</span>(<span class="params">e</span>)</span>&#123; displayEveDetails(<span class="string">"progress"</span>,e); &#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">clearEveDetails</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">	eve.innerHTML = <span class="string">"&lt;tr&gt;&lt;th&gt;Event&lt;/th&gt;&lt;th&gt;lengthComputable&lt;/th&gt;&lt;th&gt;loaded&lt;/th&gt;&lt;th&gt;total&lt;/th&gt;&lt;/tr&gt;"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">displayEveDetails</span>(<span class="params">eventName,e</span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(e)&#123;</div><div class="line">		eve.innerHTML +=</div><div class="line">		<span class="string">"&lt;tr&gt;&lt;td&gt;"</span> + eventName + <span class="string">"&lt;/td&gt;&lt;td&gt;"</span> + e.lengthComputable + <span class="string">"&lt;/td&gt;&lt;td&gt;"</span> + e.loaded + <span class="string">"&lt;/td&gt;&lt;td&gt;"</span> + e.total + <span class="string">"&lt;/td&gt;&lt;/tr&gt;"</span>;</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		eve.innerHTML +=</div><div class="line">		<span class="string">"&lt;tr&gt;&lt;td&gt;"</span> + eventName + <span class="string">"&lt;/td&gt;&lt;td&gt;"</span> + <span class="string">"NAN"</span> + <span class="string">"&lt;/td&gt;&lt;td&gt;"</span> + <span class="string">"NAN"</span> + <span class="string">"&lt;/td&gt;&lt;td&gt;"</span> + <span class="string">"NAN"</span> + <span class="string">"&lt;/td&gt;&lt;/tr&gt;"</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="生成-Ajax-跨域请求"><a href="#生成-Ajax-跨域请求" class="headerlink" title="生成 Ajax 跨域请求"></a>生成 Ajax 跨域请求</h2><p>浏览器为防止跨站脚本攻击，采用的同源策略，即 协议、主机名、端口号一致。</p>
+<p>####CORS 跨源资源共享 Cross-origin-resource-sharing<br>通过添加跨源表头 Access-Control-Allow-Origin，指定某个来源必须被允许对此文档生成跨域请求。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Ajax-起步&quot;&gt;&lt;a href=&quot;#Ajax-起步&quot; class=&quot;headerlink&quot; title=&quot;Ajax 起步&quot;&gt;&lt;/a&gt;Ajax 起步&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;创建一个新的XMLHttpRequest 对象&lt;/p&gt;
+&lt;figure class
+    
+    </summary>
+    
+      <category term="Ajax" scheme="http://yoursite.com/categories/Ajax/"/>
     
     
   </entry>
@@ -221,6 +645,71 @@
   </entry>
   
   <entry>
+    <title>快速排序</title>
+    <link href="http://yoursite.com/2016/11/11/five/"/>
+    <id>http://yoursite.com/2016/11/11/five/</id>
+    <published>2016-11-11T00:55:29.000Z</published>
+    <updated>2017-02-03T14:00:13.425Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>选一基准元素 point</li>
+<li>分区操作(partition)：小于point放左边，大于point放右边，point最后的位置就是排序完成的位置。</li>
+<li>重复步骤1.2<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">function quickSort(array) &#123;</div><div class="line"></div><div class="line">	//交换元素位置</div><div class="line">	function swap(arr, i, k) &#123;</div><div class="line">		var temp = arr[i];</div><div class="line">		arr[i] = arr[k];</div><div class="line">		arr[k] = temp;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//分区操作，左小右大</div><div class="line">	function partition(arr, left, right) &#123;</div><div class="line"></div><div class="line">		var sortIndex = left;</div><div class="line">		var point = arr[right];//直接选最右的作为基准元素</div><div class="line"></div><div class="line">		for (var i = left; i &lt; right; i++) &#123;</div><div class="line"></div><div class="line">			if (arr[i] &lt;= point) &#123;</div><div class="line">				swap(arr, i, sortIndex);</div><div class="line">				sortIndex++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		swap(arr, sortIndex, right);//将基准元素放置在最后的正确位置</div><div class="line">		//console.log(arr);</div><div class="line">		return sortIndex;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	function sort(arr, left, right) &#123;</div><div class="line">		if (left &gt; right) &#123;</div><div class="line">			return;</div><div class="line">		&#125;</div><div class="line">		var sortIndex = partition(arr, left, right);</div><div class="line">		sort(arr,left,sortIndex-1);</div><div class="line">		sort(arr, sortIndex + 1, right);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	sort(arr, 0, arr.length - 1);</div><div class="line"></div><div class="line">	return array;</div><div class="line">&#125;</div><div class="line"></div><div class="line">quickSort(arr);</div></pre></td></tr></table></figure>
+<p><strong>算法分析</strong></p>
+<p>快速排序的时间主要耗费在划分操作上，对长度为 k 的区间进行划分，共需 k-1 次关键字的比较。</p>
+<p><strong>最坏时间复杂度</strong></p>
+<p>最坏情况是每次划分选取的基准都是当前无序区中关键字最小(或最大)的记录，划分的结果是基准左边的子区间为空(或右边的子区间为空)， 而划分所得的另一个非空的子区间中记录数目，仅仅比划分前的无序区中记录个数减少一个。 因此，快速排序必须做 n-1 次划分， 第i次划分开始时区间长度为 n-i+1，所需的比较次数为 n-i(1≤i≤n-1)，故总的比较次数达到最大值：Cmax = n(n-1)/2=O(n^2)</p>
+<p>如果按上面给出的划分算法，每次取当前无序区的第 1 个记录为基准，那么当文件的记录已按递增序(或递减序)排列时， 每次划分所取的基准就是当前无序区中关键字最小(或最大)的记录，则快速排序所需的比较次数反而最多。</p>
+<p><strong>最好时间复杂度</strong></p>
+<p>在最好情况下，每次划分所取的基准都是当前无序区的”中值”记录，划分的结果是基准的左、右两个无序子区间的长度大致相等。 总的关键字比较次数：O(nlgn)</p>
+<p>注意： 用递归树来分析最好情况下的比较次数更简单。因为每次划分后左、右子区间长度大致相等，故递归树的高度为 O(lgn)， 而递归树每一层上各结点所对应的划分过程中所需要的关键字比较次数总和不超过n，故整个排序过程所需要的关键字比较总次数 C(n)=O(nlgn)。</p>
+<p>因为快速排序的记录移动次数不大于比较的次数，所以快速排序的最坏时间复杂度应为 O(n^2)，最好时间复杂度为 O(nlgn)。</p>
+<p><strong>平均时间复杂度</strong></p>
+<p>尽管快速排序的最坏时间为 O(n^2)，但就平均性能而言，它是基于关键字比较的内部排序算法中速度最快者，快速排序亦因此而得名。 它的平均时间复杂度为 O(nlgn)。</p>
+<p><strong>基准关键字的选取</strong></p>
+<p>在当前无序区中选取划分的基准关键字是决定算法性能的关键。</p>
+<ul>
+<li>”三者取中”的规则</li>
+</ul>
+<p>“三者取中”规则，即在当前区间里，将该区间首、尾和中间位置上的关键字比较，取三者之中值所对应的记录作为基准， 在划分开始前将该基准记录和该区伺的第1个记录进行交换，此后的划分过程与上面所给的 Partition 算法完全相同。</p>
+<ul>
+<li>取位于 low 和 high 之间的随机数k(low≤k≤high)，用 R[k] 作为基准</li>
+</ul>
+<p>选取基准最好的方法是用一个随机函数产生一个取位于 low 和 high 之间的随机数 k(low≤k≤high)，用 R[k] 作为基准， 这相当于强迫R[low..high]中的记录是随机分布的。用此方法所得到的快速排序一般称为随机的快速排序。</p>
+<blockquote>
+<p>注意： 随机化的快速排序与一般的快速排序算法差别很小。但随机化后，算法的性能大大地提高了，尤其是对初始有序的文件， 一般不可能导致最坏情况的发生。算法的随机化不仅仅适用于快速排序，也适用于其它需要数据随机分布的算法。</p>
+</blockquote>
+<p><strong>空间复杂度</strong></p>
+<p>快速排序在系统内部需要一个栈来实现递归。若每次划分较为均匀，则其递归树的高度为 O(lgn)，故递归后需栈空间为 O(lgn)。 最坏情况下，递归树的高度为 O(n)，所需的栈空间为 O(n)。</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="http://bubkoo.com/2014/01/12/sort-algorithm/quick-sort/" target="_blank" rel="external">常见排序算法 - 快速排序 (Quick Sort)</a></li>
+<li><a href="http://souly.cn/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/2016/04/07/%E7%90%86%E8%A7%A3%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" target="_blank" rel="external">理解快速排序算法</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;选一基准元素 point&lt;/li&gt;
+&lt;li&gt;分区操作(partition)：小于point放左边，大于point放右边，poin
+    
+    </summary>
+    
+      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Ajax 笔记</title>
     <link href="http://yoursite.com/2016/11/11/eight/"/>
     <id>http://yoursite.com/2016/11/11/eight/</id>
@@ -381,71 +870,6 @@
     <summary type="html">
     
       &lt;h2 id=&quot;工作原理&quot;&gt;&lt;a href=&quot;#工作原理&quot; class=&quot;headerlink&quot; title=&quot;工作原理&quot;&gt;&lt;/a&gt;工作原理&lt;/h2&gt;&lt;h3 id=&quot;创建-和-Code&quot;&gt;&lt;a href=&quot;#创建-和-Code&quot; class=&quot;headerlink&quot; title=
-    
-    </summary>
-    
-      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>快速排序</title>
-    <link href="http://yoursite.com/2016/11/11/five/"/>
-    <id>http://yoursite.com/2016/11/11/five/</id>
-    <published>2016-11-11T00:55:29.000Z</published>
-    <updated>2017-02-03T14:00:13.425Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>选一基准元素 point</li>
-<li>分区操作(partition)：小于point放左边，大于point放右边，point最后的位置就是排序完成的位置。</li>
-<li>重复步骤1.2<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">function quickSort(array) &#123;</div><div class="line"></div><div class="line">	//交换元素位置</div><div class="line">	function swap(arr, i, k) &#123;</div><div class="line">		var temp = arr[i];</div><div class="line">		arr[i] = arr[k];</div><div class="line">		arr[k] = temp;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//分区操作，左小右大</div><div class="line">	function partition(arr, left, right) &#123;</div><div class="line"></div><div class="line">		var sortIndex = left;</div><div class="line">		var point = arr[right];//直接选最右的作为基准元素</div><div class="line"></div><div class="line">		for (var i = left; i &lt; right; i++) &#123;</div><div class="line"></div><div class="line">			if (arr[i] &lt;= point) &#123;</div><div class="line">				swap(arr, i, sortIndex);</div><div class="line">				sortIndex++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		swap(arr, sortIndex, right);//将基准元素放置在最后的正确位置</div><div class="line">		//console.log(arr);</div><div class="line">		return sortIndex;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	function sort(arr, left, right) &#123;</div><div class="line">		if (left &gt; right) &#123;</div><div class="line">			return;</div><div class="line">		&#125;</div><div class="line">		var sortIndex = partition(arr, left, right);</div><div class="line">		sort(arr,left,sortIndex-1);</div><div class="line">		sort(arr, sortIndex + 1, right);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	sort(arr, 0, arr.length - 1);</div><div class="line"></div><div class="line">	return array;</div><div class="line">&#125;</div><div class="line"></div><div class="line">quickSort(arr);</div></pre></td></tr></table></figure>
-<p><strong>算法分析</strong></p>
-<p>快速排序的时间主要耗费在划分操作上，对长度为 k 的区间进行划分，共需 k-1 次关键字的比较。</p>
-<p><strong>最坏时间复杂度</strong></p>
-<p>最坏情况是每次划分选取的基准都是当前无序区中关键字最小(或最大)的记录，划分的结果是基准左边的子区间为空(或右边的子区间为空)， 而划分所得的另一个非空的子区间中记录数目，仅仅比划分前的无序区中记录个数减少一个。 因此，快速排序必须做 n-1 次划分， 第i次划分开始时区间长度为 n-i+1，所需的比较次数为 n-i(1≤i≤n-1)，故总的比较次数达到最大值：Cmax = n(n-1)/2=O(n^2)</p>
-<p>如果按上面给出的划分算法，每次取当前无序区的第 1 个记录为基准，那么当文件的记录已按递增序(或递减序)排列时， 每次划分所取的基准就是当前无序区中关键字最小(或最大)的记录，则快速排序所需的比较次数反而最多。</p>
-<p><strong>最好时间复杂度</strong></p>
-<p>在最好情况下，每次划分所取的基准都是当前无序区的”中值”记录，划分的结果是基准的左、右两个无序子区间的长度大致相等。 总的关键字比较次数：O(nlgn)</p>
-<p>注意： 用递归树来分析最好情况下的比较次数更简单。因为每次划分后左、右子区间长度大致相等，故递归树的高度为 O(lgn)， 而递归树每一层上各结点所对应的划分过程中所需要的关键字比较次数总和不超过n，故整个排序过程所需要的关键字比较总次数 C(n)=O(nlgn)。</p>
-<p>因为快速排序的记录移动次数不大于比较的次数，所以快速排序的最坏时间复杂度应为 O(n^2)，最好时间复杂度为 O(nlgn)。</p>
-<p><strong>平均时间复杂度</strong></p>
-<p>尽管快速排序的最坏时间为 O(n^2)，但就平均性能而言，它是基于关键字比较的内部排序算法中速度最快者，快速排序亦因此而得名。 它的平均时间复杂度为 O(nlgn)。</p>
-<p><strong>基准关键字的选取</strong></p>
-<p>在当前无序区中选取划分的基准关键字是决定算法性能的关键。</p>
-<ul>
-<li>”三者取中”的规则</li>
-</ul>
-<p>“三者取中”规则，即在当前区间里，将该区间首、尾和中间位置上的关键字比较，取三者之中值所对应的记录作为基准， 在划分开始前将该基准记录和该区伺的第1个记录进行交换，此后的划分过程与上面所给的 Partition 算法完全相同。</p>
-<ul>
-<li>取位于 low 和 high 之间的随机数k(low≤k≤high)，用 R[k] 作为基准</li>
-</ul>
-<p>选取基准最好的方法是用一个随机函数产生一个取位于 low 和 high 之间的随机数 k(low≤k≤high)，用 R[k] 作为基准， 这相当于强迫R[low..high]中的记录是随机分布的。用此方法所得到的快速排序一般称为随机的快速排序。</p>
-<blockquote>
-<p>注意： 随机化的快速排序与一般的快速排序算法差别很小。但随机化后，算法的性能大大地提高了，尤其是对初始有序的文件， 一般不可能导致最坏情况的发生。算法的随机化不仅仅适用于快速排序，也适用于其它需要数据随机分布的算法。</p>
-</blockquote>
-<p><strong>空间复杂度</strong></p>
-<p>快速排序在系统内部需要一个栈来实现递归。若每次划分较为均匀，则其递归树的高度为 O(lgn)，故递归后需栈空间为 O(lgn)。 最坏情况下，递归树的高度为 O(n)，所需的栈空间为 O(n)。</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
-<li><a href="http://bubkoo.com/2014/01/12/sort-algorithm/quick-sort/" target="_blank" rel="external">常见排序算法 - 快速排序 (Quick Sort)</a></li>
-<li><a href="http://souly.cn/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/2016/04/07/%E7%90%86%E8%A7%A3%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" target="_blank" rel="external">理解快速排序算法</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;选一基准元素 point&lt;/li&gt;
-&lt;li&gt;分区操作(partition)：小于point放左边，大于point放右边，poin
     
     </summary>
     

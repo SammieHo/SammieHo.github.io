@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Ajax 的 深入学习 | SammieHo&#39;s 学习慢炖 | null</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Ajax 起步
+创建一个新的XMLHttpRequest 对象
+1var httpRequest = new XMLHttpRequest();
+
+给 readystatechange 事件设置一个事件处理器handlerResponse
+1httpRequest.onreadystatechange = handlerResponse;
+
+然后，告诉 XMLHttpRequest 对象你想要做什">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax 的 深入学习">
+<meta property="og:url" content="http://yoursite.com/2017/02/05/ajaxNote/index.html">
+<meta property="og:site_name" content="SammieHo's 学习慢炖">
+<meta property="og:description" content="Ajax 起步
+创建一个新的XMLHttpRequest 对象
+1var httpRequest = new XMLHttpRequest();
+
+给 readystatechange 事件设置一个事件处理器handlerResponse
+1httpRequest.onreadystatechange = handlerResponse;
+
+然后，告诉 XMLHttpRequest 对象你想要做什">
+<meta property="og:updated_time" content="2017-02-14T00:21:27.420Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ajax 的 深入学习">
+<meta name="twitter:description" content="Ajax 起步
+创建一个新的XMLHttpRequest 对象
+1var httpRequest = new XMLHttpRequest();
+
+给 readystatechange 事件设置一个事件处理器handlerResponse
+1httpRequest.onreadystatechange = handlerResponse;
+
+然后，告诉 XMLHttpRequest 对象你想要做什">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sammieho</h5>
+          <a href="mailto:sammieho1995@gmail.com" title="sammieho1995@gmail.com" class="mail">sammieho1995@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/sammieho" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Ajax 的 深入学习</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Ajax 的 深入学习</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-05T03:04:15.030Z" itemprop="datePublished" class="page-time">
+  2017-02-05
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Ajax/">Ajax</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Ajax-起步"><span class="post-toc-number">1.</span> <span class="post-toc-text">Ajax 起步</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#HTTP-方法："><span class="post-toc-number">1.0.0.0.1.</span> <span class="post-toc-text">HTTP 方法：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#处理响应"><span class="post-toc-number">2.</span> <span class="post-toc-text">处理响应</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#XMLHttpRequest-readyState-属性的值"><span class="post-toc-number">2.0.1.</span> <span class="post-toc-text">XMLHttpRequest readyState 属性的值</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HTTP-状态码"><span class="post-toc-number">2.0.2.</span> <span class="post-toc-text">HTTP 状态码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#完整代码如下"><span class="post-toc-number">2.0.3.</span> <span class="post-toc-text">完整代码如下</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#兼容-Opera"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">兼容 Opera</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用-Ajax-事件"><span class="post-toc-number">3.</span> <span class="post-toc-text">使用 Ajax 事件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#XMLHttpRequest-对象定义的事件"><span class="post-toc-number">3.0.1.</span> <span class="post-toc-text">XMLHttpRequest 对象定义的事件</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#生成-Ajax-跨域请求"><span class="post-toc-number">4.</span> <span class="post-toc-text">生成 Ajax 跨域请求</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-ajaxNote"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Ajax 的 深入学习</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年02月05日 11:04" datetime="2017-02-05T03:04:15.030Z"  itemprop="datePublished">2017-02-05</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Ajax/">Ajax</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="Ajax-起步"><a href="#Ajax-起步" class="headerlink" title="Ajax 起步"></a>Ajax 起步</h2><ol>
+<li><p>创建一个新的XMLHttpRequest 对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var httpRequest = new XMLHttpRequest();</div></pre></td></tr></table></figure>
+</li>
+<li><p>给 readystatechange 事件设置一个事件处理器handlerResponse</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">httpRequest.onreadystatechange = handlerResponse;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>然后，告诉 XMLHttpRequest 对象你想要做什么：</p>
+</blockquote>
+</li>
+<li><p>使用 open 方法来指定 HTTP 方法和需要请求的URL</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">httpRequest.open( &quot;get&quot;, e.target.innerHTML + &quot;.html&quot; );</div></pre></td></tr></table></figure>
+</li>
+<li><p>调用send() 方法，向服务器发送数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">httpRequest.send();</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h6 id="HTTP-方法："><a href="#HTTP-方法：" class="headerlink" title="HTTP 方法："></a>HTTP 方法：</h6><ul>
+<li>GET：适合安全的交互行为，那些可以反复发起而不会带来副作用的请求。</li>
+<li>POST：适合不安全的交互行为，每一个请求都会导致服务器端发生变化，而重复的请求可能会带来问题。</li>
+</ul>
+<h2 id="处理响应"><a href="#处理响应" class="headerlink" title="处理响应"></a>处理响应</h2><p>一旦脚本调用了send方法，浏览器在后台发送请求到服务器，而 Ajax 依靠时间来通知请求的进展。</p>
+<p>此处用 handlerResponse 来处理这些事件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function handlerResponse(e)&#123;</div><div class="line">	if( e.target.reayState == XMLHttpRequest.DONE &amp;&amp; e.target.status == 200)&#123;</div><div class="line">		document.getElementById(&quot;target&quot;).innerHTML = e.target.responseText;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>DONE状态并不意味着请求成功，只代表请求已完成。<br>通过status属性获得HTTP状态码，会返回一个数值（例如200表示成功）。<br>只有结合 <strong> readyState 和 status</strong> 属性的值才能够<strong> 确定请求的结果</strong>。<br><strong>用 XMLHttpRequest.responseText 属性获得服务器发送的数据。</strong></p>
+<h4 id="XMLHttpRequest-readyState-属性的值"><a href="#XMLHttpRequest-readyState-属性的值" class="headerlink" title="XMLHttpRequest readyState 属性的值"></a>XMLHttpRequest readyState 属性的值</h4><table>
+<thead>
+<tr>
+<th>值</th>
+<th>数值</th>
+<th>状态说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UNSENT</td>
+<td>0</td>
+<td>已创建XMLHttpRequest对象，请求未初始化，open未调用；</td>
+</tr>
+<tr>
+<td>OPENED</td>
+<td>1</td>
+<td>Server链接已建立，open已调用；</td>
+</tr>
+<tr>
+<td>HEADERS_RECEIVED</td>
+<td>2</td>
+<td>已收到服务器响应的标头</td>
+</tr>
+<tr>
+<td>LOADING</td>
+<td>3</td>
+<td>请求处理中，已收到服务器响应</td>
+</tr>
+<tr>
+<td>DONE</td>
+<td>4</td>
+<td>响应完成或已失败。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="HTTP-状态码"><a href="#HTTP-状态码" class="headerlink" title="HTTP 状态码"></a>HTTP 状态码</h4><table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1xx：</td>
+<td>信息类。表示接受到浏览器请求，进一步处理。</td>
+</tr>
+<tr>
+<td>2xx：</td>
+<td>成功。请求被正确接收，理解和处理。</td>
+</tr>
+<tr>
+<td>3xx：</td>
+<td>重定向。请求失败，客户采取进一步操作。</td>
+</tr>
+<tr>
+<td>4xx：</td>
+<td>客户端错误。</td>
+</tr>
+<tr>
+<td>5xx：</td>
+<td>服务器错误。服务器不能完成请求。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="完整代码如下"><a href="#完整代码如下" class="headerlink" title="完整代码如下"></a>完整代码如下</h4><pre><code>// 用户点击一个按钮，
+// 浏览器在后台向服务器请求一个文档，
+// 当它到达时处理一个事件，并显示被请求文档的内容。
+var btn = document.getElementsByTagName(&apos;button&apos;);
+var tar = document.getElementById(&quot;target&quot;);
+
+for(let i = 0; i &lt; btn.length; i++){
+    btn[i].onclick = handlerBtnPress;
+}
+
+function handlerBtnPress(e){
+
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.open( &quot;GET&quot;, e.target.innerHTML + &quot;.html&quot;);
+    httpRequest.onreadystatechange = handlerResponse;
+    httpRequest.send();
+}
+
+function handlerResponse(e){
+    if(e.target.readyState === 4 &amp;&amp; e.target.status === 200){
+        tar.innerHTML = e.target.responseText;
+    }
+}
+</code></pre><h3 id="兼容-Opera"><a href="#兼容-Opera" class="headerlink" title="兼容 Opera"></a>兼容 Opera</h3><blockquote>
+<pre><code>Queation 1：
+Opera 在出发readystatechange事件时不会生成一个Event对象。
+
+Resolve：
+把XMLHttpRequest对象指派给一个全局变量。
+</code></pre></blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var httpRequest;</div><div class="line"></div><div class="line">function handlerBtnPress(e)&#123;</div><div class="line"></div><div class="line">	httpRequest = new XMLHttpRequest();</div><div class="line">	httpRequest.open( &quot;GET&quot;, e.target.innerHTML + &quot;.html&quot;);</div><div class="line">	httpRequest.onreadystatechange = handlerResponse;</div><div class="line">	httpRequest.send();</div><div class="line">&#125;</div><div class="line"></div><div class="line">function handlerResponse(e)&#123;</div><div class="line">	if(httpRequest.readyState === 4 &amp;&amp; httpRequest.status === 200)&#123;</div><div class="line">		tar.innerHTML = httpRequest.responseText;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="使用-Ajax-事件"><a href="#使用-Ajax-事件" class="headerlink" title="使用 Ajax 事件"></a>使用 Ajax 事件</h2><h4 id="XMLHttpRequest-对象定义的事件"><a href="#XMLHttpRequest-对象定义的事件" class="headerlink" title="XMLHttpRequest 对象定义的事件"></a>XMLHttpRequest 对象定义的事件</h4><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>事件类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>abort</td>
+<td>在请求被终止时触发</td>
+<td>ProgressEvent</td>
+</tr>
+<tr>
+<td>error</td>
+<td>在请求是被时触发</td>
+<td>ProgressEvent</td>
+</tr>
+<tr>
+<td>load</td>
+<td>请求成功完成时触发</td>
+<td>ProgressEvent</td>
+</tr>
+<tr>
+<td>loadend</td>
+<td>请求已完成时触发，无论成功还是发生错误</td>
+<td>ProgressEvent</td>
+</tr>
+<tr>
+<td>loadstart</td>
+<td>请求开始时触发</td>
+<td>ProgressEvent</td>
+</tr>
+<tr>
+<td>progress</td>
+<td>触发以提示请求的进度</td>
+<td>ProgressEvent</td>
+</tr>
+<tr>
+<td>readystatechange</td>
+<td>在请求生命周期的不同阶段触发</td>
+<td>Event</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>请求超时则触发</td>
+<td>ProgressEvent</td>
+</tr>
+</tbody>
+</table>
+<p>####ProgressEvent 定义的额外属性</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>事件类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lengthComputable</td>
+<td>如果能够计算数据流的总长度则返回true</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>loaded</td>
+<td>返回当前已载入的数据量</td>
+<td>number</td>
+</tr>
+<tr>
+<td>total</td>
+<td>返回可用的数据总量</td>
+<td>number</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>使用XMLHttpRequest定义的一次性事件</p>
+</blockquote>
+<p>这是之前示例的一种变量，为一些事件注册了处理函数，并在一个table内为处理的时间创建了记录，以看清楚浏览器是如何处罚这些事件的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'button'</span>);</div><div class="line"><span class="keyword">var</span> tar = <span class="built_in">document</span>.getElementById(<span class="string">"target"</span>);</div><div class="line"><span class="keyword">var</span> eve = <span class="built_in">document</span>.getElementById(<span class="string">"eve"</span>);</div><div class="line"><span class="keyword">var</span> httpRequest;</div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; btn.length; i++)&#123;</div><div class="line">	btn[i].onclick = handlerBtnPress;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handlerBtnPress</span>(<span class="params">e</span>)</span>&#123;</div><div class="line"></div><div class="line">	clearEveDetails();</div><div class="line"></div><div class="line">	httpRequest = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line"></div><div class="line">	httpRequest.onreadystatechange = handlerResponse;</div><div class="line">	httpRequest.onerror = handlerError;</div><div class="line">	httpRequest.onload = handlerLoad;</div><div class="line">	httpRequest.onloadstart = handlerLoadstart;</div><div class="line">	httpRequest.onloadend = handlerLoadend;</div><div class="line">	httpRequest.onprogress = handlerProgress;</div><div class="line"></div><div class="line">	httpRequest.open( <span class="string">"GET"</span>, e.target.innerHTML + <span class="string">".html"</span>);</div><div class="line">	httpRequest.send();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handlerResponse</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">	displayEveDetails(<span class="string">"readystate("</span> + httpRequest.readyState + <span class="string">")"</span>);</div><div class="line">	<span class="keyword">if</span>(httpRequest.readyState === <span class="number">4</span> &amp;&amp; httpRequest.status === <span class="number">200</span>)&#123;</div><div class="line">		tar.innerHTML = httpRequest.responseText;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handlerError</span>(<span class="params">e</span>)</span>&#123; displayEveDetails(<span class="string">"error"</span>,e); &#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handlerLoad</span>(<span class="params">e</span>)</span>&#123; displayEveDetails(<span class="string">"load"</span>,e); &#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handlerLoadstart</span>(<span class="params">e</span>)</span>&#123; displayEveDetails(<span class="string">"loadstart"</span>,e); &#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handlerLoadend</span>(<span class="params">e</span>)</span>&#123; displayEveDetails(<span class="string">"loadend"</span>,e); &#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handlerProgress</span>(<span class="params">e</span>)</span>&#123; displayEveDetails(<span class="string">"progress"</span>,e); &#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">clearEveDetails</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">	eve.innerHTML = <span class="string">"&lt;tr&gt;&lt;th&gt;Event&lt;/th&gt;&lt;th&gt;lengthComputable&lt;/th&gt;&lt;th&gt;loaded&lt;/th&gt;&lt;th&gt;total&lt;/th&gt;&lt;/tr&gt;"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">displayEveDetails</span>(<span class="params">eventName,e</span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(e)&#123;</div><div class="line">		eve.innerHTML +=</div><div class="line">		<span class="string">"&lt;tr&gt;&lt;td&gt;"</span> + eventName + <span class="string">"&lt;/td&gt;&lt;td&gt;"</span> + e.lengthComputable + <span class="string">"&lt;/td&gt;&lt;td&gt;"</span> + e.loaded + <span class="string">"&lt;/td&gt;&lt;td&gt;"</span> + e.total + <span class="string">"&lt;/td&gt;&lt;/tr&gt;"</span>;</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		eve.innerHTML +=</div><div class="line">		<span class="string">"&lt;tr&gt;&lt;td&gt;"</span> + eventName + <span class="string">"&lt;/td&gt;&lt;td&gt;"</span> + <span class="string">"NAN"</span> + <span class="string">"&lt;/td&gt;&lt;td&gt;"</span> + <span class="string">"NAN"</span> + <span class="string">"&lt;/td&gt;&lt;td&gt;"</span> + <span class="string">"NAN"</span> + <span class="string">"&lt;/td&gt;&lt;/tr&gt;"</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="生成-Ajax-跨域请求"><a href="#生成-Ajax-跨域请求" class="headerlink" title="生成 Ajax 跨域请求"></a>生成 Ajax 跨域请求</h2><p>浏览器为防止跨站脚本攻击，采用的同源策略，即 协议、主机名、端口号一致。</p>
+<p>####CORS 跨源资源共享 Cross-origin-resource-sharing<br>通过添加跨源表头 Access-Control-Allow-Origin，指定某个来源必须被允许对此文档生成跨域请求。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-14T00:21:27.420Z" itemprop="dateUpdated">2017年2月14日 8:21</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/02/05/ajaxNote/" target="_blank" rel="external">http://yoursite.com/2017/02/05/ajaxNote/</a>
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Sammieho">
+            Sammieho
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/02/05/ajaxNote/&title=《Ajax 的 深入学习》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/02/05/ajaxNote/&title=《Ajax 的 深入学习》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/02/05/ajaxNote/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ajax 的 深入学习》 — SammieHo's 学习慢炖&url=http://yoursite.com/2017/02/05/ajaxNote/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/02/05/ajaxNote/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/02/05/JSON发送数据/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">JSON发送数据</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/02/04/ten/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">区别 client,page,offset,screen</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="ajaxNote" data-title="Ajax 的 深入学习" data-url="http://yoursite.com/2017/02/05/ajaxNote/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'blog', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.7');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>SammieHo's 学习慢炖 &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/02/05/ajaxNote/&title=《Ajax 的 深入学习》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/02/05/ajaxNote/&title=《Ajax 的 深入学习》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/02/05/ajaxNote/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ajax 的 深入学习》 — SammieHo's 学习慢炖&url=http://yoursite.com/2017/02/05/ajaxNote/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/02/05/ajaxNote/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2017/02/05/ajaxNote/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
