@@ -13,32 +13,47 @@
     
     
     
-    <title>重新认识-盒子模型 | SammieHo&#39;s 学习慢炖 | null</title>
+    <title>事件监听—addEventListener | SammieHo&#39;s 学习慢炖 | null</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="最近被问到盒子模型，却发现自己顿了一下，会用，却说不出个所以然。这就是基础知识不扎实的漏洞！！！所以，以最短的语言自我归纳了n遍！
+    <meta name="description" content="123elementObj.addEventListener(type,listener,useCapture);当监听对象触发指定的事件后，执行指定回调函数。
+addEventListener相对于attachEvent优点：
 
-首先，什么是盒子模型？简单来说，就是元素大小的呈现方式。有一句话这么说来着 “every element in web design is a rectangular box.”
-每个盒子有四条边界：1外边距边界margin edge + 边框边界 border">
+一个事件可注册多个listener。
+Listener的触发可以选择capture/bubbling。
+对任何DOM元素都有效。
+
+
+ 在内存问题上，使用预先声明的函数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="重新认识-盒子模型">
-<meta property="og:url" content="http://yoursite.com/2016/11/08/newthr/index.html">
+<meta property="og:title" content="事件监听—addEventListener">
+<meta property="og:url" content="http://yoursite.com/2017/02/13/事件监听—addEventListener/index.html">
 <meta property="og:site_name" content="SammieHo's 学习慢炖">
-<meta property="og:description" content="最近被问到盒子模型，却发现自己顿了一下，会用，却说不出个所以然。这就是基础知识不扎实的漏洞！！！所以，以最短的语言自我归纳了n遍！
+<meta property="og:description" content="123elementObj.addEventListener(type,listener,useCapture);当监听对象触发指定的事件后，执行指定回调函数。
+addEventListener相对于attachEvent优点：
 
-首先，什么是盒子模型？简单来说，就是元素大小的呈现方式。有一句话这么说来着 “every element in web design is a rectangular box.”
-每个盒子有四条边界：1外边距边界margin edge + 边框边界 border">
-<meta property="og:updated_time" content="2017-02-03T13:56:41.010Z">
+一个事件可注册多个listener。
+Listener的触发可以选择capture/bubbling。
+对任何DOM元素都有效。
+
+
+ 在内存问题上，使用预先声明的函数">
+<meta property="og:updated_time" content="2017-02-03T13:58:36.002Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="重新认识-盒子模型">
-<meta name="twitter:description" content="最近被问到盒子模型，却发现自己顿了一下，会用，却说不出个所以然。这就是基础知识不扎实的漏洞！！！所以，以最短的语言自我归纳了n遍！
+<meta name="twitter:title" content="事件监听—addEventListener">
+<meta name="twitter:description" content="123elementObj.addEventListener(type,listener,useCapture);当监听对象触发指定的事件后，执行指定回调函数。
+addEventListener相对于attachEvent优点：
 
-首先，什么是盒子模型？简单来说，就是元素大小的呈现方式。有一句话这么说来着 “every element in web design is a rectangular box.”
-每个盒子有四条边界：1外边距边界margin edge + 边框边界 border">
+一个事件可注册多个listener。
+Listener的触发可以选择capture/bubbling。
+对任何DOM元素都有效。
+
+
+ 在内存问题上，使用预先声明的函数">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/style.css?v=1.4.7">
@@ -113,7 +128,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">重新认识-盒子模型</div>
+        <div class="flex-col header-title ellipsis">事件监听—addEventListener</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -135,11 +150,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">重新认识-盒子模型</h1>
+        <h1 class="title">事件监听—addEventListener</h1>
         <h5 class="subtitle">
             
-                <time datetime="2016-11-08T00:55:29.000Z" itemprop="datePublished" class="page-time">
-  2016-11-08
+                <time datetime="2017-02-13T02:31:20.088Z" itemprop="datePublished" class="page-time">
+  2017-02-13
 </time>
 
 
@@ -156,20 +171,13 @@
 
 <div class="container body-wrap">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Box-sizing"><span class="post-toc-number">1.</span> <span class="post-toc-text">Box-sizing</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#margin叠加"><span class="post-toc-number">2.</span> <span class="post-toc-text">margin叠加</span></a></li></ol>
-        </nav>
-    </aside>
-    
-<article id="post-newthr"
+<article id="post-事件监听—addEventListener"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">重新认识-盒子模型</h1>
+        <h1 class="post-card-title">事件监听—addEventListener</h1>
         <div class="post-meta">
-            <time class="post-time" title="2016年11月08日 8:55" datetime="2016-11-08T00:55:29.000Z"  itemprop="datePublished">2016-11-08</time>
+            <time class="post-time" title="2017年02月13日 10:31" datetime="2017-02-13T02:31:20.088Z"  itemprop="datePublished">2017-02-13</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Exercise/">Exercise</a></li></ul>
@@ -186,18 +194,20 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <blockquote>
-<p><strong>最近被问到盒子模型，却发现自己顿了一下，会用，却说不出个所以然。<br>这就是基础知识不扎实的漏洞！！！<br>所以，以最短的语言自我归纳了n遍！</strong></p>
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">elementObj.addEventListener(type,listener,useCapture);</div><div class="line"></div><div class="line">当监听对象触发指定的事件后，执行指定回调函数。</div></pre></td></tr></table></figure>
+<p><strong>addEventListener相对于attachEvent优点：</strong></p>
+<ul>
+<li>一个事件可注册多个listener。</li>
+<li>Listener的触发可以选择capture/bubbling。</li>
+<li>对任何DOM元素都有效。</li>
+</ul>
+<blockquote>
+<p> 在内存问题上，使用预先声明的函数，比匿名函数的消耗更小。</p>
 </blockquote>
-<p>首先，什么是盒子模型？简单来说，就是元素大小的呈现方式。<br>有一句话这么说来着 “every element in web design is a rectangular box.”</p>
-<p><strong>每个盒子有四条边界：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">外边距边界margin edge + 边框边界 border edge + 内边距边界padding edge + 内容边界content edge.</div></pre></td></tr></table></figure></p>
-<p><strong>然后有两种模式：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">标准盒模型：content width 和 content height 只包含内容的宽/高，不包含padding,border,margin。</div><div class="line"></div><div class="line">IE6- 怪异模式：content width 与 content height 包括 padding 和 border，不包括 margin。</div></pre></td></tr></table></figure></p>
-<p>好，预（hu）备（shuo）知（ba）识（dao）说完，进入运用。</p>
-<h1 id="Box-sizing"><a href="#Box-sizing" class="headerlink" title="Box-sizing"></a>Box-sizing</h1><p>用来改变CSS盒模型对元素宽高的计算方式。</p>
-<p><strong>语法：</strong><br><code>-moz-box-sizing | box-sizing : content-box | border-box | padding-box ;</code></p>
-<p><strong>值：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">content-box : 默认值，标准盒模型。</div><div class="line">实际width = content width + padding + border + margin</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">border-box : IE6- 怪异模式</div><div class="line"></div><div class="line">实际width = 内容的宽 (包含 padding-left + padding-right + border-left + border-right) + margin</div></pre></td></tr></table></figure>
-<h1 id="margin叠加"><a href="#margin叠加" class="headerlink" title="margin叠加"></a>margin叠加</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">发生在普通文档流中块元素的垂直方向外边距，</div><div class="line">此时外边框高度取两者间较大的那个，</div><div class="line">行内框、 浮动框或绝对定位框之间的外边距不会叠加。</div></pre></td></tr></table></figure>
+<p><strong>移除指定的事件：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">removeEventListener(event,function,capture/bubble);</div></pre></td></tr></table></figure>
+<p><strong>event.target 在处理事件时会被用到，例如：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function hide(event)&#123;</div><div class="line">        var target = event.target || event.srcElement;//target兼容处理</div><div class="line">	event.target.style.display = &apos;none&apos;;</div><div class="line">&#125;</div><div class="line">obj.addEventListener(&apos;click&apos;,hide,false);</div></pre></td></tr></table></figure></p>
+<p><strong>兼容：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function addEvent(obj,type,func)&#123;</div><div class="line">	if(window.addEventListener)&#123;</div><div class="line">		obj.addEventListener(type,func,false);</div><div class="line">	&#125;</div><div class="line">	else&#123;</div><div class="line">		obj.addEventListener(&apos;on&apos;+type,func);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">or:</div><div class="line"></div><div class="line">function addEvent(obj,type,listener)&#123;</div><div class="line">	obj.addEventListener? obj.addEventListener(type,func,false) : obj.addEventListener(&apos;on&apos;+type,func);</div><div class="line">	return obj;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
         </div>
 
@@ -205,11 +215,11 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-02-03T13:56:41.010Z" itemprop="dateUpdated">2017年2月3日 21:56</time>
+    最后更新时间：<time datetime="2017-02-03T13:58:36.002Z" itemprop="dateUpdated">2017年2月3日 21:58</time>
 </span><br>
 
 
-        这里写留言或版权声明：<a href="/2016/11/08/newthr/" target="_blank" rel="external">http://yoursite.com/2016/11/08/newthr/</a>
+        这里写留言或版权声明：<a href="/2017/02/13/事件监听—addEventListener/" target="_blank" rel="external">http://yoursite.com/2017/02/13/事件监听—addEventListener/</a>
     </div>
     <footer>
         <a href="http://yoursite.com">
@@ -236,7 +246,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/11/08/newthr/&title=《重新认识-盒子模型》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/02/13/事件监听—addEventListener/&title=《事件监听—addEventListener》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -246,22 +256,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/11/08/newthr/&title=《重新认识-盒子模型》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/02/13/事件监听—addEventListener/&title=《事件监听—addEventListener》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/11/08/newthr/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/02/13/事件监听—addEventListener/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《重新认识-盒子模型》 — SammieHo's 学习慢炖&url=http://yoursite.com/2016/11/08/newthr/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《事件监听—addEventListener》 — SammieHo's 学习慢炖&url=http://yoursite.com/2017/02/13/事件监听—addEventListener/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/11/08/newthr/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/02/13/事件监听—addEventListener/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -284,18 +294,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2016/11/11/eight/" id="post-prev" class="post-nav-link">
+      <a href="/2017/02/13/区别 client,page,offset,screen/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Ajax 笔记</h4>
+        <h4 class="title">区别 client,page,offset,screen</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2016/11/06/newtwo/" id="post-next" class="post-nav-link">
+      <a href="/2017/02/13/ajax深入学习/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">setTimeout()和setInterval()的单细胞感情</h4>
+        <h4 class="title">Ajax 的 深入学习</h4>
       </a>
     </div>
   
@@ -306,7 +316,7 @@
     
 
 <div class="comments" id="comments">
-    <div class="ds-thread" data-thread-key="newthr" data-title="重新认识-盒子模型" data-url="http://yoursite.com/2016/11/08/newthr/"></div>
+    <div class="ds-thread" data-thread-key="事件监听—addEventListener" data-title="事件监听—addEventListener" data-url="http://yoursite.com/2017/02/13/事件监听—addEventListener/"></div>
 </div>
 <script>
 lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
@@ -383,7 +393,7 @@ lazyScripts.push('/js/embed.min.js?v=1.4.7');
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/11/08/newthr/&title=《重新认识-盒子模型》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/02/13/事件监听—addEventListener/&title=《事件监听—addEventListener》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -393,22 +403,22 @@ lazyScripts.push('/js/embed.min.js?v=1.4.7');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/11/08/newthr/&title=《重新认识-盒子模型》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/02/13/事件监听—addEventListener/&title=《事件监听—addEventListener》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/11/08/newthr/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/02/13/事件监听—addEventListener/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《重新认识-盒子模型》 — SammieHo's 学习慢炖&url=http://yoursite.com/2016/11/08/newthr/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《事件监听—addEventListener》 — SammieHo's 学习慢炖&url=http://yoursite.com/2017/02/13/事件监听—addEventListener/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/11/08/newthr/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/02/13/事件监听—addEventListener/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -419,7 +429,7 @@ lazyScripts.push('/js/embed.min.js?v=1.4.7');
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2016/11/08/newthr/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2017/02/13/事件监听—addEventListener/" alt="微信分享二维码">
 </div>
 
 

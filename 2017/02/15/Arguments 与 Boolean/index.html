@@ -13,26 +13,35 @@
     
     
     
-    <title>插入排序 | SammieHo&#39;s 学习慢炖 | null</title>
+    <title>Arguments 与 Boolean 总结与示例 | SammieHo&#39;s 学习慢炖 | null</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="算法原理：设有一组关键字｛K1， K2，…， Kn｝；排序开始就认为 K1 是一个有序序列；让 K2 插入上述表长为 1 的有序序列，使之成为一个表长为 2 的有序序列；然后让 K3 插入上述表长为 2 的有序序列，使之成为一个表长为 3 的有序序列；依次类推，最后让 Kn 插入上述表长为 n-1 的有序序列，得一个表长为 n 的有序序列。
-个人实现思路：1.设第一个elem( n=0 ) 已排好">
+    <meta name="description" content="Arguments
+这不是数组，是指参数，但拥有length的属性
+使用Array.prototype.slice.call(index) 可以把参数列表转化为数组
+
+1234567function arg(item)&amp;#123;	console.log(item); // 只会去到第一个args	return [].slice.call(arguments,1); //把剩下的args 转化成数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="插入排序">
-<meta property="og:url" content="http://yoursite.com/2016/11/05/six/index.html">
+<meta property="og:title" content="Arguments 与 Boolean 总结与示例">
+<meta property="og:url" content="http://yoursite.com/2017/02/15/Arguments 与 Boolean/index.html">
 <meta property="og:site_name" content="SammieHo's 学习慢炖">
-<meta property="og:description" content="算法原理：设有一组关键字｛K1， K2，…， Kn｝；排序开始就认为 K1 是一个有序序列；让 K2 插入上述表长为 1 的有序序列，使之成为一个表长为 2 的有序序列；然后让 K3 插入上述表长为 2 的有序序列，使之成为一个表长为 3 的有序序列；依次类推，最后让 Kn 插入上述表长为 n-1 的有序序列，得一个表长为 n 的有序序列。
-个人实现思路：1.设第一个elem( n=0 ) 已排好">
-<meta property="og:updated_time" content="2017-02-03T14:00:50.376Z">
+<meta property="og:description" content="Arguments
+这不是数组，是指参数，但拥有length的属性
+使用Array.prototype.slice.call(index) 可以把参数列表转化为数组
+
+1234567function arg(item)&amp;#123;	console.log(item); // 只会去到第一个args	return [].slice.call(arguments,1); //把剩下的args 转化成数">
+<meta property="og:updated_time" content="2017-02-15T03:03:25.111Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="插入排序">
-<meta name="twitter:description" content="算法原理：设有一组关键字｛K1， K2，…， Kn｝；排序开始就认为 K1 是一个有序序列；让 K2 插入上述表长为 1 的有序序列，使之成为一个表长为 2 的有序序列；然后让 K3 插入上述表长为 2 的有序序列，使之成为一个表长为 3 的有序序列；依次类推，最后让 Kn 插入上述表长为 n-1 的有序序列，得一个表长为 n 的有序序列。
-个人实现思路：1.设第一个elem( n=0 ) 已排好">
+<meta name="twitter:title" content="Arguments 与 Boolean 总结与示例">
+<meta name="twitter:description" content="Arguments
+这不是数组，是指参数，但拥有length的属性
+使用Array.prototype.slice.call(index) 可以把参数列表转化为数组
+
+1234567function arg(item)&amp;#123;	console.log(item); // 只会去到第一个args	return [].slice.call(arguments,1); //把剩下的args 转化成数">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/style.css?v=1.4.7">
@@ -107,7 +116,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">插入排序</div>
+        <div class="flex-col header-title ellipsis">Arguments 与 Boolean 总结与示例</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -129,15 +138,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">插入排序</h1>
+        <h1 class="title">Arguments 与 Boolean 总结与示例</h1>
         <h5 class="subtitle">
             
-                <time datetime="2016-11-05T00:55:29.000Z" itemprop="datePublished" class="page-time">
-  2016-11-05
+                <time datetime="2017-02-15T02:45:02.999Z" itemprop="datePublished" class="page-time">
+  2017-02-15
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Exercise/">Exercise</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Javascript/">Javascript</a></li></ul>
 
             
         </h5>
@@ -153,20 +162,20 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#算法原理："><span class="post-toc-number">1.</span> <span class="post-toc-text">算法原理：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#个人实现思路："><span class="post-toc-number">2.</span> <span class="post-toc-text">个人实现思路：</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Arguments"><span class="post-toc-number">1.</span> <span class="post-toc-text">Arguments</span></a></li></ol>
         </nav>
     </aside>
     
-<article id="post-six"
+<article id="post-Arguments 与 Boolean"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">插入排序</h1>
+        <h1 class="post-card-title">Arguments 与 Boolean 总结与示例</h1>
         <div class="post-meta">
-            <time class="post-time" title="2016年11月05日 8:55" datetime="2016-11-05T00:55:29.000Z"  itemprop="datePublished">2016-11-05</time>
+            <time class="post-time" title="2017年02月15日 10:45" datetime="2017-02-15T02:45:02.999Z"  itemprop="datePublished">2017-02-15</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Exercise/">Exercise</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Javascript/">Javascript</a></li></ul>
 
 
 
@@ -180,20 +189,22 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="算法原理："><a href="#算法原理：" class="headerlink" title="算法原理："></a>算法原理：</h2><p>设有一组关键字｛K1， K2，…， Kn｝；排序开始就认为 K1 是一个有序序列；让 K2 插入上述表长为 1 的有序序列，使之成为一个表长为 2 的有序序列；然后让 K3 插入上述表长为 2 的有序序列，使之成为一个表长为 3 的有序序列；依次类推，最后让 Kn 插入上述表长为 n-1 的有序序列，得一个表长为 n 的有序序列。</p>
-<h2 id="个人实现思路："><a href="#个人实现思路：" class="headerlink" title="个人实现思路："></a>个人实现思路：</h2><p>1.设第一个elem( n=0 ) 已排好序A。<br>2.从第二个elem( n=1 )开始，<br>3.在找到准备插入的位置后，需要将该位置之后的数组元素往后挪一位；<br>  所以，在对比之前，要先记录自身元素的值。<br>4.【从后→前】对比，若 A[last] &gt; elem ,那么交换位置，直到 A[elem] &lt; elem ,本轮结束，elem已排好位置。<br>5.重复步骤2-4，直至到达数组最后一位。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var arr = [1,3,9,6,5,2,7,2,3,4,8];</div><div class="line"></div><div class="line">function insertSort(arr)&#123;</div><div class="line">	</div><div class="line">	for(var i = 1; i &lt; arr.length; i++)&#123;</div><div class="line">		</div><div class="line">		var tmp = arr[i];</div><div class="line">		for( var j = i-1; j &gt; 0 , arr[j] &gt; tmp; j--)&#123;</div><div class="line">			arr[ j+1 ] = arr[ j ];</div><div class="line">			arr[ j ] = tmp;</div><div class="line">	&#125;</div><div class="line">	console.log(arr);</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">insertSort(arr);</div></pre></td></tr></table></figure>
+            <h1 id="Arguments"><a href="#Arguments" class="headerlink" title="Arguments"></a>Arguments</h1><ul>
+<li>这不是数组，是指参数，但拥有length的属性</li>
+<li>使用Array.prototype.slice.call(index) 可以把参数列表转化为数组</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function arg(item)&#123;</div><div class="line">	console.log(item); // 只会去到第一个args</div><div class="line">	return [].slice.call(arguments,1); //把剩下的args 转化成数组</div><div class="line">&#125;</div><div class="line">arg(1,2,3,4,5,&quot;aa&quot;,&quot;bb&quot;);</div><div class="line"></div><div class="line">应用：[柯里化]()</div></pre></td></tr></table></figure>
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-02-03T14:00:50.376Z" itemprop="dateUpdated">2017年2月3日 22:00</time>
+    最后更新时间：<time datetime="2017-02-15T03:03:25.111Z" itemprop="dateUpdated">2017年2月15日 11:03</time>
 </span><br>
 
 
-        这里写留言或版权声明：<a href="/2016/11/05/six/" target="_blank" rel="external">http://yoursite.com/2016/11/05/six/</a>
+        这里写留言或版权声明：<a href="/2017/02/15/Arguments 与 Boolean/" target="_blank" rel="external">http://yoursite.com/2017/02/15/Arguments 与 Boolean/</a>
     </div>
     <footer>
         <a href="http://yoursite.com">
@@ -220,7 +231,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/11/05/six/&title=《插入排序》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/02/15/Arguments 与 Boolean/&title=《Arguments 与 Boolean 总结与示例》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -230,22 +241,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/11/05/six/&title=《插入排序》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/02/15/Arguments 与 Boolean/&title=《Arguments 与 Boolean 总结与示例》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/11/05/six/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/02/15/Arguments 与 Boolean/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《插入排序》 — SammieHo's 学习慢炖&url=http://yoursite.com/2016/11/05/six/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Arguments 与 Boolean 总结与示例》 — SammieHo's 学习慢炖&url=http://yoursite.com/2017/02/15/Arguments 与 Boolean/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/11/05/six/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/02/15/Arguments 与 Boolean/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -265,21 +276,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2016/11/06/newtwo/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">setTimeout()和setInterval()的单细胞感情</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2016/11/05/newone/" id="post-next" class="post-nav-link">
+      <a href="/2017/02/15/String总结与示例/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Math.random()随机数的一些事一些情</h4>
+        <h4 class="title">String 总结与示例</h4>
       </a>
     </div>
   
@@ -290,7 +294,7 @@
     
 
 <div class="comments" id="comments">
-    <div class="ds-thread" data-thread-key="six" data-title="插入排序" data-url="http://yoursite.com/2016/11/05/six/"></div>
+    <div class="ds-thread" data-thread-key="Arguments 与 Boolean" data-title="Arguments 与 Boolean 总结与示例" data-url="http://yoursite.com/2017/02/15/Arguments 与 Boolean/"></div>
 </div>
 <script>
 lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
@@ -367,7 +371,7 @@ lazyScripts.push('/js/embed.min.js?v=1.4.7');
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/11/05/six/&title=《插入排序》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/02/15/Arguments 与 Boolean/&title=《Arguments 与 Boolean 总结与示例》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -377,22 +381,22 @@ lazyScripts.push('/js/embed.min.js?v=1.4.7');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/11/05/six/&title=《插入排序》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/02/15/Arguments 与 Boolean/&title=《Arguments 与 Boolean 总结与示例》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/11/05/six/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/02/15/Arguments 与 Boolean/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《插入排序》 — SammieHo's 学习慢炖&url=http://yoursite.com/2016/11/05/six/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Arguments 与 Boolean 总结与示例》 — SammieHo's 学习慢炖&url=http://yoursite.com/2017/02/15/Arguments 与 Boolean/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/11/05/six/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/02/15/Arguments 与 Boolean/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -403,7 +407,7 @@ lazyScripts.push('/js/embed.min.js?v=1.4.7');
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2016/11/05/six/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2017/02/15/Arguments 与 Boolean/" alt="微信分享二维码">
 </div>
 
 
