@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-15T00:08:17.926Z</updated>
+  <updated>2017-02-15T01:56:25.149Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,159 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>String 总结与示例</title>
+    <link href="http://yoursite.com/2017/02/15/String%E6%80%BB%E7%BB%93%E4%B8%8E%E7%A4%BA%E4%BE%8B/"/>
+    <id>http://yoursite.com/2017/02/15/String总结与示例/</id>
+    <published>2017-02-15T00:55:29.000Z</published>
+    <updated>2017-02-15T01:56:25.149Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><h4 id="string-length"><a href="#string-length" class="headerlink" title="string.length"></a>string.length</h4><ul>
+<li><p>返回字符串的长度。</p>
+</li>
+<li><p>示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var x = &quot;Mozilla&quot;;</div><div class="line">var empty = &quot;&quot;;</div><div class="line"></div><div class="line">console.log( x.length ); // 7</div><div class="line">console.log(empty.length); //0</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="String-prototype"><a href="#String-prototype" class="headerlink" title="String.prototype"></a>String.prototype</h4><ul>
+<li><p>所有 String 实例都继承于 String.prototype。</p>
+</li>
+<li><p>String.prototype 属性的属性特性：<br>writable    :false<br>enumerable    :false<br>configurable    :false</p>
+</li>
+</ul>
+<h1 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h1><blockquote>
+<p>都不会改变原str<br> var str = “abcd”, newS;</p>
+</blockquote>
+<h4 id="跟-HTML-无关的方法"><a href="#跟-HTML-无关的方法" class="headerlink" title="跟 HTML 无关的方法"></a>跟 HTML 无关的方法</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">概述</th>
+<th style="text-align:left">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">charAt(index)</td>
+<td style="text-align:left">返回指定索引的字符</td>
+<td style="text-align:left">str.charAt(0); // a</td>
+</tr>
+<tr>
+<td style="text-align:left">charCodeAt(index)</td>
+<td style="text-align:left">返回指定索引的字符的Unicode编码，不存在/超出范围，返回NaN</td>
+<td style="text-align:left">str.charCodeAt(0);  // 97 (a的ASCII是97)</td>
+</tr>
+<tr>
+<td style="text-align:left">concat(str)</td>
+<td style="text-align:left">将一/多个字符串与原字符串连接，返回新的字符串</td>
+<td style="text-align:left">newS = str.charAt(“e”,”f”); //newS = “abcdef”; str = “abcd”</td>
+</tr>
+<tr>
+<td style="text-align:left">includes(searchString)</td>
+<td style="text-align:left">判断当前str是否包含searchString，返回T/F</td>
+<td style="text-align:left">str.includes(“bc”); // true</td>
+</tr>
+<tr>
+<td style="text-align:left">indexOf(searchVal)</td>
+<td style="text-align:left">返回指定值的第一次出现的索引 / -1。</td>
+<td style="text-align:left">str.indexOf(“bc”); // 1</td>
+</tr>
+<tr>
+<td style="text-align:left">lastIndexOf(searchVal)</td>
+<td style="text-align:left">(从末尾开始搜索) 返回指定值的第一次出现的索引 / -1。</td>
+<td style="text-align:left">str.lastIndexOf(“”); // 2</td>
+</tr>
+<tr>
+<td style="text-align:left">repeat(count)</td>
+<td style="text-align:left">重复指定str，count次，返回新的字符串</td>
+<td style="text-align:left">str.repeat(1) //abcdabcd</td>
+</tr>
+<tr>
+<td style="text-align:left">slice(begin,end)</td>
+<td style="text-align:left">提取部分str并返回</td>
+<td style="text-align:left">str.slice(0,1) //a</td>
+</tr>
+<tr>
+<td style="text-align:left">split(“separator”)</td>
+<td style="text-align:left">将str按separator分割，并转化成arr</td>
+<td style="text-align:left">str.split(“”) //[“a”,”b”,”c”,”d”];</td>
+</tr>
+<tr>
+<td style="text-align:left">substr(strat,len)</td>
+<td style="text-align:left">返回字符串中从指定位置开始到指定长度的子字符串。</td>
+<td style="text-align:left">str.substr(0,2); //“ab”</td>
+</tr>
+<tr>
+<td style="text-align:left">substring(start,end)</td>
+<td style="text-align:left">返回字符串两个索引之间（或到字符串末尾）的子串。</td>
+<td style="text-align:left">str.substring(1,2); //“b”</td>
+</tr>
+<tr>
+<td style="text-align:left">toLowerCase()</td>
+<td style="text-align:left">将str转换为小写并返回</td>
+<td style="text-align:left">str.toLowerCase(); //“abcd”</td>
+</tr>
+<tr>
+<td style="text-align:left">toUpperCase()</td>
+<td style="text-align:left">将str转换为大写并返回</td>
+<td style="text-align:left">str.toUpperCase(); //“ABCD”</td>
+</tr>
+<tr>
+<td style="text-align:left">trim()</td>
+<td style="text-align:left">删除str两端的空白字符(实际是replace)</td>
+<td style="text-align:left">newS = “  a,cd  “; newS.trim(); // “a,cd”</td>
+</tr>
+<tr>
+<td style="text-align:left">toString()</td>
+<td style="text-align:left">返回字符串形式</td>
+<td style="text-align:left">str = [1,2,3];str.toString(); // “1,2,3”</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="与-RegExp-相关"><a href="#与-RegExp-相关" class="headerlink" title="与 RegExp 相关"></a>与 RegExp 相关</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">概述</th>
+<th style="text-align:center">返回值</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">str.match(regexp)</td>
+<td style="text-align:left">字符串匹配到RegExp时，提取匹配项。</td>
+<td style="text-align:center">包含匹配结果的array / null</td>
+<td>str.match(/[a-z]/) // return [“a”]</td>
+</tr>
+<tr>
+<td style="text-align:left">str.search(regexp)</td>
+<td style="text-align:left">查找str与一个RegExp是否匹配</td>
+<td style="text-align:center">返回首次匹配项的索引/ -1</td>
+<td>str.search(/[a-z]/); // 0</td>
+</tr>
+<tr>
+<td style="text-align:left">replace(regexp/substr,newStr/function)</td>
+<td style="text-align:left">用arg2替换掉符合arg1的内容</td>
+<td style="text-align:center">返回替换后的新字符串</td>
+<td>str.replace(/[a-b]/g,”N”); //“NNcd”</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;属性&quot;&gt;&lt;a href=&quot;#属性&quot; class=&quot;headerlink&quot; title=&quot;属性&quot;&gt;&lt;/a&gt;属性&lt;/h1&gt;&lt;h4 id=&quot;string-length&quot;&gt;&lt;a href=&quot;#string-length&quot; class=&quot;headerlink&quot; title=
+    
+    </summary>
+    
+      <category term="Javascript" scheme="http://yoursite.com/categories/Javascript/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>简单算法——Array与String的运用</title>
@@ -97,202 +250,6 @@
     </summary>
     
       <category term="Array String Javascript" scheme="http://yoursite.com/categories/Array-String-Javascript/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>String 总结与示例</title>
-    <link href="http://yoursite.com/2017/02/14/String%E6%80%BB%E7%BB%93%E4%B8%8E%E7%A4%BA%E4%BE%8B/"/>
-    <id>http://yoursite.com/2017/02/14/String总结与示例/</id>
-    <published>2017-02-14T10:53:42.399Z</published>
-    <updated>2017-02-14T10:54:00.822Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><h4 id="array-length"><a href="#array-length" class="headerlink" title="array.length"></a>array.length</h4><ul>
-<li><p>返回一个数组中的元素个数。</p>
-</li>
-<li><p>Array.length 属性的属性特性：<br>writable    :true<br>enumerable    :false<br>configurable    :false</p>
-</li>
-<li><p>示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var items = [&quot;shoes&quot;, &quot;shirts&quot;, &quot;socks&quot;, &quot;sweaters&quot;];</div><div class="line"></div><div class="line">items.length;</div><div class="line"></div><div class="line">// 返回 4</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="Array-prototype"><a href="#Array-prototype" class="headerlink" title="Array.prototype"></a>Array.prototype</h4><ul>
-<li><p>所有的数组实例都继承于 Array.prototype。</p>
-</li>
-<li><p>Array.prototype 属性的属性特性：<br>writable    :false<br>enumerable    :false<br>configurable    :false</p>
-</li>
-<li><p>注意：Array.prototype 本身是个空数组。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Array.isArray(Array.prototype) //true</div></pre></td></tr></table></figure>
-</li>
-<li><p>所有的数组方法都是定义在Array.prototype上，通过扩展其属性的方法来给所有数组示例增加方法。(构造函数的方式)</p>
-</li>
-</ul>
-<h1 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h1><h4 id="①-会改变自身"><a href="#①-会改变自身" class="headerlink" title="① 会改变自身"></a>① 会改变自身</h4><table>
-<thead>
-<tr>
-<th style="text-align:left">方法</th>
-<th style="text-align:left">概述</th>
-<th style="text-align:center">返回值</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">sort(compareFunction)</td>
-<td style="text-align:left">排序</td>
-<td style="text-align:center">新数组</td>
-<td>array.sort(func);</td>
-</tr>
-<tr>
-<td style="text-align:left">push(ele1,ele2,ele3)</td>
-<td style="text-align:left">在末尾添加元素</td>
-<td style="text-align:center">数组的新长度</td>
-<td>let a = [1,2]; a.push(3,4) // return 4</td>
-</tr>
-<tr>
-<td style="text-align:left">pop()</td>
-<td style="text-align:left">删除末尾的元素</td>
-<td style="text-align:center">返回该元素的值,会更改数组的长度</td>
-<td>let a = [1,2,3]; a.pop();//return 3</td>
-</tr>
-<tr>
-<td style="text-align:left">unshift(ele1,ele2,ele3)</td>
-<td style="text-align:left">在头部添加元素</td>
-<td style="text-align:center">数组的新长度</td>
-<td>类似push()</td>
-</tr>
-<tr>
-<td style="text-align:left">shift()</td>
-<td style="text-align:left">在头部删除元素</td>
-<td style="text-align:center">被删除元素的值</td>
-<td>类似pop()</td>
-</tr>
-<tr>
-<td style="text-align:left">reverse()</td>
-<td style="text-align:left">翻转数组</td>
-<td style="text-align:center">返回该数组的引用</td>
-<td>array.reverse()</td>
-</tr>
-<tr>
-<td style="text-align:left">splice(start, delCount, item1, …)</td>
-<td style="text-align:left">添加/删除特定元素</td>
-<td style="text-align:center">被删除元素组成的数组</td>
-<td>a.splice(2,0,”aa”)</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h4 id="②-不会改变原数组"><a href="#②-不会改变原数组" class="headerlink" title="② 不会改变原数组"></a>② 不会改变原数组</h4><blockquote>
-<p> var a = [“a”,”b”,”c”],newA;</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">方法</th>
-<th style="text-align:left">概述</th>
-<th style="text-align:left">示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">concat(arr1,arr2)</td>
-<td style="text-align:left">连接</td>
-<td style="text-align:left">a.concat(“d”); //[“a”,”b”,”c”,”d”]</td>
-</tr>
-<tr>
-<td style="text-align:left">includes(num)</td>
-<td style="text-align:left">判断当前数组是否包含某指定的值,返回true/false</td>
-<td style="text-align:left">a.includes(“b”); //true</td>
-</tr>
-<tr>
-<td style="text-align:left">indexOf(ele)</td>
-<td style="text-align:left">返回数组中存在元素的第一个索引，没有则返回-1</td>
-<td style="text-align:left">a.indexOf(“b”); //1</td>
-</tr>
-<tr>
-<td style="text-align:left">lastIndexOf(ele)</td>
-<td style="text-align:left">与indexOf类似，不过从末尾开始寻找</td>
-<td style="text-align:left">a.lastIndexOf(“b”) // 1</td>
-</tr>
-<tr>
-<td style="text-align:left">join(“,”)</td>
-<td style="text-align:left">把数组按”,”连接成string</td>
-<td style="text-align:left">newA = a.join(“-“); //return a-b-c</td>
-</tr>
-<tr>
-<td style="text-align:left">slice(begin,end)</td>
-<td style="text-align:left">部分浅拷贝, 返回到从开始到结束（半开半闭区间）选择的新数组对象</td>
-<td style="text-align:left">newA = a.slice(1,2); // newA = [“b”];</td>
-</tr>
-<tr>
-<td style="text-align:left">toString()</td>
-<td style="text-align:left">返回一个字符串,由”,”连接</td>
-<td style="text-align:left">newA = a.toString(); // “a,b,c”</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h4 id="③-遍历方法"><a href="#③-遍历方法" class="headerlink" title="③ 遍历方法"></a>③ 遍历方法</h4><table>
-<thead>
-<tr>
-<th style="text-align:left">方法</th>
-<th style="text-align:left">概述</th>
-<th style="text-align:left">callback</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">forEach()</td>
-<td style="text-align:left">排序</td>
-<td style="text-align:left">function(val){return val;}</td>
-</tr>
-<tr>
-<td style="text-align:left">filter()</td>
-<td style="text-align:left">过滤出符合条件的元素，callback的参数作为当前迭代的项，返回true的项保留，false过滤。</td>
-<td style="text-align:left">function(val)</td>
-</tr>
-<tr>
-<td style="text-align:left">map()</td>
-<td style="text-align:left">根据callback来处理每个元素</td>
-<td style="text-align:left">function(val)</td>
-</tr>
-<tr>
-<td style="text-align:left">reduce(func,per(选))</td>
-<td style="text-align:left">迭代数组，并累计到一个值中。callback是个累加器</td>
-<td style="text-align:left">function(preVal,curVal)</td>
-</tr>
-<tr>
-<td style="text-align:left">every(callback[, thisArg])</td>
-<td style="text-align:left">每个元素都符合callback，返回T/F</td>
-<td style="text-align:left">func(element, index, array)</td>
-</tr>
-<tr>
-<td style="text-align:left">some()</td>
-<td style="text-align:left">其中一个符合callback，返回T/F</td>
-<td style="text-align:left">callback 被调用时传入三个参数：元素的值，元素的索引，被遍历的数组。</td>
-</tr>
-<tr>
-<td style="text-align:left">find()</td>
-<td style="text-align:left">返回数组中满足提供的测试函数的第一个元素的值,无则undefined</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">findIndex()</td>
-<td style="text-align:left">返回数组中满足提供的测试函数的第一个元素的索引。否则返回-1。</td>
-<td style="text-align:left"></td>
-</tr>
-</tbody>
-</table>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;属性&quot;&gt;&lt;a href=&quot;#属性&quot; class=&quot;headerlink&quot; title=&quot;属性&quot;&gt;&lt;/a&gt;属性&lt;/h1&gt;&lt;h4 id=&quot;array-length&quot;&gt;&lt;a href=&quot;#array-length&quot; class=&quot;headerlink&quot; title=&quot;a
-    
-    </summary>
-    
-      <category term="String Javascript" scheme="http://yoursite.com/categories/String-Javascript/"/>
     
     
   </entry>

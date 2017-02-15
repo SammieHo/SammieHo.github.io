@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>String 总结与示例 | SammieHo&#39;s 学习慢炖 | null</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="属性string.length
+返回字符串的长度。
+
+示例
+12345var x = &amp;quot;Mozilla&amp;quot;;var empty = &amp;quot;&amp;quot;;console.log( x.length ); // 7console.log(empty.length); //0
+
+
+String.prototype
+所有 String 实例都继承于 String.prototype">
+<meta property="og:type" content="article">
+<meta property="og:title" content="String 总结与示例">
+<meta property="og:url" content="http://yoursite.com/2017/02/15/String总结与示例/index.html">
+<meta property="og:site_name" content="SammieHo's 学习慢炖">
+<meta property="og:description" content="属性string.length
+返回字符串的长度。
+
+示例
+12345var x = &amp;quot;Mozilla&amp;quot;;var empty = &amp;quot;&amp;quot;;console.log( x.length ); // 7console.log(empty.length); //0
+
+
+String.prototype
+所有 String 实例都继承于 String.prototype">
+<meta property="og:updated_time" content="2017-02-15T01:56:25.149Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="String 总结与示例">
+<meta name="twitter:description" content="属性string.length
+返回字符串的长度。
+
+示例
+12345var x = &amp;quot;Mozilla&amp;quot;;var empty = &amp;quot;&amp;quot;;console.log( x.length ); // 7console.log(empty.length); //0
+
+
+String.prototype
+所有 String 实例都继承于 String.prototype">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sammieho</h5>
+          <a href="mailto:sammieho1995@gmail.com" title="sammieho1995@gmail.com" class="mail">sammieho1995@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/sammieho" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">String 总结与示例</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">String 总结与示例</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-15T00:55:29.000Z" itemprop="datePublished" class="page-time">
+  2017-02-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Javascript/">Javascript</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#属性"><span class="post-toc-number">1.</span> <span class="post-toc-text">属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#string-length"><span class="post-toc-number">1.0.0.1.</span> <span class="post-toc-text">string.length</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#String-prototype"><span class="post-toc-number">1.0.0.2.</span> <span class="post-toc-text">String.prototype</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#方法："><span class="post-toc-number">2.</span> <span class="post-toc-text">方法：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#跟-HTML-无关的方法"><span class="post-toc-number">2.0.0.1.</span> <span class="post-toc-text">跟 HTML 无关的方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#与-RegExp-相关"><span class="post-toc-number">2.0.0.2.</span> <span class="post-toc-text">与 RegExp 相关</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-String总结与示例"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">String 总结与示例</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年02月15日 8:55" datetime="2017-02-15T00:55:29.000Z"  itemprop="datePublished">2017-02-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Javascript/">Javascript</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><h4 id="string-length"><a href="#string-length" class="headerlink" title="string.length"></a>string.length</h4><ul>
+<li><p>返回字符串的长度。</p>
+</li>
+<li><p>示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var x = &quot;Mozilla&quot;;</div><div class="line">var empty = &quot;&quot;;</div><div class="line"></div><div class="line">console.log( x.length ); // 7</div><div class="line">console.log(empty.length); //0</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="String-prototype"><a href="#String-prototype" class="headerlink" title="String.prototype"></a>String.prototype</h4><ul>
+<li><p>所有 String 实例都继承于 String.prototype。</p>
+</li>
+<li><p>String.prototype 属性的属性特性：<br>writable    :false<br>enumerable    :false<br>configurable    :false</p>
+</li>
+</ul>
+<h1 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h1><blockquote>
+<p>都不会改变原str<br> var str = “abcd”, newS;</p>
+</blockquote>
+<h4 id="跟-HTML-无关的方法"><a href="#跟-HTML-无关的方法" class="headerlink" title="跟 HTML 无关的方法"></a>跟 HTML 无关的方法</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">概述</th>
+<th style="text-align:left">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">charAt(index)</td>
+<td style="text-align:left">返回指定索引的字符</td>
+<td style="text-align:left">str.charAt(0); // a</td>
+</tr>
+<tr>
+<td style="text-align:left">charCodeAt(index)</td>
+<td style="text-align:left">返回指定索引的字符的Unicode编码，不存在/超出范围，返回NaN</td>
+<td style="text-align:left">str.charCodeAt(0);  // 97 (a的ASCII是97)</td>
+</tr>
+<tr>
+<td style="text-align:left">concat(str)</td>
+<td style="text-align:left">将一/多个字符串与原字符串连接，返回新的字符串</td>
+<td style="text-align:left">newS = str.charAt(“e”,”f”); //newS = “abcdef”; str = “abcd”</td>
+</tr>
+<tr>
+<td style="text-align:left">includes(searchString)</td>
+<td style="text-align:left">判断当前str是否包含searchString，返回T/F</td>
+<td style="text-align:left">str.includes(“bc”); // true</td>
+</tr>
+<tr>
+<td style="text-align:left">indexOf(searchVal)</td>
+<td style="text-align:left">返回指定值的第一次出现的索引 / -1。</td>
+<td style="text-align:left">str.indexOf(“bc”); // 1</td>
+</tr>
+<tr>
+<td style="text-align:left">lastIndexOf(searchVal)</td>
+<td style="text-align:left">(从末尾开始搜索) 返回指定值的第一次出现的索引 / -1。</td>
+<td style="text-align:left">str.lastIndexOf(“”); // 2</td>
+</tr>
+<tr>
+<td style="text-align:left">repeat(count)</td>
+<td style="text-align:left">重复指定str，count次，返回新的字符串</td>
+<td style="text-align:left">str.repeat(1) //abcdabcd</td>
+</tr>
+<tr>
+<td style="text-align:left">slice(begin,end)</td>
+<td style="text-align:left">提取部分str并返回</td>
+<td style="text-align:left">str.slice(0,1) //a</td>
+</tr>
+<tr>
+<td style="text-align:left">split(“separator”)</td>
+<td style="text-align:left">将str按separator分割，并转化成arr</td>
+<td style="text-align:left">str.split(“”) //[“a”,”b”,”c”,”d”];</td>
+</tr>
+<tr>
+<td style="text-align:left">substr(strat,len)</td>
+<td style="text-align:left">返回字符串中从指定位置开始到指定长度的子字符串。</td>
+<td style="text-align:left">str.substr(0,2); //“ab”</td>
+</tr>
+<tr>
+<td style="text-align:left">substring(start,end)</td>
+<td style="text-align:left">返回字符串两个索引之间（或到字符串末尾）的子串。</td>
+<td style="text-align:left">str.substring(1,2); //“b”</td>
+</tr>
+<tr>
+<td style="text-align:left">toLowerCase()</td>
+<td style="text-align:left">将str转换为小写并返回</td>
+<td style="text-align:left">str.toLowerCase(); //“abcd”</td>
+</tr>
+<tr>
+<td style="text-align:left">toUpperCase()</td>
+<td style="text-align:left">将str转换为大写并返回</td>
+<td style="text-align:left">str.toUpperCase(); //“ABCD”</td>
+</tr>
+<tr>
+<td style="text-align:left">trim()</td>
+<td style="text-align:left">删除str两端的空白字符(实际是replace)</td>
+<td style="text-align:left">newS = “  a,cd  “; newS.trim(); // “a,cd”</td>
+</tr>
+<tr>
+<td style="text-align:left">toString()</td>
+<td style="text-align:left">返回字符串形式</td>
+<td style="text-align:left">str = [1,2,3];str.toString(); // “1,2,3”</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="与-RegExp-相关"><a href="#与-RegExp-相关" class="headerlink" title="与 RegExp 相关"></a>与 RegExp 相关</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">概述</th>
+<th style="text-align:center">返回值</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">str.match(regexp)</td>
+<td style="text-align:left">字符串匹配到RegExp时，提取匹配项。</td>
+<td style="text-align:center">包含匹配结果的array / null</td>
+<td>str.match(/[a-z]/) // return [“a”]</td>
+</tr>
+<tr>
+<td style="text-align:left">str.search(regexp)</td>
+<td style="text-align:left">查找str与一个RegExp是否匹配</td>
+<td style="text-align:center">返回首次匹配项的索引/ -1</td>
+<td>str.search(/[a-z]/); // 0</td>
+</tr>
+<tr>
+<td style="text-align:left">replace(regexp/substr,newStr/function)</td>
+<td style="text-align:left">用arg2替换掉符合arg1的内容</td>
+<td style="text-align:center">返回替换后的新字符串</td>
+<td>str.replace(/[a-b]/g,”N”); //“NNcd”</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-15T01:56:25.149Z" itemprop="dateUpdated">2017年2月15日 9:56</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/02/15/String总结与示例/" target="_blank" rel="external">http://yoursite.com/2017/02/15/String总结与示例/</a>
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Sammieho">
+            Sammieho
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/02/15/String总结与示例/&title=《String 总结与示例》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/02/15/String总结与示例/&title=《String 总结与示例》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/02/15/String总结与示例/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《String 总结与示例》 — SammieHo's 学习慢炖&url=http://yoursite.com/2017/02/15/String总结与示例/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/02/15/String总结与示例/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/02/14/简单算法——Array与String的运用/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">简单算法——Array与String的运用</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="String总结与示例" data-title="String 总结与示例" data-url="http://yoursite.com/2017/02/15/String总结与示例/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'blog', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.7');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>SammieHo's 学习慢炖 &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/02/15/String总结与示例/&title=《String 总结与示例》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/02/15/String总结与示例/&title=《String 总结与示例》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/02/15/String总结与示例/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《String 总结与示例》 — SammieHo's 学习慢炖&url=http://yoursite.com/2017/02/15/String总结与示例/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/02/15/String总结与示例/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2017/02/15/String总结与示例/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
