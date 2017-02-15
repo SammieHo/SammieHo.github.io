@@ -24,7 +24,7 @@
 这不是数组，是指参数，但拥有length的属性
 使用Array.prototype.slice.call(index) 可以把参数列表转化为数组
 
-1234567function arg(item)&amp;#123;	console.log(item); // 只会去到第一个args	return [].slice.call(arguments,1); //把剩下的args 转化成数">
+12345function arg(item)&amp;#123;	console.log(item); // 只会去到第一个args	return [].slice.call(arguments,1); //把剩下的args 转化成数组&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Arguments 与 Boolean 总结与示例">
 <meta property="og:url" content="http://yoursite.com/2017/02/15/Arguments 与 Boolean/index.html">
@@ -33,15 +33,15 @@
 这不是数组，是指参数，但拥有length的属性
 使用Array.prototype.slice.call(index) 可以把参数列表转化为数组
 
-1234567function arg(item)&amp;#123;	console.log(item); // 只会去到第一个args	return [].slice.call(arguments,1); //把剩下的args 转化成数">
-<meta property="og:updated_time" content="2017-02-15T03:03:25.111Z">
+12345function arg(item)&amp;#123;	console.log(item); // 只会去到第一个args	return [].slice.call(arguments,1); //把剩下的args 转化成数组&amp;">
+<meta property="og:updated_time" content="2017-02-15T03:27:47.849Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Arguments 与 Boolean 总结与示例">
 <meta name="twitter:description" content="Arguments
 这不是数组，是指参数，但拥有length的属性
 使用Array.prototype.slice.call(index) 可以把参数列表转化为数组
 
-1234567function arg(item)&amp;#123;	console.log(item); // 只会去到第一个args	return [].slice.call(arguments,1); //把剩下的args 转化成数">
+12345function arg(item)&amp;#123;	console.log(item); // 只会去到第一个args	return [].slice.call(arguments,1); //把剩下的args 转化成数组&amp;">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/style.css?v=1.4.7">
@@ -162,7 +162,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Arguments"><span class="post-toc-number">1.</span> <span class="post-toc-text">Arguments</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Arguments"><span class="post-toc-number">1.</span> <span class="post-toc-text">Arguments</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Boolean"><span class="post-toc-number">2.</span> <span class="post-toc-text">Boolean</span></a></li></ol>
         </nav>
     </aside>
     
@@ -193,14 +193,27 @@
 <li>这不是数组，是指参数，但拥有length的属性</li>
 <li>使用Array.prototype.slice.call(index) 可以把参数列表转化为数组</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function arg(item)&#123;</div><div class="line">	console.log(item); // 只会去到第一个args</div><div class="line">	return [].slice.call(arguments,1); //把剩下的args 转化成数组</div><div class="line">&#125;</div><div class="line">arg(1,2,3,4,5,&quot;aa&quot;,&quot;bb&quot;);</div><div class="line"></div><div class="line">应用：[柯里化]()</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function arg(item)&#123;</div><div class="line">	console.log(item); // 只会去到第一个args</div><div class="line">	return [].slice.call(arguments,1); //把剩下的args 转化成数组</div><div class="line">&#125;</div><div class="line">arg(1,2,3,4,5,&quot;aa&quot;,&quot;bb&quot;);</div></pre></td></tr></table></figure>
+<ul>
+<li>定义一个创建HTML列表的方法：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function list(type)&#123;</div><div class="line">	var result = &quot;&lt;&quot; + type + &quot;&gt;&lt;li&gt;&quot;;</div><div class="line">	var args = [].slice.call(arguments,1);</div><div class="line">	result += args.join(&quot;&lt;/li&gt;&lt;li&gt;&quot;);</div><div class="line">	result += &quot;&lt;/li&gt;&lt;&quot; + type + &quot;&gt;&quot;;</div><div class="line">	return result;</div><div class="line">&#125;</div><div class="line">list(&quot;ul&quot;,&quot;One&quot;,&quot;Two&quot;,&quot;Thr&quot;);</div><div class="line">//&quot;&lt;ul&gt;&lt;li&gt;One&lt;/li&gt;&lt;li&gt;Two&lt;/li&gt;&lt;li&gt;Thr&lt;/li&gt;&lt;/ul&gt;&quot;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>应用：<br><a href="https://sammieho.github.io/2016/11/20/%E4%BB%8E%E6%9F%AF%E9%87%8C%E5%8C%96%E5%87%BD%E6%95%B0%EF%BC%8C%E5%8A%A0%E6%B7%B1%E5%AF%B9%E9%80%92%E5%BD%92%E7%9A%84%E8%BF%90%E7%94%A8/" target="_blank" rel="external">柯里化</a></p>
+<h1 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a>Boolean</h1><ul>
+<li><p>直接使用 Boolean(value) 函数// value 可选</p>
+</li>
+<li><p>参数是 0, -0,  null, false, NaN, undefined, 或者空字符串 (“”)：值为false.</p>
+</li>
+<li>其他任何值,包括任何对象或者字符串”false”：值为true.</li>
+</ul>
+
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-02-15T03:03:25.111Z" itemprop="dateUpdated">2017年2月15日 11:03</time>
+    最后更新时间：<time datetime="2017-02-15T03:27:47.849Z" itemprop="dateUpdated">2017年2月15日 11:27</time>
 </span><br>
 
 
