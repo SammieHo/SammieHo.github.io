@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-19T12:17:41.912Z</updated>
+  <updated>2017-02-19T12:21:27.929Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://yoursite.com/2017/02/19/webpack/"/>
     <id>http://yoursite.com/2017/02/19/webpack/</id>
     <published>2017-02-19T11:50:01.727Z</published>
-    <updated>2017-02-19T12:17:41.912Z</updated>
+    <updated>2017-02-19T12:21:27.929Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="webpack入门学习笔记"><a href="#webpack入门学习笔记" class="headerlink" title="webpack入门学习笔记"></a>webpack入门学习笔记</h1><h2 id="what？"><a href="#what？" class="headerlink" title="what？"></a>what？</h2><p><a href="https://webpack.github.io/docs/what-is-webpack.html" target="_blank" rel="external">官网</a>是这么说的~(≧▽≦)/~</p>
+    <content type="html"><![CDATA[<h1 id="webpack入门学习笔记"><a href="#webpack入门学习笔记" class="headerlink" title="webpack入门学习笔记"></a>webpack入门学习笔记</h1><h1 id="这里markdown解析优点问题，请查看github传送门"><a href="#这里markdown解析优点问题，请查看github传送门" class="headerlink" title="这里markdown解析优点问题，请查看github传送门"></a>这里markdown解析优点问题，请查看<a href="https://github.com/SammieHo/webpack-demo" target="_blank" rel="external">github传送门</a></h1><h2 id="what？"><a href="#what？" class="headerlink" title="what？"></a>what？</h2><p><a href="https://webpack.github.io/docs/what-is-webpack.html" target="_blank" rel="external">官网</a>是这么说的~(≧▽≦)/~</p>
 <blockquote>
 <p>webpack is a module bundler.</p>
 </blockquote>
@@ -61,7 +61,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;webpack入门学习笔记&quot;&gt;&lt;a href=&quot;#webpack入门学习笔记&quot; class=&quot;headerlink&quot; title=&quot;webpack入门学习笔记&quot;&gt;&lt;/a&gt;webpack入门学习笔记&lt;/h1&gt;&lt;h2 id=&quot;what？&quot;&gt;&lt;a href=&quot;#what
+      &lt;h1 id=&quot;webpack入门学习笔记&quot;&gt;&lt;a href=&quot;#webpack入门学习笔记&quot; class=&quot;headerlink&quot; title=&quot;webpack入门学习笔记&quot;&gt;&lt;/a&gt;webpack入门学习笔记&lt;/h1&gt;&lt;h1 id=&quot;这里markdown解析优点问题，请查看g
     
     </summary>
     
