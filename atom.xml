@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-19T11:53:52.181Z</updated>
+  <updated>2017-02-19T12:00:12.707Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/02/19/webpack/"/>
     <id>http://yoursite.com/2017/02/19/webpack/</id>
     <published>2017-02-19T11:50:01.727Z</published>
-    <updated>2017-02-19T11:53:52.181Z</updated>
+    <updated>2017-02-19T12:00:12.707Z</updated>
     
     <content type="html"><![CDATA[<h1 id="webpack入门学习笔记"><a href="#webpack入门学习笔记" class="headerlink" title="webpack入门学习笔记"></a>webpack入门学习笔记</h1><h2 id="what？"><a href="#what？" class="headerlink" title="what？"></a>what？</h2><p><a href="https://webpack.github.io/docs/what-is-webpack.html" target="_blank" rel="external">官网</a>是这么说的~(≧▽≦)/~</p>
 <blockquote>
@@ -31,7 +31,7 @@
 <p>webpack takes modules with dependencies and generates static assets representing those modules.</p>
 </blockquote>
 <p>根据模块的依赖关系进行静态分析，然后将这些模块按照指定关系生成静态资源。</p>
-<p>顺便引用官网的图<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line">![](https://webpack.github.io/assets/what-is-webpack.png)</div><div class="line"></div><div class="line">ps：我目前还理解的比较浅显，回来继续更~~~接着下面</div><div class="line"></div><div class="line">## why？</div><div class="line"></div><div class="line">我的理解：</div><div class="line">1. 支持 同步sync 和 异步async 两种模块机制。</div><div class="line">2. 支持 Loaders，处理样式sass编译等，目前我只用过css打包成js（羞愧脸~~~~(&gt;_&lt;)~~~~）</div><div class="line">3. 很多插件，代码压缩、热替换、生成html等。</div><div class="line"></div><div class="line">## how？</div><div class="line"></div><div class="line">&gt; 借这里来回想怎么安装的，基本的结构，方便以后查阅，嘻嘻嘻。</div><div class="line"></div><div class="line">#### 准备工作</div><div class="line"></div><div class="line">1. 首先要有NodeJS, 因为自带npm，之后安装模块很常用到！</div><div class="line"></div><div class="line">2. 用 npm 安装全局 webpack</div><div class="line">```</div><div class="line">$ npm install webpack -g</div><div class="line">```</div><div class="line"></div><div class="line">#### 配置</div><div class="line"></div><div class="line">##### 进入项目目录，初始化 package.json</div><div class="line">```</div><div class="line">$ npm init</div><div class="line">```</div><div class="line">** 注意：** 在 &quot;main&quot; 中设置好入口文件 entry.js</div><div class="line"></div><div class="line">##### 在项目下安装对webpack的依赖</div><div class="line">```</div><div class="line">$ npm install webpack --save-dev</div><div class="line">```</div><div class="line">生成 node_modules 文件夹</div><div class="line"></div><div class="line">##### 新建文件夹 bin,src 分别存放 bundled file和 source file</div><div class="line">```</div><div class="line">mkdir src bin</div><div class="line">```</div><div class="line">有些 bin 又用 dist,build; src 用 app, 习惯不同而已。</div><div class="line"></div><div class="line">##### 新建出口文件index.html</div><div class="line">```</div><div class="line">cd.&gt;index.html</div><div class="line"></div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;script src=&quot;bin/bundle.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div><div class="line">```</div><div class="line"></div><div class="line">##### bin 新建 bundle.js , src 新建 entry.js</div><div class="line">```</div><div class="line">cd.&gt;bin/bundle.js</div><div class="line">cd.&gt;src/entry.js</div><div class="line">```</div><div class="line"></div><div class="line">最后，文档结构是这样的。</div><div class="line">![](http://p1.bqimg.com/567571/b0fb9cc67a9d5a23.png)</div><div class="line"></div><div class="line">至此，可以开始编码了，下面是一些补充内容~~</div></pre></td></tr></table></figure></p>
+<p>顺便引用官网的图<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">![](https://webpack.github.io/assets/what-is-webpack.png)</div><div class="line"></div><div class="line">ps：我目前还理解的比较浅显，回来继续更~~~接着下面</div><div class="line"></div><div class="line">## why？</div><div class="line"></div><div class="line">我的理解：</div><div class="line"></div><div class="line">1. 支持 同步sync 和 异步async 两种模块机制。</div><div class="line">2. 支持 Loaders，处理样式sass编译等，目前我只用过css打包成js（羞愧脸~~~~(&gt;_&lt;)~~~~）</div><div class="line">3. 很多插件，代码压缩、热替换、生成html等。</div><div class="line"></div><div class="line">## how？</div><div class="line"></div><div class="line">&gt; 借这里来回想怎么安装的，基本的结构，方便以后查阅，嘻嘻嘻。</div><div class="line"></div><div class="line">#### 准备工作</div><div class="line"></div><div class="line">1. 首先要有NodeJS, 因为自带npm，之后安装模块很常用到！</div><div class="line"></div><div class="line">2. 用 npm 安装全局 webpack</div><div class="line">```</div><div class="line">$ npm install webpack -g</div><div class="line">```</div><div class="line"></div><div class="line">#### 配置</div><div class="line"></div><div class="line">##### 进入项目目录，初始化 package.json</div><div class="line">```</div><div class="line">$ npm init</div><div class="line">```</div><div class="line">** 注意：** 在 &quot;main&quot; 中设置好入口文件 entry.js</div><div class="line"></div><div class="line">##### 在项目下安装对webpack的依赖</div><div class="line">```</div><div class="line">$ npm install webpack --save-dev</div><div class="line">```</div><div class="line">生成 node_modules 文件夹</div><div class="line"></div><div class="line">##### 新建文件夹 bin,src 分别存放 bundled file和 source file</div><div class="line">```</div><div class="line">mkdir src bin</div><div class="line">```</div><div class="line">有些 bin 又用 dist,build; src 用 app, 习惯不同而已。</div><div class="line"></div><div class="line">##### 新建出口文件index.html</div><div class="line">```</div><div class="line">cd.&gt;index.html</div><div class="line"></div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;script src=&quot;bin/bundle.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div><div class="line">```</div><div class="line"></div><div class="line">##### bin 新建 bundle.js , src 新建 entry.js</div><div class="line">```</div><div class="line">cd.&gt;bin/bundle.js</div><div class="line">cd.&gt;src/entry.js</div><div class="line">```</div><div class="line"></div><div class="line">最后，文档结构是这样的。</div><div class="line">![](http://p1.bqimg.com/567571/b0fb9cc67a9d5a23.png)</div><div class="line"></div><div class="line">至此，可以开始编码了，下面是一些补充内容~~</div></pre></td></tr></table></figure></p>
 <h4 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h4><h5 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h5><p>webpack.config.js 是配置文件，之后直接 webpack 就可以打包。<br>里面包含 入口 entry，输出 output，模块 module<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -65,7 +65,7 @@
     
     </summary>
     
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
     
     
   </entry>
@@ -1612,28 +1612,6 @@ Resolve：
   </entry>
   
   <entry>
-    <title>插入排序</title>
-    <link href="http://yoursite.com/2016/11/05/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
-    <id>http://yoursite.com/2016/11/05/插入排序/</id>
-    <published>2016-11-05T00:55:29.000Z</published>
-    <updated>2017-02-03T14:00:50.376Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="算法原理："><a href="#算法原理：" class="headerlink" title="算法原理："></a>算法原理：</h2><p>设有一组关键字｛K1， K2，…， Kn｝；排序开始就认为 K1 是一个有序序列；让 K2 插入上述表长为 1 的有序序列，使之成为一个表长为 2 的有序序列；然后让 K3 插入上述表长为 2 的有序序列，使之成为一个表长为 3 的有序序列；依次类推，最后让 Kn 插入上述表长为 n-1 的有序序列，得一个表长为 n 的有序序列。</p>
-<h2 id="个人实现思路："><a href="#个人实现思路：" class="headerlink" title="个人实现思路："></a>个人实现思路：</h2><p>1.设第一个elem( n=0 ) 已排好序A。<br>2.从第二个elem( n=1 )开始，<br>3.在找到准备插入的位置后，需要将该位置之后的数组元素往后挪一位；<br>  所以，在对比之前，要先记录自身元素的值。<br>4.【从后→前】对比，若 A[last] &gt; elem ,那么交换位置，直到 A[elem] &lt; elem ,本轮结束，elem已排好位置。<br>5.重复步骤2-4，直至到达数组最后一位。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var arr = [1,3,9,6,5,2,7,2,3,4,8];</div><div class="line"></div><div class="line">function insertSort(arr)&#123;</div><div class="line">	</div><div class="line">	for(var i = 1; i &lt; arr.length; i++)&#123;</div><div class="line">		</div><div class="line">		var tmp = arr[i];</div><div class="line">		for( var j = i-1; j &gt; 0 , arr[j] &gt; tmp; j--)&#123;</div><div class="line">			arr[ j+1 ] = arr[ j ];</div><div class="line">			arr[ j ] = tmp;</div><div class="line">	&#125;</div><div class="line">	console.log(arr);</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">insertSort(arr);</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;算法原理：&quot;&gt;&lt;a href=&quot;#算法原理：&quot; class=&quot;headerlink&quot; title=&quot;算法原理：&quot;&gt;&lt;/a&gt;算法原理：&lt;/h2&gt;&lt;p&gt;设有一组关键字｛K1， K2，…， Kn｝；排序开始就认为 K1 是一个有序序列；让 K2 插入上述表长为 1 的有
-    
-    </summary>
-    
-      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Math.random()随机数的一些事一些情</title>
     <link href="http://yoursite.com/2016/11/05/Math.random()%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B%E4%B8%80%E4%BA%9B%E6%83%85/"/>
     <id>http://yoursite.com/2016/11/05/Math.random()随机数的一些事一些情/</id>
@@ -1677,6 +1655,28 @@ Resolve：
     <summary type="html">
     
       &lt;h1 id=&quot;Math-random-随机数的一些事一些情&quot;&gt;&lt;a href=&quot;#Math-random-随机数的一些事一些情&quot; class=&quot;headerlink&quot; title=&quot;Math.random()随机数的一些事一些情&quot;&gt;&lt;/a&gt;&lt;strong&gt;Math.random
+    
+    </summary>
+    
+      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>插入排序</title>
+    <link href="http://yoursite.com/2016/11/05/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
+    <id>http://yoursite.com/2016/11/05/插入排序/</id>
+    <published>2016-11-05T00:55:29.000Z</published>
+    <updated>2017-02-03T14:00:50.376Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="算法原理："><a href="#算法原理：" class="headerlink" title="算法原理："></a>算法原理：</h2><p>设有一组关键字｛K1， K2，…， Kn｝；排序开始就认为 K1 是一个有序序列；让 K2 插入上述表长为 1 的有序序列，使之成为一个表长为 2 的有序序列；然后让 K3 插入上述表长为 2 的有序序列，使之成为一个表长为 3 的有序序列；依次类推，最后让 Kn 插入上述表长为 n-1 的有序序列，得一个表长为 n 的有序序列。</p>
+<h2 id="个人实现思路："><a href="#个人实现思路：" class="headerlink" title="个人实现思路："></a>个人实现思路：</h2><p>1.设第一个elem( n=0 ) 已排好序A。<br>2.从第二个elem( n=1 )开始，<br>3.在找到准备插入的位置后，需要将该位置之后的数组元素往后挪一位；<br>  所以，在对比之前，要先记录自身元素的值。<br>4.【从后→前】对比，若 A[last] &gt; elem ,那么交换位置，直到 A[elem] &lt; elem ,本轮结束，elem已排好位置。<br>5.重复步骤2-4，直至到达数组最后一位。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var arr = [1,3,9,6,5,2,7,2,3,4,8];</div><div class="line"></div><div class="line">function insertSort(arr)&#123;</div><div class="line">	</div><div class="line">	for(var i = 1; i &lt; arr.length; i++)&#123;</div><div class="line">		</div><div class="line">		var tmp = arr[i];</div><div class="line">		for( var j = i-1; j &gt; 0 , arr[j] &gt; tmp; j--)&#123;</div><div class="line">			arr[ j+1 ] = arr[ j ];</div><div class="line">			arr[ j ] = tmp;</div><div class="line">	&#125;</div><div class="line">	console.log(arr);</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">insertSort(arr);</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;算法原理：&quot;&gt;&lt;a href=&quot;#算法原理：&quot; class=&quot;headerlink&quot; title=&quot;算法原理：&quot;&gt;&lt;/a&gt;算法原理：&lt;/h2&gt;&lt;p&gt;设有一组关键字｛K1， K2，…， Kn｝；排序开始就认为 K1 是一个有序序列；让 K2 插入上述表长为 1 的有
     
     </summary>
     
