@@ -13,32 +13,68 @@
     
     
     
-    <title>水平居中 | SammieHo&#39;s 学习慢炖 | null</title>
+    <title>css 水平/垂直居中 | SammieHo&#39;s 学习慢炖 | null</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="垂直居中的方法稍后再总结
+    <meta name="description" content="垂直水平居中方法：
 
-浮动元素横向显示并居中思路1：将ul设为display:inline-block;ul的父元素nav设为text-align：center
-123456789101112131415html：&amp;lt;nav&amp;gt;	&amp;lt;ul&amp;gt;		&amp;lt;li&amp;gt;block1&amp;lt;/li&amp;gt;	&amp;lt;/ul&amp;gt;&amp;lt;/nav&amp;gt;css:nav&amp;#123;">
+绝对定位
+负外边距
+flexbox
+inline-block
+display:table-cell
+
+浮动元素横向显示并居中
+
+父元素设为text-center,子元素设为inline-block
+父元素width:fit-content;margin:auto; 子元素 float:left
+
+
+#水平居中
+浮动元素横向显示并居中思路1：将ul设为display:inli">
 <meta property="og:type" content="article">
-<meta property="og:title" content="水平居中">
+<meta property="og:title" content="css 水平/垂直居中">
 <meta property="og:url" content="http://yoursite.com/2017/02/15/水平居中/index.html">
 <meta property="og:site_name" content="SammieHo's 学习慢炖">
-<meta property="og:description" content="垂直居中的方法稍后再总结
+<meta property="og:description" content="垂直水平居中方法：
 
-浮动元素横向显示并居中思路1：将ul设为display:inline-block;ul的父元素nav设为text-align：center
-123456789101112131415html：&amp;lt;nav&amp;gt;	&amp;lt;ul&amp;gt;		&amp;lt;li&amp;gt;block1&amp;lt;/li&amp;gt;	&amp;lt;/ul&amp;gt;&amp;lt;/nav&amp;gt;css:nav&amp;#123;">
-<meta property="og:updated_time" content="2017-02-15T13:30:57.527Z">
+绝对定位
+负外边距
+flexbox
+inline-block
+display:table-cell
+
+浮动元素横向显示并居中
+
+父元素设为text-center,子元素设为inline-block
+父元素width:fit-content;margin:auto; 子元素 float:left
+
+
+#水平居中
+浮动元素横向显示并居中思路1：将ul设为display:inli">
+<meta property="og:updated_time" content="2017-02-17T11:59:41.931Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="水平居中">
-<meta name="twitter:description" content="垂直居中的方法稍后再总结
+<meta name="twitter:title" content="css 水平/垂直居中">
+<meta name="twitter:description" content="垂直水平居中方法：
 
-浮动元素横向显示并居中思路1：将ul设为display:inline-block;ul的父元素nav设为text-align：center
-123456789101112131415html：&amp;lt;nav&amp;gt;	&amp;lt;ul&amp;gt;		&amp;lt;li&amp;gt;block1&amp;lt;/li&amp;gt;	&amp;lt;/ul&amp;gt;&amp;lt;/nav&amp;gt;css:nav&amp;#123;">
+绝对定位
+负外边距
+flexbox
+inline-block
+display:table-cell
+
+浮动元素横向显示并居中
+
+父元素设为text-center,子元素设为inline-block
+父元素width:fit-content;margin:auto; 子元素 float:left
+
+
+#水平居中
+浮动元素横向显示并居中思路1：将ul设为display:inli">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/style.css?v=1.4.7">
@@ -113,7 +149,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">水平居中</div>
+        <div class="flex-col header-title ellipsis">css 水平/垂直居中</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -135,7 +171,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">水平居中</h1>
+        <h1 class="title">css 水平/垂直居中</h1>
         <h5 class="subtitle">
             
                 <time datetime="2017-02-15T12:48:05.024Z" itemprop="datePublished" class="page-time">
@@ -159,7 +195,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#浮动元素横向显示并居中"><span class="post-toc-number">1.</span> <span class="post-toc-text">浮动元素横向显示并居中</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#因此：行内元素，给父元素设置text-align-center"><span class="post-toc-number">2.</span> <span class="post-toc-text">因此：行内元素，给父元素设置text-align:center;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#块级元素，有固定宽度，该元素设置margin-0-auto"><span class="post-toc-number">3.</span> <span class="post-toc-text">块级元素，有固定宽度，该元素设置margin:0 auto;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#绝对定位"><span class="post-toc-number">4.</span> <span class="post-toc-text">绝对定位</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#flex"><span class="post-toc-number">5.</span> <span class="post-toc-text">flex</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考文章"><span class="post-toc-number">6.</span> <span class="post-toc-text">参考文章</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#浮动元素横向显示并居中"><span class="post-toc-number">1.</span> <span class="post-toc-text">浮动元素横向显示并居中</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#因此：行内元素，给父元素设置text-align-center"><span class="post-toc-number">2.</span> <span class="post-toc-text">因此：行内元素，给父元素设置text-align:center;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#块级元素，有固定宽度，该元素设置margin-0-auto"><span class="post-toc-number">3.</span> <span class="post-toc-text">块级元素，有固定宽度，该元素设置margin:0 auto;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#绝对定位"><span class="post-toc-number">4.</span> <span class="post-toc-text">绝对定位</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#flex"><span class="post-toc-number">5.</span> <span class="post-toc-text">flex</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#绝对垂直居中"><span class="post-toc-number">6.</span> <span class="post-toc-text">绝对垂直居中</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#flexbox的解决方法"><span class="post-toc-number">7.</span> <span class="post-toc-text">flexbox的解决方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考文章"><span class="post-toc-number">8.</span> <span class="post-toc-text">参考文章</span></a></li></ol>
         </nav>
     </aside>
     
@@ -167,7 +203,7 @@
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">水平居中</h1>
+        <h1 class="post-card-title">css 水平/垂直居中</h1>
         <div class="post-meta">
             <time class="post-time" title="2017年02月15日 20:48" datetime="2017-02-15T12:48:05.024Z"  itemprop="datePublished">2017-02-15</time>
 
@@ -187,8 +223,21 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <blockquote>
-<p>垂直居中的方法稍后再总结</p>
+<p>垂直水平居中方法：</p>
+<ol>
+<li>绝对定位</li>
+<li>负外边距</li>
+<li>flexbox</li>
+<li>inline-block</li>
+<li>display:table-cell</li>
+</ol>
+<p>浮动元素横向显示并居中</p>
+<ol>
+<li>父元素设为text-center,子元素设为inline-block</li>
+<li>父元素width:fit-content;margin:auto; 子元素 float:left</li>
+</ol>
 </blockquote>
+<p>#水平居中</p>
 <h2 id="浮动元素横向显示并居中"><a href="#浮动元素横向显示并居中" class="headerlink" title="浮动元素横向显示并居中"></a>浮动元素横向显示并居中</h2><p>思路1：将ul设为display:inline-block;ul的父元素nav设为text-align：center</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">html：</div><div class="line">&lt;nav&gt;</div><div class="line">	&lt;ul&gt;</div><div class="line">		&lt;li&gt;block1&lt;/li&gt;</div><div class="line">	&lt;/ul&gt;</div><div class="line">&lt;/nav&gt;</div><div class="line"></div><div class="line">css:</div><div class="line">nav&#123; text-align:center; &#125;</div><div class="line">ul&#123; display: inline-block; &#125;</div><div class="line">li&#123;</div><div class="line">	float:left;</div><div class="line">	list-style:none;</div><div class="line">	padding:10px 20px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="因此：行内元素，给父元素设置text-align-center"><a href="#因此：行内元素，给父元素设置text-align-center" class="headerlink" title="因此：行内元素，给父元素设置text-align:center;"></a>因此：行内元素，给父元素设置text-align:center;</h2><p>思路2：子元素包含float:left; 运用css3新特性，将父元素设置为width:fit-content,并配合margin<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">HTML:</div><div class="line">&lt;ul&gt;</div><div class="line">	&lt;li&gt;block1&lt;/li&gt;</div><div class="line">	&lt;li&gt;block2&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">CSS:</div><div class="line">ul&#123;</div><div class="line">	width:fit-content;</div><div class="line">	margin:0 auto;</div><div class="line">&#125;</div><div class="line">li&#123;float:left&#125;</div></pre></td></tr></table></figure></p>
@@ -197,6 +246,15 @@
 <p>思路2：left,right,top,bottom.等为 百分比 。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">span&#123;</div><div class="line">	position: absolute;</div><div class="line">	left:25%;</div><div class="line">	right: 25%;</div><div class="line">	//那么 内容的宽度为50%；</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h2><p>思路：子元素设置flex</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.son&#123;</div><div class="line">	display: flex;</div><div class="line">	justify-content: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>#垂直居中</p>
+<h2 id="绝对垂直居中"><a href="#绝对垂直居中" class="headerlink" title="绝对垂直居中"></a>绝对垂直居中</h2><blockquote>
+<p>常用在弹出层的定位中,需要声明元素高度<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.md-warp&#123;</div><div class="line">  position: relative;</div><div class="line">&#125;</div><div class="line">.md-main&#123;</div><div class="line">    position: absolute;</div><div class="line">    top: 0;</div><div class="line">    right: 0;</div><div class="line">    bottom: 0;</div><div class="line">    left: 0;</div><div class="line">    margin: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="flexbox的解决方法"><a href="#flexbox的解决方法" class="headerlink" title="flexbox的解决方法"></a>flexbox的解决方法</h2><blockquote>
+<p>前提不考虑浏览器的兼容性</p>
+<p>父元素设置 display:flex; 子元素设置 margin:auto;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.md-warp&#123;</div><div class="line">  display:flex;</div><div class="line">&#125;</div><div class="line">.md-main&#123;</div><div class="line">  margin: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>flexbox 实现文字的垂直居中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.md-warp&#123;</div><div class="line">	display:flex;</div><div class="line">&#125;</div><div class="line">.md-main&#123;</div><div class="line">	display:flex;</div><div class="line">	align-items:center;</div><div class="line">	justify-content:center;</div><div class="line">	margin:auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
 <h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
 <li><a href="http://louiszhai.github.io/2016/03/12/css-center/" target="_blank" rel="external">16种方法实现水平居中垂直居中</a></li>
 </ul>
@@ -207,7 +265,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-02-15T13:30:57.527Z" itemprop="dateUpdated">2017年2月15日 21:30</time>
+    最后更新时间：<time datetime="2017-02-17T11:59:41.931Z" itemprop="dateUpdated">2017年2月17日 19:59</time>
 </span><br>
 
 
@@ -238,7 +296,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/02/15/水平居中/&title=《水平居中》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/02/15/水平居中/&title=《css 水平/垂直居中》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -248,7 +306,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/02/15/水平居中/&title=《水平居中》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/02/15/水平居中/&title=《css 水平/垂直居中》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -258,7 +316,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《水平居中》 — SammieHo's 学习慢炖&url=http://yoursite.com/2017/02/15/水平居中/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《css 水平/垂直居中》 — SammieHo's 学习慢炖&url=http://yoursite.com/2017/02/15/水平居中/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -283,7 +341,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/02/19/webpack/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">webpack 入门学习笔记</h4>
+      </a>
+    </div>
   
 
   
@@ -301,7 +366,7 @@
     
 
 <div class="comments" id="comments">
-    <div class="ds-thread" data-thread-key="水平居中" data-title="水平居中" data-url="http://yoursite.com/2017/02/15/水平居中/"></div>
+    <div class="ds-thread" data-thread-key="水平居中" data-title="css 水平/垂直居中" data-url="http://yoursite.com/2017/02/15/水平居中/"></div>
 </div>
 <script>
 lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
@@ -378,7 +443,7 @@ lazyScripts.push('/js/embed.min.js?v=1.4.7');
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/02/15/水平居中/&title=《水平居中》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/02/15/水平居中/&title=《css 水平/垂直居中》 — SammieHo's 学习慢炖&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -388,7 +453,7 @@ lazyScripts.push('/js/embed.min.js?v=1.4.7');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/02/15/水平居中/&title=《水平居中》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/02/15/水平居中/&title=《css 水平/垂直居中》 — SammieHo's 学习慢炖&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -398,7 +463,7 @@ lazyScripts.push('/js/embed.min.js?v=1.4.7');
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《水平居中》 — SammieHo's 学习慢炖&url=http://yoursite.com/2017/02/15/水平居中/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《css 水平/垂直居中》 — SammieHo's 学习慢炖&url=http://yoursite.com/2017/02/15/水平居中/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
