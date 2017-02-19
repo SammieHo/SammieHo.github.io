@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-19T12:00:12.707Z</updated>
+  <updated>2017-02-19T12:06:12.953Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/02/19/webpack/"/>
     <id>http://yoursite.com/2017/02/19/webpack/</id>
     <published>2017-02-19T11:50:01.727Z</published>
-    <updated>2017-02-19T12:00:12.707Z</updated>
+    <updated>2017-02-19T12:06:12.953Z</updated>
     
     <content type="html"><![CDATA[<h1 id="webpack入门学习笔记"><a href="#webpack入门学习笔记" class="headerlink" title="webpack入门学习笔记"></a>webpack入门学习笔记</h1><h2 id="what？"><a href="#what？" class="headerlink" title="what？"></a>what？</h2><p><a href="https://webpack.github.io/docs/what-is-webpack.html" target="_blank" rel="external">官网</a>是这么说的~(≧▽≦)/~</p>
 <blockquote>
@@ -31,7 +31,7 @@
 <p>webpack takes modules with dependencies and generates static assets representing those modules.</p>
 </blockquote>
 <p>根据模块的依赖关系进行静态分析，然后将这些模块按照指定关系生成静态资源。</p>
-<p>顺便引用官网的图<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">![](https://webpack.github.io/assets/what-is-webpack.png)</div><div class="line"></div><div class="line">ps：我目前还理解的比较浅显，回来继续更~~~接着下面</div><div class="line"></div><div class="line">## why？</div><div class="line"></div><div class="line">我的理解：</div><div class="line"></div><div class="line">1. 支持 同步sync 和 异步async 两种模块机制。</div><div class="line">2. 支持 Loaders，处理样式sass编译等，目前我只用过css打包成js（羞愧脸~~~~(&gt;_&lt;)~~~~）</div><div class="line">3. 很多插件，代码压缩、热替换、生成html等。</div><div class="line"></div><div class="line">## how？</div><div class="line"></div><div class="line">&gt; 借这里来回想怎么安装的，基本的结构，方便以后查阅，嘻嘻嘻。</div><div class="line"></div><div class="line">#### 准备工作</div><div class="line"></div><div class="line">1. 首先要有NodeJS, 因为自带npm，之后安装模块很常用到！</div><div class="line"></div><div class="line">2. 用 npm 安装全局 webpack</div><div class="line">```</div><div class="line">$ npm install webpack -g</div><div class="line">```</div><div class="line"></div><div class="line">#### 配置</div><div class="line"></div><div class="line">##### 进入项目目录，初始化 package.json</div><div class="line">```</div><div class="line">$ npm init</div><div class="line">```</div><div class="line">** 注意：** 在 &quot;main&quot; 中设置好入口文件 entry.js</div><div class="line"></div><div class="line">##### 在项目下安装对webpack的依赖</div><div class="line">```</div><div class="line">$ npm install webpack --save-dev</div><div class="line">```</div><div class="line">生成 node_modules 文件夹</div><div class="line"></div><div class="line">##### 新建文件夹 bin,src 分别存放 bundled file和 source file</div><div class="line">```</div><div class="line">mkdir src bin</div><div class="line">```</div><div class="line">有些 bin 又用 dist,build; src 用 app, 习惯不同而已。</div><div class="line"></div><div class="line">##### 新建出口文件index.html</div><div class="line">```</div><div class="line">cd.&gt;index.html</div><div class="line"></div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;script src=&quot;bin/bundle.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div><div class="line">```</div><div class="line"></div><div class="line">##### bin 新建 bundle.js , src 新建 entry.js</div><div class="line">```</div><div class="line">cd.&gt;bin/bundle.js</div><div class="line">cd.&gt;src/entry.js</div><div class="line">```</div><div class="line"></div><div class="line">最后，文档结构是这样的。</div><div class="line">![](http://p1.bqimg.com/567571/b0fb9cc67a9d5a23.png)</div><div class="line"></div><div class="line">至此，可以开始编码了，下面是一些补充内容~~</div></pre></td></tr></table></figure></p>
+<p>顺便引用官网的图<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"> ![](https://webpack.github.io/assets/what-is-webpack.png)</div><div class="line"></div><div class="line">ps：我目前还理解的比较浅显，回来继续更~~~接着下面</div><div class="line"></div><div class="line">## why？</div><div class="line"></div><div class="line">我的理解：</div><div class="line"></div><div class="line">1. 支持 同步sync 和 异步async 两种模块机制。</div><div class="line">2. 支持 Loaders，处理样式sass编译等，目前我只用过css打包成js（羞愧脸~~~~(&gt;_&lt;)~~~~）</div><div class="line">3. 很多插件，代码压缩、热替换、生成html等。</div><div class="line"></div><div class="line">## how？</div><div class="line"></div><div class="line">&gt; 借这里来回想怎么安装的，基本的结构，方便以后查阅，嘻嘻嘻。</div><div class="line"></div><div class="line">#### 准备工作</div><div class="line"></div><div class="line">1. 首先要有NodeJS, 因为自带npm，之后安装模块很常用到！</div><div class="line"></div><div class="line">2. 用 npm 安装全局 webpack</div><div class="line"></div><div class="line">```</div><div class="line">$ npm install webpack -g</div><div class="line">```</div><div class="line"></div><div class="line">#### 配置</div><div class="line"></div><div class="line">##### 进入项目目录，初始化 package.json</div><div class="line"></div><div class="line">```</div><div class="line">$ npm init</div><div class="line">```</div><div class="line"></div><div class="line">** 注意：** 在 &quot;main&quot; 中设置好入口文件 entry.js</div><div class="line"></div><div class="line">##### 在项目下安装对webpack的依赖</div><div class="line"></div><div class="line">```</div><div class="line">$ npm install webpack --save-dev</div><div class="line">```</div><div class="line"></div><div class="line">生成 node_modules 文件夹</div><div class="line"></div><div class="line">##### 新建文件夹 bin,src 分别存放 bundled file和 source file</div><div class="line"></div><div class="line">```</div><div class="line">mkdir src bin</div><div class="line">```</div><div class="line"></div><div class="line">有些 bin 又用 dist,build; src 用 app, 习惯不同而已。</div><div class="line"></div><div class="line">##### 新建出口文件index.html</div><div class="line"></div><div class="line">```</div><div class="line">cd.&gt;index.html</div><div class="line"></div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;script src=&quot;bin/bundle.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div><div class="line">```</div><div class="line"></div><div class="line">##### bin 新建 bundle.js , src 新建 entry.js</div><div class="line"></div><div class="line">```</div><div class="line">cd.&gt;bin/bundle.js</div><div class="line">cd.&gt;src/entry.js</div><div class="line">```</div><div class="line"></div><div class="line">最后，文档结构是这样的。</div><div class="line"></div><div class="line">![](http://p1.bqimg.com/567571/b0fb9cc67a9d5a23.png)</div><div class="line"></div><div class="line">至此，可以开始编码了，下面是一些补充内容~~</div></pre></td></tr></table></figure></p>
 <h4 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h4><h5 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h5><p>webpack.config.js 是配置文件，之后直接 webpack 就可以打包。<br>里面包含 入口 entry，输出 output，模块 module<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -1271,71 +1271,6 @@ Resolve：
   </entry>
   
   <entry>
-    <title>快速排序</title>
-    <link href="http://yoursite.com/2016/11/11/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
-    <id>http://yoursite.com/2016/11/11/快速排序/</id>
-    <published>2016-11-11T00:55:29.000Z</published>
-    <updated>2017-02-03T14:00:13.425Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>选一基准元素 point</li>
-<li>分区操作(partition)：小于point放左边，大于point放右边，point最后的位置就是排序完成的位置。</li>
-<li>重复步骤1.2<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">function quickSort(array) &#123;</div><div class="line"></div><div class="line">	//交换元素位置</div><div class="line">	function swap(arr, i, k) &#123;</div><div class="line">		var temp = arr[i];</div><div class="line">		arr[i] = arr[k];</div><div class="line">		arr[k] = temp;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//分区操作，左小右大</div><div class="line">	function partition(arr, left, right) &#123;</div><div class="line"></div><div class="line">		var sortIndex = left;</div><div class="line">		var point = arr[right];//直接选最右的作为基准元素</div><div class="line"></div><div class="line">		for (var i = left; i &lt; right; i++) &#123;</div><div class="line"></div><div class="line">			if (arr[i] &lt;= point) &#123;</div><div class="line">				swap(arr, i, sortIndex);</div><div class="line">				sortIndex++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		swap(arr, sortIndex, right);//将基准元素放置在最后的正确位置</div><div class="line">		//console.log(arr);</div><div class="line">		return sortIndex;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	function sort(arr, left, right) &#123;</div><div class="line">		if (left &gt; right) &#123;</div><div class="line">			return;</div><div class="line">		&#125;</div><div class="line">		var sortIndex = partition(arr, left, right);</div><div class="line">		sort(arr,left,sortIndex-1);</div><div class="line">		sort(arr, sortIndex + 1, right);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	sort(arr, 0, arr.length - 1);</div><div class="line"></div><div class="line">	return array;</div><div class="line">&#125;</div><div class="line"></div><div class="line">quickSort(arr);</div></pre></td></tr></table></figure>
-<p><strong>算法分析</strong></p>
-<p>快速排序的时间主要耗费在划分操作上，对长度为 k 的区间进行划分，共需 k-1 次关键字的比较。</p>
-<p><strong>最坏时间复杂度</strong></p>
-<p>最坏情况是每次划分选取的基准都是当前无序区中关键字最小(或最大)的记录，划分的结果是基准左边的子区间为空(或右边的子区间为空)， 而划分所得的另一个非空的子区间中记录数目，仅仅比划分前的无序区中记录个数减少一个。 因此，快速排序必须做 n-1 次划分， 第i次划分开始时区间长度为 n-i+1，所需的比较次数为 n-i(1≤i≤n-1)，故总的比较次数达到最大值：Cmax = n(n-1)/2=O(n^2)</p>
-<p>如果按上面给出的划分算法，每次取当前无序区的第 1 个记录为基准，那么当文件的记录已按递增序(或递减序)排列时， 每次划分所取的基准就是当前无序区中关键字最小(或最大)的记录，则快速排序所需的比较次数反而最多。</p>
-<p><strong>最好时间复杂度</strong></p>
-<p>在最好情况下，每次划分所取的基准都是当前无序区的”中值”记录，划分的结果是基准的左、右两个无序子区间的长度大致相等。 总的关键字比较次数：O(nlgn)</p>
-<p>注意： 用递归树来分析最好情况下的比较次数更简单。因为每次划分后左、右子区间长度大致相等，故递归树的高度为 O(lgn)， 而递归树每一层上各结点所对应的划分过程中所需要的关键字比较次数总和不超过n，故整个排序过程所需要的关键字比较总次数 C(n)=O(nlgn)。</p>
-<p>因为快速排序的记录移动次数不大于比较的次数，所以快速排序的最坏时间复杂度应为 O(n^2)，最好时间复杂度为 O(nlgn)。</p>
-<p><strong>平均时间复杂度</strong></p>
-<p>尽管快速排序的最坏时间为 O(n^2)，但就平均性能而言，它是基于关键字比较的内部排序算法中速度最快者，快速排序亦因此而得名。 它的平均时间复杂度为 O(nlgn)。</p>
-<p><strong>基准关键字的选取</strong></p>
-<p>在当前无序区中选取划分的基准关键字是决定算法性能的关键。</p>
-<ul>
-<li>”三者取中”的规则</li>
-</ul>
-<p>“三者取中”规则，即在当前区间里，将该区间首、尾和中间位置上的关键字比较，取三者之中值所对应的记录作为基准， 在划分开始前将该基准记录和该区伺的第1个记录进行交换，此后的划分过程与上面所给的 Partition 算法完全相同。</p>
-<ul>
-<li>取位于 low 和 high 之间的随机数k(low≤k≤high)，用 R[k] 作为基准</li>
-</ul>
-<p>选取基准最好的方法是用一个随机函数产生一个取位于 low 和 high 之间的随机数 k(low≤k≤high)，用 R[k] 作为基准， 这相当于强迫R[low..high]中的记录是随机分布的。用此方法所得到的快速排序一般称为随机的快速排序。</p>
-<blockquote>
-<p>注意： 随机化的快速排序与一般的快速排序算法差别很小。但随机化后，算法的性能大大地提高了，尤其是对初始有序的文件， 一般不可能导致最坏情况的发生。算法的随机化不仅仅适用于快速排序，也适用于其它需要数据随机分布的算法。</p>
-</blockquote>
-<p><strong>空间复杂度</strong></p>
-<p>快速排序在系统内部需要一个栈来实现递归。若每次划分较为均匀，则其递归树的高度为 O(lgn)，故递归后需栈空间为 O(lgn)。 最坏情况下，递归树的高度为 O(n)，所需的栈空间为 O(n)。</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
-<li><a href="http://bubkoo.com/2014/01/12/sort-algorithm/quick-sort/" target="_blank" rel="external">常见排序算法 - 快速排序 (Quick Sort)</a></li>
-<li><a href="http://souly.cn/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/2016/04/07/%E7%90%86%E8%A7%A3%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" target="_blank" rel="external">理解快速排序算法</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;选一基准元素 point&lt;/li&gt;
-&lt;li&gt;分区操作(partition)：小于point放左边，大于point放右边，poin
-    
-    </summary>
-    
-      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Ajax 笔记</title>
     <link href="http://yoursite.com/2016/11/11/Ajax%20%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2016/11/11/Ajax 笔记/</id>
@@ -1505,6 +1440,71 @@ Resolve：
   </entry>
   
   <entry>
+    <title>快速排序</title>
+    <link href="http://yoursite.com/2016/11/11/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
+    <id>http://yoursite.com/2016/11/11/快速排序/</id>
+    <published>2016-11-11T00:55:29.000Z</published>
+    <updated>2017-02-03T14:00:13.425Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>选一基准元素 point</li>
+<li>分区操作(partition)：小于point放左边，大于point放右边，point最后的位置就是排序完成的位置。</li>
+<li>重复步骤1.2<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">function quickSort(array) &#123;</div><div class="line"></div><div class="line">	//交换元素位置</div><div class="line">	function swap(arr, i, k) &#123;</div><div class="line">		var temp = arr[i];</div><div class="line">		arr[i] = arr[k];</div><div class="line">		arr[k] = temp;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//分区操作，左小右大</div><div class="line">	function partition(arr, left, right) &#123;</div><div class="line"></div><div class="line">		var sortIndex = left;</div><div class="line">		var point = arr[right];//直接选最右的作为基准元素</div><div class="line"></div><div class="line">		for (var i = left; i &lt; right; i++) &#123;</div><div class="line"></div><div class="line">			if (arr[i] &lt;= point) &#123;</div><div class="line">				swap(arr, i, sortIndex);</div><div class="line">				sortIndex++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		swap(arr, sortIndex, right);//将基准元素放置在最后的正确位置</div><div class="line">		//console.log(arr);</div><div class="line">		return sortIndex;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	function sort(arr, left, right) &#123;</div><div class="line">		if (left &gt; right) &#123;</div><div class="line">			return;</div><div class="line">		&#125;</div><div class="line">		var sortIndex = partition(arr, left, right);</div><div class="line">		sort(arr,left,sortIndex-1);</div><div class="line">		sort(arr, sortIndex + 1, right);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	sort(arr, 0, arr.length - 1);</div><div class="line"></div><div class="line">	return array;</div><div class="line">&#125;</div><div class="line"></div><div class="line">quickSort(arr);</div></pre></td></tr></table></figure>
+<p><strong>算法分析</strong></p>
+<p>快速排序的时间主要耗费在划分操作上，对长度为 k 的区间进行划分，共需 k-1 次关键字的比较。</p>
+<p><strong>最坏时间复杂度</strong></p>
+<p>最坏情况是每次划分选取的基准都是当前无序区中关键字最小(或最大)的记录，划分的结果是基准左边的子区间为空(或右边的子区间为空)， 而划分所得的另一个非空的子区间中记录数目，仅仅比划分前的无序区中记录个数减少一个。 因此，快速排序必须做 n-1 次划分， 第i次划分开始时区间长度为 n-i+1，所需的比较次数为 n-i(1≤i≤n-1)，故总的比较次数达到最大值：Cmax = n(n-1)/2=O(n^2)</p>
+<p>如果按上面给出的划分算法，每次取当前无序区的第 1 个记录为基准，那么当文件的记录已按递增序(或递减序)排列时， 每次划分所取的基准就是当前无序区中关键字最小(或最大)的记录，则快速排序所需的比较次数反而最多。</p>
+<p><strong>最好时间复杂度</strong></p>
+<p>在最好情况下，每次划分所取的基准都是当前无序区的”中值”记录，划分的结果是基准的左、右两个无序子区间的长度大致相等。 总的关键字比较次数：O(nlgn)</p>
+<p>注意： 用递归树来分析最好情况下的比较次数更简单。因为每次划分后左、右子区间长度大致相等，故递归树的高度为 O(lgn)， 而递归树每一层上各结点所对应的划分过程中所需要的关键字比较次数总和不超过n，故整个排序过程所需要的关键字比较总次数 C(n)=O(nlgn)。</p>
+<p>因为快速排序的记录移动次数不大于比较的次数，所以快速排序的最坏时间复杂度应为 O(n^2)，最好时间复杂度为 O(nlgn)。</p>
+<p><strong>平均时间复杂度</strong></p>
+<p>尽管快速排序的最坏时间为 O(n^2)，但就平均性能而言，它是基于关键字比较的内部排序算法中速度最快者，快速排序亦因此而得名。 它的平均时间复杂度为 O(nlgn)。</p>
+<p><strong>基准关键字的选取</strong></p>
+<p>在当前无序区中选取划分的基准关键字是决定算法性能的关键。</p>
+<ul>
+<li>”三者取中”的规则</li>
+</ul>
+<p>“三者取中”规则，即在当前区间里，将该区间首、尾和中间位置上的关键字比较，取三者之中值所对应的记录作为基准， 在划分开始前将该基准记录和该区伺的第1个记录进行交换，此后的划分过程与上面所给的 Partition 算法完全相同。</p>
+<ul>
+<li>取位于 low 和 high 之间的随机数k(low≤k≤high)，用 R[k] 作为基准</li>
+</ul>
+<p>选取基准最好的方法是用一个随机函数产生一个取位于 low 和 high 之间的随机数 k(low≤k≤high)，用 R[k] 作为基准， 这相当于强迫R[low..high]中的记录是随机分布的。用此方法所得到的快速排序一般称为随机的快速排序。</p>
+<blockquote>
+<p>注意： 随机化的快速排序与一般的快速排序算法差别很小。但随机化后，算法的性能大大地提高了，尤其是对初始有序的文件， 一般不可能导致最坏情况的发生。算法的随机化不仅仅适用于快速排序，也适用于其它需要数据随机分布的算法。</p>
+</blockquote>
+<p><strong>空间复杂度</strong></p>
+<p>快速排序在系统内部需要一个栈来实现递归。若每次划分较为均匀，则其递归树的高度为 O(lgn)，故递归后需栈空间为 O(lgn)。 最坏情况下，递归树的高度为 O(n)，所需的栈空间为 O(n)。</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="http://bubkoo.com/2014/01/12/sort-algorithm/quick-sort/" target="_blank" rel="external">常见排序算法 - 快速排序 (Quick Sort)</a></li>
+<li><a href="http://souly.cn/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/2016/04/07/%E7%90%86%E8%A7%A3%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" target="_blank" rel="external">理解快速排序算法</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;选一基准元素 point&lt;/li&gt;
+&lt;li&gt;分区操作(partition)：小于point放左边，大于point放右边，poin
+    
+    </summary>
+    
+      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>重新认识-盒子模型</title>
     <link href="http://yoursite.com/2016/11/08/%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/"/>
     <id>http://yoursite.com/2016/11/08/重新认识-盒子模型/</id>
@@ -1612,6 +1612,28 @@ Resolve：
   </entry>
   
   <entry>
+    <title>插入排序</title>
+    <link href="http://yoursite.com/2016/11/05/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
+    <id>http://yoursite.com/2016/11/05/插入排序/</id>
+    <published>2016-11-05T00:55:29.000Z</published>
+    <updated>2017-02-03T14:00:50.376Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="算法原理："><a href="#算法原理：" class="headerlink" title="算法原理："></a>算法原理：</h2><p>设有一组关键字｛K1， K2，…， Kn｝；排序开始就认为 K1 是一个有序序列；让 K2 插入上述表长为 1 的有序序列，使之成为一个表长为 2 的有序序列；然后让 K3 插入上述表长为 2 的有序序列，使之成为一个表长为 3 的有序序列；依次类推，最后让 Kn 插入上述表长为 n-1 的有序序列，得一个表长为 n 的有序序列。</p>
+<h2 id="个人实现思路："><a href="#个人实现思路：" class="headerlink" title="个人实现思路："></a>个人实现思路：</h2><p>1.设第一个elem( n=0 ) 已排好序A。<br>2.从第二个elem( n=1 )开始，<br>3.在找到准备插入的位置后，需要将该位置之后的数组元素往后挪一位；<br>  所以，在对比之前，要先记录自身元素的值。<br>4.【从后→前】对比，若 A[last] &gt; elem ,那么交换位置，直到 A[elem] &lt; elem ,本轮结束，elem已排好位置。<br>5.重复步骤2-4，直至到达数组最后一位。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var arr = [1,3,9,6,5,2,7,2,3,4,8];</div><div class="line"></div><div class="line">function insertSort(arr)&#123;</div><div class="line">	</div><div class="line">	for(var i = 1; i &lt; arr.length; i++)&#123;</div><div class="line">		</div><div class="line">		var tmp = arr[i];</div><div class="line">		for( var j = i-1; j &gt; 0 , arr[j] &gt; tmp; j--)&#123;</div><div class="line">			arr[ j+1 ] = arr[ j ];</div><div class="line">			arr[ j ] = tmp;</div><div class="line">	&#125;</div><div class="line">	console.log(arr);</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">insertSort(arr);</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;算法原理：&quot;&gt;&lt;a href=&quot;#算法原理：&quot; class=&quot;headerlink&quot; title=&quot;算法原理：&quot;&gt;&lt;/a&gt;算法原理：&lt;/h2&gt;&lt;p&gt;设有一组关键字｛K1， K2，…， Kn｝；排序开始就认为 K1 是一个有序序列；让 K2 插入上述表长为 1 的有
+    
+    </summary>
+    
+      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Math.random()随机数的一些事一些情</title>
     <link href="http://yoursite.com/2016/11/05/Math.random()%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B%E4%B8%80%E4%BA%9B%E6%83%85/"/>
     <id>http://yoursite.com/2016/11/05/Math.random()随机数的一些事一些情/</id>
@@ -1655,28 +1677,6 @@ Resolve：
     <summary type="html">
     
       &lt;h1 id=&quot;Math-random-随机数的一些事一些情&quot;&gt;&lt;a href=&quot;#Math-random-随机数的一些事一些情&quot; class=&quot;headerlink&quot; title=&quot;Math.random()随机数的一些事一些情&quot;&gt;&lt;/a&gt;&lt;strong&gt;Math.random
-    
-    </summary>
-    
-      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>插入排序</title>
-    <link href="http://yoursite.com/2016/11/05/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
-    <id>http://yoursite.com/2016/11/05/插入排序/</id>
-    <published>2016-11-05T00:55:29.000Z</published>
-    <updated>2017-02-03T14:00:50.376Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="算法原理："><a href="#算法原理：" class="headerlink" title="算法原理："></a>算法原理：</h2><p>设有一组关键字｛K1， K2，…， Kn｝；排序开始就认为 K1 是一个有序序列；让 K2 插入上述表长为 1 的有序序列，使之成为一个表长为 2 的有序序列；然后让 K3 插入上述表长为 2 的有序序列，使之成为一个表长为 3 的有序序列；依次类推，最后让 Kn 插入上述表长为 n-1 的有序序列，得一个表长为 n 的有序序列。</p>
-<h2 id="个人实现思路："><a href="#个人实现思路：" class="headerlink" title="个人实现思路："></a>个人实现思路：</h2><p>1.设第一个elem( n=0 ) 已排好序A。<br>2.从第二个elem( n=1 )开始，<br>3.在找到准备插入的位置后，需要将该位置之后的数组元素往后挪一位；<br>  所以，在对比之前，要先记录自身元素的值。<br>4.【从后→前】对比，若 A[last] &gt; elem ,那么交换位置，直到 A[elem] &lt; elem ,本轮结束，elem已排好位置。<br>5.重复步骤2-4，直至到达数组最后一位。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var arr = [1,3,9,6,5,2,7,2,3,4,8];</div><div class="line"></div><div class="line">function insertSort(arr)&#123;</div><div class="line">	</div><div class="line">	for(var i = 1; i &lt; arr.length; i++)&#123;</div><div class="line">		</div><div class="line">		var tmp = arr[i];</div><div class="line">		for( var j = i-1; j &gt; 0 , arr[j] &gt; tmp; j--)&#123;</div><div class="line">			arr[ j+1 ] = arr[ j ];</div><div class="line">			arr[ j ] = tmp;</div><div class="line">	&#125;</div><div class="line">	console.log(arr);</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">insertSort(arr);</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;算法原理：&quot;&gt;&lt;a href=&quot;#算法原理：&quot; class=&quot;headerlink&quot; title=&quot;算法原理：&quot;&gt;&lt;/a&gt;算法原理：&lt;/h2&gt;&lt;p&gt;设有一组关键字｛K1， K2，…， Kn｝；排序开始就认为 K1 是一个有序序列；让 K2 插入上述表长为 1 的有
     
     </summary>
     
