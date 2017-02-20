@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-19T12:21:27.929Z</updated>
+  <updated>2017-02-20T13:05:41.170Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>flexbox练手——音乐界面布局.md</title>
+    <link href="http://yoursite.com/2017/02/20/flexbox/"/>
+    <id>http://yoursite.com/2017/02/20/flexbox/</id>
+    <published>2017-02-20T13:04:56.120Z</published>
+    <updated>2017-02-20T13:05:41.170Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="flexbox,Note" scheme="http://yoursite.com/tags/flexbox-Note/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>日记：毫无逻辑的个人小碎念.md</title>
+    <link href="http://yoursite.com/2017/02/20/%E6%AF%AB%E6%97%A0%E9%80%BB%E8%BE%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%B0%8F%E7%A2%8E%E5%BF%B5/"/>
+    <id>http://yoursite.com/2017/02/20/毫无逻辑的个人小碎念/</id>
+    <published>2017-02-20T12:44:37.533Z</published>
+    <updated>2017-02-20T13:05:53.584Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="女汉子模式开启"><a href="#女汉子模式开启" class="headerlink" title="女汉子模式开启~~"></a>女汉子模式开启~~</h3><p>今天，票票出发深圳实习~~ 想不到我也有看着他进站，喉咙哽咽的时候哇。</p>
+<p>我一直以为电视里的狗血剧情都是为了骗纯情小女生的眼泪的啊！( ⊙ o ⊙ )</p>
+<p>Anywhy, 反正切换汉子模式，春招找个好公司，努力干活，走上人生巅峰（白日梦），迎娶高富帅。</p>
+<hr>
+<p>送别之后，广图迈进，看见早上的街道有感而拍~ 原来我也有文艺的小部分~ 666</p>
+<p>若隐若现的小蛮腰~ 肯定不是我拍照技术欠佳的原因，大雾大雾大雾！！</p>
+<p>照片在最后~</p>
+<hr>
+<p>顺便安利一下，今天学的 <a href="">flexbox,点我点我</a></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p1.bqimg.com/567571/f1595e8fdd76068b.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;女汉子模式开启&quot;&gt;&lt;a href=&quot;#女汉子模式开启&quot; class=&quot;headerlink&quot; title=&quot;女汉子模式开启~~&quot;&gt;&lt;/a&gt;女汉子模式开启~~&lt;/h3&gt;&lt;p&gt;今天，票票出发深圳实习~~ 想不到我也有看着他进站，喉咙哽咽的时候哇。&lt;/p&gt;
+&lt;p&gt;我一直
+    
+    </summary>
+    
+    
+      <category term="flexbox,Note" scheme="http://yoursite.com/tags/flexbox-Note/"/>
+    
+  </entry>
   
   <entry>
     <title>webpack 入门学习笔记</title>
@@ -1271,6 +1323,71 @@ Resolve：
   </entry>
   
   <entry>
+    <title>快速排序</title>
+    <link href="http://yoursite.com/2016/11/11/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
+    <id>http://yoursite.com/2016/11/11/快速排序/</id>
+    <published>2016-11-11T00:55:29.000Z</published>
+    <updated>2017-02-03T14:00:13.425Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>选一基准元素 point</li>
+<li>分区操作(partition)：小于point放左边，大于point放右边，point最后的位置就是排序完成的位置。</li>
+<li>重复步骤1.2<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">function quickSort(array) &#123;</div><div class="line"></div><div class="line">	//交换元素位置</div><div class="line">	function swap(arr, i, k) &#123;</div><div class="line">		var temp = arr[i];</div><div class="line">		arr[i] = arr[k];</div><div class="line">		arr[k] = temp;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//分区操作，左小右大</div><div class="line">	function partition(arr, left, right) &#123;</div><div class="line"></div><div class="line">		var sortIndex = left;</div><div class="line">		var point = arr[right];//直接选最右的作为基准元素</div><div class="line"></div><div class="line">		for (var i = left; i &lt; right; i++) &#123;</div><div class="line"></div><div class="line">			if (arr[i] &lt;= point) &#123;</div><div class="line">				swap(arr, i, sortIndex);</div><div class="line">				sortIndex++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		swap(arr, sortIndex, right);//将基准元素放置在最后的正确位置</div><div class="line">		//console.log(arr);</div><div class="line">		return sortIndex;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	function sort(arr, left, right) &#123;</div><div class="line">		if (left &gt; right) &#123;</div><div class="line">			return;</div><div class="line">		&#125;</div><div class="line">		var sortIndex = partition(arr, left, right);</div><div class="line">		sort(arr,left,sortIndex-1);</div><div class="line">		sort(arr, sortIndex + 1, right);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	sort(arr, 0, arr.length - 1);</div><div class="line"></div><div class="line">	return array;</div><div class="line">&#125;</div><div class="line"></div><div class="line">quickSort(arr);</div></pre></td></tr></table></figure>
+<p><strong>算法分析</strong></p>
+<p>快速排序的时间主要耗费在划分操作上，对长度为 k 的区间进行划分，共需 k-1 次关键字的比较。</p>
+<p><strong>最坏时间复杂度</strong></p>
+<p>最坏情况是每次划分选取的基准都是当前无序区中关键字最小(或最大)的记录，划分的结果是基准左边的子区间为空(或右边的子区间为空)， 而划分所得的另一个非空的子区间中记录数目，仅仅比划分前的无序区中记录个数减少一个。 因此，快速排序必须做 n-1 次划分， 第i次划分开始时区间长度为 n-i+1，所需的比较次数为 n-i(1≤i≤n-1)，故总的比较次数达到最大值：Cmax = n(n-1)/2=O(n^2)</p>
+<p>如果按上面给出的划分算法，每次取当前无序区的第 1 个记录为基准，那么当文件的记录已按递增序(或递减序)排列时， 每次划分所取的基准就是当前无序区中关键字最小(或最大)的记录，则快速排序所需的比较次数反而最多。</p>
+<p><strong>最好时间复杂度</strong></p>
+<p>在最好情况下，每次划分所取的基准都是当前无序区的”中值”记录，划分的结果是基准的左、右两个无序子区间的长度大致相等。 总的关键字比较次数：O(nlgn)</p>
+<p>注意： 用递归树来分析最好情况下的比较次数更简单。因为每次划分后左、右子区间长度大致相等，故递归树的高度为 O(lgn)， 而递归树每一层上各结点所对应的划分过程中所需要的关键字比较次数总和不超过n，故整个排序过程所需要的关键字比较总次数 C(n)=O(nlgn)。</p>
+<p>因为快速排序的记录移动次数不大于比较的次数，所以快速排序的最坏时间复杂度应为 O(n^2)，最好时间复杂度为 O(nlgn)。</p>
+<p><strong>平均时间复杂度</strong></p>
+<p>尽管快速排序的最坏时间为 O(n^2)，但就平均性能而言，它是基于关键字比较的内部排序算法中速度最快者，快速排序亦因此而得名。 它的平均时间复杂度为 O(nlgn)。</p>
+<p><strong>基准关键字的选取</strong></p>
+<p>在当前无序区中选取划分的基准关键字是决定算法性能的关键。</p>
+<ul>
+<li>”三者取中”的规则</li>
+</ul>
+<p>“三者取中”规则，即在当前区间里，将该区间首、尾和中间位置上的关键字比较，取三者之中值所对应的记录作为基准， 在划分开始前将该基准记录和该区伺的第1个记录进行交换，此后的划分过程与上面所给的 Partition 算法完全相同。</p>
+<ul>
+<li>取位于 low 和 high 之间的随机数k(low≤k≤high)，用 R[k] 作为基准</li>
+</ul>
+<p>选取基准最好的方法是用一个随机函数产生一个取位于 low 和 high 之间的随机数 k(low≤k≤high)，用 R[k] 作为基准， 这相当于强迫R[low..high]中的记录是随机分布的。用此方法所得到的快速排序一般称为随机的快速排序。</p>
+<blockquote>
+<p>注意： 随机化的快速排序与一般的快速排序算法差别很小。但随机化后，算法的性能大大地提高了，尤其是对初始有序的文件， 一般不可能导致最坏情况的发生。算法的随机化不仅仅适用于快速排序，也适用于其它需要数据随机分布的算法。</p>
+</blockquote>
+<p><strong>空间复杂度</strong></p>
+<p>快速排序在系统内部需要一个栈来实现递归。若每次划分较为均匀，则其递归树的高度为 O(lgn)，故递归后需栈空间为 O(lgn)。 最坏情况下，递归树的高度为 O(n)，所需的栈空间为 O(n)。</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="http://bubkoo.com/2014/01/12/sort-algorithm/quick-sort/" target="_blank" rel="external">常见排序算法 - 快速排序 (Quick Sort)</a></li>
+<li><a href="http://souly.cn/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/2016/04/07/%E7%90%86%E8%A7%A3%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" target="_blank" rel="external">理解快速排序算法</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;选一基准元素 point&lt;/li&gt;
+&lt;li&gt;分区操作(partition)：小于point放左边，大于point放右边，poin
+    
+    </summary>
+    
+      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Ajax 笔记</title>
     <link href="http://yoursite.com/2016/11/11/Ajax%20%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2016/11/11/Ajax 笔记/</id>
@@ -1440,71 +1557,6 @@ Resolve：
   </entry>
   
   <entry>
-    <title>快速排序</title>
-    <link href="http://yoursite.com/2016/11/11/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
-    <id>http://yoursite.com/2016/11/11/快速排序/</id>
-    <published>2016-11-11T00:55:29.000Z</published>
-    <updated>2017-02-03T14:00:13.425Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>选一基准元素 point</li>
-<li>分区操作(partition)：小于point放左边，大于point放右边，point最后的位置就是排序完成的位置。</li>
-<li>重复步骤1.2<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">function quickSort(array) &#123;</div><div class="line"></div><div class="line">	//交换元素位置</div><div class="line">	function swap(arr, i, k) &#123;</div><div class="line">		var temp = arr[i];</div><div class="line">		arr[i] = arr[k];</div><div class="line">		arr[k] = temp;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//分区操作，左小右大</div><div class="line">	function partition(arr, left, right) &#123;</div><div class="line"></div><div class="line">		var sortIndex = left;</div><div class="line">		var point = arr[right];//直接选最右的作为基准元素</div><div class="line"></div><div class="line">		for (var i = left; i &lt; right; i++) &#123;</div><div class="line"></div><div class="line">			if (arr[i] &lt;= point) &#123;</div><div class="line">				swap(arr, i, sortIndex);</div><div class="line">				sortIndex++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		swap(arr, sortIndex, right);//将基准元素放置在最后的正确位置</div><div class="line">		//console.log(arr);</div><div class="line">		return sortIndex;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	function sort(arr, left, right) &#123;</div><div class="line">		if (left &gt; right) &#123;</div><div class="line">			return;</div><div class="line">		&#125;</div><div class="line">		var sortIndex = partition(arr, left, right);</div><div class="line">		sort(arr,left,sortIndex-1);</div><div class="line">		sort(arr, sortIndex + 1, right);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	sort(arr, 0, arr.length - 1);</div><div class="line"></div><div class="line">	return array;</div><div class="line">&#125;</div><div class="line"></div><div class="line">quickSort(arr);</div></pre></td></tr></table></figure>
-<p><strong>算法分析</strong></p>
-<p>快速排序的时间主要耗费在划分操作上，对长度为 k 的区间进行划分，共需 k-1 次关键字的比较。</p>
-<p><strong>最坏时间复杂度</strong></p>
-<p>最坏情况是每次划分选取的基准都是当前无序区中关键字最小(或最大)的记录，划分的结果是基准左边的子区间为空(或右边的子区间为空)， 而划分所得的另一个非空的子区间中记录数目，仅仅比划分前的无序区中记录个数减少一个。 因此，快速排序必须做 n-1 次划分， 第i次划分开始时区间长度为 n-i+1，所需的比较次数为 n-i(1≤i≤n-1)，故总的比较次数达到最大值：Cmax = n(n-1)/2=O(n^2)</p>
-<p>如果按上面给出的划分算法，每次取当前无序区的第 1 个记录为基准，那么当文件的记录已按递增序(或递减序)排列时， 每次划分所取的基准就是当前无序区中关键字最小(或最大)的记录，则快速排序所需的比较次数反而最多。</p>
-<p><strong>最好时间复杂度</strong></p>
-<p>在最好情况下，每次划分所取的基准都是当前无序区的”中值”记录，划分的结果是基准的左、右两个无序子区间的长度大致相等。 总的关键字比较次数：O(nlgn)</p>
-<p>注意： 用递归树来分析最好情况下的比较次数更简单。因为每次划分后左、右子区间长度大致相等，故递归树的高度为 O(lgn)， 而递归树每一层上各结点所对应的划分过程中所需要的关键字比较次数总和不超过n，故整个排序过程所需要的关键字比较总次数 C(n)=O(nlgn)。</p>
-<p>因为快速排序的记录移动次数不大于比较的次数，所以快速排序的最坏时间复杂度应为 O(n^2)，最好时间复杂度为 O(nlgn)。</p>
-<p><strong>平均时间复杂度</strong></p>
-<p>尽管快速排序的最坏时间为 O(n^2)，但就平均性能而言，它是基于关键字比较的内部排序算法中速度最快者，快速排序亦因此而得名。 它的平均时间复杂度为 O(nlgn)。</p>
-<p><strong>基准关键字的选取</strong></p>
-<p>在当前无序区中选取划分的基准关键字是决定算法性能的关键。</p>
-<ul>
-<li>”三者取中”的规则</li>
-</ul>
-<p>“三者取中”规则，即在当前区间里，将该区间首、尾和中间位置上的关键字比较，取三者之中值所对应的记录作为基准， 在划分开始前将该基准记录和该区伺的第1个记录进行交换，此后的划分过程与上面所给的 Partition 算法完全相同。</p>
-<ul>
-<li>取位于 low 和 high 之间的随机数k(low≤k≤high)，用 R[k] 作为基准</li>
-</ul>
-<p>选取基准最好的方法是用一个随机函数产生一个取位于 low 和 high 之间的随机数 k(low≤k≤high)，用 R[k] 作为基准， 这相当于强迫R[low..high]中的记录是随机分布的。用此方法所得到的快速排序一般称为随机的快速排序。</p>
-<blockquote>
-<p>注意： 随机化的快速排序与一般的快速排序算法差别很小。但随机化后，算法的性能大大地提高了，尤其是对初始有序的文件， 一般不可能导致最坏情况的发生。算法的随机化不仅仅适用于快速排序，也适用于其它需要数据随机分布的算法。</p>
-</blockquote>
-<p><strong>空间复杂度</strong></p>
-<p>快速排序在系统内部需要一个栈来实现递归。若每次划分较为均匀，则其递归树的高度为 O(lgn)，故递归后需栈空间为 O(lgn)。 最坏情况下，递归树的高度为 O(n)，所需的栈空间为 O(n)。</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
-<li><a href="http://bubkoo.com/2014/01/12/sort-algorithm/quick-sort/" target="_blank" rel="external">常见排序算法 - 快速排序 (Quick Sort)</a></li>
-<li><a href="http://souly.cn/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/2016/04/07/%E7%90%86%E8%A7%A3%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" target="_blank" rel="external">理解快速排序算法</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;选一基准元素 point&lt;/li&gt;
-&lt;li&gt;分区操作(partition)：小于point放左边，大于point放右边，poin
-    
-    </summary>
-    
-      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>重新认识-盒子模型</title>
     <link href="http://yoursite.com/2016/11/08/%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/"/>
     <id>http://yoursite.com/2016/11/08/重新认识-盒子模型/</id>
@@ -1625,58 +1677,6 @@ Resolve：
     <summary type="html">
     
       &lt;h2 id=&quot;算法原理：&quot;&gt;&lt;a href=&quot;#算法原理：&quot; class=&quot;headerlink&quot; title=&quot;算法原理：&quot;&gt;&lt;/a&gt;算法原理：&lt;/h2&gt;&lt;p&gt;设有一组关键字｛K1， K2，…， Kn｝；排序开始就认为 K1 是一个有序序列；让 K2 插入上述表长为 1 的有
-    
-    </summary>
-    
-      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Math.random()随机数的一些事一些情</title>
-    <link href="http://yoursite.com/2016/11/05/Math.random()%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B%E4%B8%80%E4%BA%9B%E6%83%85/"/>
-    <id>http://yoursite.com/2016/11/05/Math.random()随机数的一些事一些情/</id>
-    <published>2016-11-05T00:55:29.000Z</published>
-    <updated>2017-02-03T13:55:15.485Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Math-random-随机数的一些事一些情"><a href="#Math-random-随机数的一些事一些情" class="headerlink" title="Math.random()随机数的一些事一些情"></a><strong>Math.random()随机数的一些事一些情</strong></h1><h3 id="一、预备知识"><a href="#一、预备知识" class="headerlink" title="一、预备知识"></a>一、预备知识</h3><h4 id="Math"><a href="#Math" class="headerlink" title="Math()"></a>Math()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">Math.ceil();  //向上取整。</div><div class="line"></div><div class="line">Math.floor();  //向下取整。</div><div class="line"></div><div class="line">Math.round();  //四舍五入。</div><div class="line"></div><div class="line">Math.random();  //[0,1) 之间的一个伪随机数。</div><div class="line"></div><div class="line">Math.ceil(Math.random()*10);  // 获取从1到10的随机整数 ，取0的概率极小。</div><div class="line"></div><div class="line">Math.round(Math.random());   //可均衡获取0到1的随机整数。</div><div class="line"></div><div class="line">Math.floor(Math.random()*10);  //可均衡获取0到9的随机整数。</div><div class="line"></div><div class="line">Math.round(Math.random()*10);  //基本均衡获取0到10的随机整数，其中获取最小值0和最大值10的几率少一半。</div><div class="line">//因为结果在0~0.4 为0，0.5到1.4为1...8.5到9.4为9，9.5到9.9为10。所以头尾的分布区间只有其他数字的一半。</div></pre></td></tr></table></figure>
-<h4 id="Date"><a href="#Date" class="headerlink" title="Date()"></a>Date()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var d = new Date();</div><div class="line"></div><div class="line">var n = d.getSeconds(); //生成0到59的随机数</div><div class="line"></div><div class="line">var n1 = d.getMilliseconds(); //生成0到999的随机数</div><div class="line"></div><div class="line">var n2 = d.getMilliseconds() % 201; //生成0到200的随机数</div><div class="line">//除了取 Date 的秒和微秒外，还可以取小时和分钟（跟取秒生成的随机数相同）。</div></pre></td></tr></table></figure>
-<h4 id="String"><a href="#String" class="headerlink" title="String()"></a>String()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">String.toString() //返回用字符串表示的特定对象</div><div class="line"></div><div class="line">String.substr(start[, length]) //返回字符串中从指定位置开始到指定长度的子字符串</div><div class="line"></div><div class="line">String.substring(indexStart[, indexEnd]) //返回字符串两个索引之间（或到字符串末尾）的子串</div><div class="line"></div><div class="line">String.slice(beginSlice[, endSlice]) //浅复制，提取字符串并返回新字符串</div><div class="line"></div><div class="line">RegExp</div><div class="line"></div><div class="line">字母ASCII码:A-65,a-97</div></pre></td></tr></table></figure>
-<h3 id="二、应用"><a href="#二、应用" class="headerlink" title="二、应用"></a>二、应用</h3><blockquote>
-<p>产生10个随机数</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arr = [],r;</div><div class="line">for(var i=0;i&lt;10;i++)&#123;</div><div class="line">	r = (Math.random()/(new Date()-0)).toString(36).replace(/\d/g,&apos;&apos;).slice(1);</div><div class="line">	arr[i] ? (arr[i]+=1) : (arr[i]=r);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>长度为5的随机数</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var c = &apos;&apos;; c.length &lt; 5;) &#123;</div><div class="line">	c += Math.random().toString(36).substr(2,1)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>利用字母ASCII码[65,97]，生成长度为x的随机数</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function rand(x) &#123;</div><div class="line"></div><div class="line">	var s = &quot;&quot;;</div><div class="line"></div><div class="line">	while (s.length &lt; x &amp;&amp; x &gt; 0) &#123;</div><div class="line">		var r = Math.random();</div><div class="line">		s += String.fromCharCode(Math.floor(r * 26) + (r &gt; 0.5 ? 97 : 65));</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return s;</div><div class="line">&#125;</div><div class="line">rand(x);</div></pre></td></tr></table></figure>
-<blockquote>
-<p>生成指定范围随机数</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">Math.floor(Math.random() * (上限 - 下限 + 1) + 下限);</div><div class="line"></div><div class="line">Math.ceil(Math.random() * (上限 - 下限) + 下限);</div><div class="line"></div><div class="line">parseInt(Math.random() * (上限 - 下限 + 1) + 下限);</div><div class="line"></div><div class="line">//under：上限; over：下限; ceil</div><div class="line">function getRandom(under, over) &#123;</div><div class="line">	switch (arguments.length) &#123;</div><div class="line">		case 1:</div><div class="line">			return Math.ceil(Math.random() * under);</div><div class="line">		case 2:</div><div class="line">			return Math.ceil(Math.random() * (over - under) + under);</div><div class="line">		default:</div><div class="line">			return 0;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>随机背景色</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//方1</div><div class="line">&apos;#&apos;+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);</div><div class="line"></div><div class="line">//方2</div><div class="line">&quot;#&quot;+(&quot;000000&quot;+Math.floor(Math.random()*16777216).toString(16)).substr(-6);</div><div class="line"></div><div class="line">//方3</div><div class="line">function randomColor()&#123;</div><div class="line">  var r=function()&#123;return Math.floor(Math.random()*256)&#125;;</div><div class="line">  return &quot;rgb(&quot;+r()+&quot;,&quot;+r()+&quot;,&quot;+r()+&quot;)&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>洗牌算法</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var i = 0,</div><div class="line">	data = [],</div><div class="line">	r;</div><div class="line"></div><div class="line">for (; i &lt; 10; data[i++] = i);</div><div class="line"></div><div class="line">while (--i) &#123;</div><div class="line"></div><div class="line">	r = Math.round(Math.random() * 9 + 1) - 1;</div><div class="line">	data[i] = data[i] + data[r], data[r] = data[i] - data[r], data[i] = data[i] - data[r];</div><div class="line">&#125;</div><div class="line">console.log(data)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>或者利用Array.prototype.sort()函数，这里可以不把里面的数值带进来运算。</p>
-<p>首先Math.random()会生成一个[0,1)之间的数值，用0.5这个比较公平的数值减去它，概率得到小于0，等于0,大于0三种状况，而Array.prototype.sort()期待的数值恰好是[-1,0,1]，是不是很省事。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var i = 0,</div><div class="line">	data = [],</div><div class="line">	r;</div><div class="line"></div><div class="line">for (; i &lt; 10; data[i++] = i);</div><div class="line"></div><div class="line">data.sort(function() &#123;</div><div class="line"></div><div class="line">	return .5 - Math.random();</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Math-random-随机数的一些事一些情&quot;&gt;&lt;a href=&quot;#Math-random-随机数的一些事一些情&quot; class=&quot;headerlink&quot; title=&quot;Math.random()随机数的一些事一些情&quot;&gt;&lt;/a&gt;&lt;strong&gt;Math.random
     
     </summary>
     
