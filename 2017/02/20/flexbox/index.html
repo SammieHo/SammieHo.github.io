@@ -19,14 +19,44 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="flexbox,Note">
-    <meta property="og:type" content="article">
+    <meta name="keywords" content="flexbox">
+    <meta name="description" content="起源因为看了大漠老师的译文，边看边总结边动手，把flexbox的属性都跑了一遍，最后跟着做完了音乐界面布局的练习。
+我觉得上面都讲得超级清楚明白的，所以我就不在这写笔记啦（因为我喜欢白纸黑字的笔记本呀~）哈哈哈~
+如果不明白，我还找了些参考资料：
+
+通过动图形象地为你介绍 flexbox 是如何工作的
+30 分钟学会 Flex 布局
+
+
+实践思考我的Demo：flexbox练手——音乐界面布局De">
+<meta property="og:type" content="article">
 <meta property="og:title" content="flexbox练手——音乐界面布局.md">
 <meta property="og:url" content="http://yoursite.com/2017/02/20/flexbox/index.html">
 <meta property="og:site_name" content="SammieHo's 学习慢炖">
-<meta property="og:updated_time" content="2017-02-20T13:05:41.170Z">
+<meta property="og:description" content="起源因为看了大漠老师的译文，边看边总结边动手，把flexbox的属性都跑了一遍，最后跟着做完了音乐界面布局的练习。
+我觉得上面都讲得超级清楚明白的，所以我就不在这写笔记啦（因为我喜欢白纸黑字的笔记本呀~）哈哈哈~
+如果不明白，我还找了些参考资料：
+
+通过动图形象地为你介绍 flexbox 是如何工作的
+30 分钟学会 Flex 布局
+
+
+实践思考我的Demo：flexbox练手——音乐界面布局De">
+<meta property="og:image" content="http://p1.bqimg.com/567571/3eb3709bf9bac17c.png">
+<meta property="og:image" content="http://i1.piimg.com/567571/228c43087e65f652.png">
+<meta property="og:updated_time" content="2017-02-20T13:51:15.728Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="flexbox练手——音乐界面布局.md">
+<meta name="twitter:description" content="起源因为看了大漠老师的译文，边看边总结边动手，把flexbox的属性都跑了一遍，最后跟着做完了音乐界面布局的练习。
+我觉得上面都讲得超级清楚明白的，所以我就不在这写笔记啦（因为我喜欢白纸黑字的笔记本呀~）哈哈哈~
+如果不明白，我还找了些参考资料：
+
+通过动图形象地为你介绍 flexbox 是如何工作的
+30 分钟学会 Flex 布局
+
+
+实践思考我的Demo：flexbox练手——音乐界面布局De">
+<meta name="twitter:image" content="http://p1.bqimg.com/567571/3eb3709bf9bac17c.png">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/style.css?v=1.4.7">
@@ -142,6 +172,13 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#起源"><span class="post-toc-number">1.</span> <span class="post-toc-text">起源</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实践思考"><span class="post-toc-number">2.</span> <span class="post-toc-text">实践思考</span></a></li></ol>
+        </nav>
+    </aside>
+    
 <article id="post-flexbox"
   class="post-article article-type-post fade" itemprop="blogPost">
 
@@ -163,14 +200,57 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            
+            <h2 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h2><p>因为看了<a href="https://www.w3cplus.com/css3/understanding-flexbox-everything-you-need-to-know.html" target="_blank" rel="external">大漠老师的译文</a>，边看边总结边动手，把flexbox的属性都跑了一遍，最后跟着做完了音乐界面布局的练习。</p>
+<p>我觉得上面都讲得超级清楚明白的，所以我就不在这写笔记啦（因为我喜欢白纸黑字的笔记本呀~）哈哈哈~</p>
+<p>如果不明白，我还找了些参考资料：</p>
+<ul>
+<li><a href="http://huzidaha.com/posts/detail?postId=58aaadb2fc5b7f63e8c23f69" target="_blank" rel="external">通过动图形象地为你介绍 flexbox 是如何工作的</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25303493" target="_blank" rel="external">30 分钟学会 Flex 布局</a></li>
+</ul>
+<hr>
+<h2 id="实践思考"><a href="#实践思考" class="headerlink" title="实践思考"></a>实践思考</h2><p>我的Demo：<a href="http://codepen.io/SammieHo/full/pRXOzG/" target="_blank" rel="external">flexbox练手——音乐界面布局Demo</a></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p1.bqimg.com/567571/3eb3709bf9bac17c.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>主要是想说:</p>
+<blockquote>
+<p>Set a certain parent element to be a flex-container by using display: flex || inline-flex.<br>不知为啥，全天下来，这句话一直在脑子里面啊飘啊飘，大概是打过鸡血的缘故~~</p>
+</blockquote>
+<p>这个Demo里，一直嵌套，借文章一句“炫技”，囫囵吞枣，都用flexbox 布局。</p>
+<p>然而，我发现用flex 来布局 <strong>导航、卡片</strong> 是非常顺手的！！</p>
+<p>远离 float，div，table 这些的，耳根清净大概这个意思！！</p>
+<p>当然，是在不考虑兼容的情况下，微笑:)</p>
+<hr>
+<p>像这种，分分钟的事情~</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://i1.piimg.com/567571/228c43087e65f652.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<p>flex-container 中用得最多的属性（父元素）：</p>
+<ol>
+<li><p>设置排列顺序，非常常用！！<br>flex-direction: row（默认）|| column ;</p>
+</li>
+<li><p>是否换行<br>flex-wrap: nowrap(默认不换行) || wrap ;</p>
+</li>
+<li><p>justify-content: center || space-between</p>
+</li>
+</ol>
+
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-02-20T13:05:41.170Z" itemprop="dateUpdated">2017年2月20日 21:05</time>
+    最后更新时间：<time datetime="2017-02-20T13:51:15.728Z" itemprop="dateUpdated">2017年2月20日 21:51</time>
 </span><br>
 
 
@@ -193,7 +273,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flexbox-Note/">flexbox,Note</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flexbox/">flexbox</a></li></ul>
 
 
             

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-20T13:05:41.170Z</updated>
+  <updated>2017-02-20T13:51:15.728Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,14 +20,61 @@
     <link href="http://yoursite.com/2017/02/20/flexbox/"/>
     <id>http://yoursite.com/2017/02/20/flexbox/</id>
     <published>2017-02-20T13:04:56.120Z</published>
-    <updated>2017-02-20T13:05:41.170Z</updated>
+    <updated>2017-02-20T13:51:15.728Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h2><p>因为看了<a href="https://www.w3cplus.com/css3/understanding-flexbox-everything-you-need-to-know.html" target="_blank" rel="external">大漠老师的译文</a>，边看边总结边动手，把flexbox的属性都跑了一遍，最后跟着做完了音乐界面布局的练习。</p>
+<p>我觉得上面都讲得超级清楚明白的，所以我就不在这写笔记啦（因为我喜欢白纸黑字的笔记本呀~）哈哈哈~</p>
+<p>如果不明白，我还找了些参考资料：</p>
+<ul>
+<li><a href="http://huzidaha.com/posts/detail?postId=58aaadb2fc5b7f63e8c23f69" target="_blank" rel="external">通过动图形象地为你介绍 flexbox 是如何工作的</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25303493" target="_blank" rel="external">30 分钟学会 Flex 布局</a></li>
+</ul>
+<hr>
+<h2 id="实践思考"><a href="#实践思考" class="headerlink" title="实践思考"></a>实践思考</h2><p>我的Demo：<a href="http://codepen.io/SammieHo/full/pRXOzG/" target="_blank" rel="external">flexbox练手——音乐界面布局Demo</a></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p1.bqimg.com/567571/3eb3709bf9bac17c.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>主要是想说:</p>
+<blockquote>
+<p>Set a certain parent element to be a flex-container by using display: flex || inline-flex.<br>不知为啥，全天下来，这句话一直在脑子里面啊飘啊飘，大概是打过鸡血的缘故~~</p>
+</blockquote>
+<p>这个Demo里，一直嵌套，借文章一句“炫技”，囫囵吞枣，都用flexbox 布局。</p>
+<p>然而，我发现用flex 来布局 <strong>导航、卡片</strong> 是非常顺手的！！</p>
+<p>远离 float，div，table 这些的，耳根清净大概这个意思！！</p>
+<p>当然，是在不考虑兼容的情况下，微笑:)</p>
+<hr>
+<p>像这种，分分钟的事情~</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://i1.piimg.com/567571/228c43087e65f652.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<p>flex-container 中用得最多的属性（父元素）：</p>
+<ol>
+<li><p>设置排列顺序，非常常用！！<br>flex-direction: row（默认）|| column ;</p>
+</li>
+<li><p>是否换行<br>flex-wrap: nowrap(默认不换行) || wrap ;</p>
+</li>
+<li><p>justify-content: center || space-between</p>
+</li>
+</ol>
+]]></content>
     
     <summary type="html">
+    
+      &lt;h2 id=&quot;起源&quot;&gt;&lt;a href=&quot;#起源&quot; class=&quot;headerlink&quot; title=&quot;起源&quot;&gt;&lt;/a&gt;起源&lt;/h2&gt;&lt;p&gt;因为看了&lt;a href=&quot;https://www.w3cplus.com/css3/understanding-flexbox-everyt
     
     </summary>
     
     
-      <category term="flexbox,Note" scheme="http://yoursite.com/tags/flexbox-Note/"/>
+      <category term="flexbox" scheme="http://yoursite.com/tags/flexbox/"/>
     
   </entry>
   
@@ -36,7 +83,7 @@
     <link href="http://yoursite.com/2017/02/20/%E6%AF%AB%E6%97%A0%E9%80%BB%E8%BE%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%B0%8F%E7%A2%8E%E5%BF%B5/"/>
     <id>http://yoursite.com/2017/02/20/毫无逻辑的个人小碎念/</id>
     <published>2017-02-20T12:44:37.533Z</published>
-    <updated>2017-02-20T13:05:53.584Z</updated>
+    <updated>2017-02-20T13:07:39.114Z</updated>
     
     <content type="html"><![CDATA[<h3 id="女汉子模式开启"><a href="#女汉子模式开启" class="headerlink" title="女汉子模式开启~~"></a>女汉子模式开启~~</h3><p>今天，票票出发深圳实习~~ 想不到我也有看着他进站，喉咙哽咽的时候哇。</p>
 <p>我一直以为电视里的狗血剧情都是为了骗纯情小女生的眼泪的啊！( ⊙ o ⊙ )</p>
@@ -46,7 +93,7 @@
 <p>若隐若现的小蛮腰~ 肯定不是我拍照技术欠佳的原因，大雾大雾大雾！！</p>
 <p>照片在最后~</p>
 <hr>
-<p>顺便安利一下，今天学的 <a href="">flexbox,点我点我</a></p>
+<p>顺便安利一下，今天学的 <a href="https://sammieho.github.io/2017/02/20/flexbox/" target="_blank" rel="external">flexbox,点我点我</a></p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
