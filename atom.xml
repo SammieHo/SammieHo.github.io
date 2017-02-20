@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-20T13:51:15.728Z</updated>
+  <updated>2017-02-20T14:44:11.089Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/02/20/flexbox/"/>
     <id>http://yoursite.com/2017/02/20/flexbox/</id>
     <published>2017-02-20T13:04:56.120Z</published>
-    <updated>2017-02-20T13:51:15.728Z</updated>
+    <updated>2017-02-20T14:44:11.089Z</updated>
     
     <content type="html"><![CDATA[<h2 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h2><p>因为看了<a href="https://www.w3cplus.com/css3/understanding-flexbox-everything-you-need-to-know.html" target="_blank" rel="external">大漠老师的译文</a>，边看边总结边动手，把flexbox的属性都跑了一遍，最后跟着做完了音乐界面布局的练习。</p>
 <p>我觉得上面都讲得超级清楚明白的，所以我就不在这写笔记啦（因为我喜欢白纸黑字的笔记本呀~）哈哈哈~</p>
@@ -38,8 +38,7 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>
-<p>主要是想说:</p>
-<blockquote>
+<h4 id="我想说的"><a href="#我想说的" class="headerlink" title="我想说的"></a>我想说的</h4><blockquote>
 <p>Set a certain parent element to be a flex-container by using display: flex || inline-flex.<br>不知为啥，全天下来，这句话一直在脑子里面啊飘啊飘，大概是打过鸡血的缘故~~</p>
 </blockquote>
 <p>这个Demo里，一直嵌套，借文章一句“炫技”，囫囵吞枣，都用flexbox 布局。</p>
@@ -56,13 +55,18 @@
                 <div class="image-caption"></div>
             </figure>
 <hr>
-<p>flex-container 中用得最多的属性（父元素）：</p>
-<ol>
+<h4 id="flex-container-中用得最多的属性（父元素）："><a href="#flex-container-中用得最多的属性（父元素）：" class="headerlink" title="flex-container 中用得最多的属性（父元素）："></a>flex-container 中用得最多的属性（父元素）：</h4><ol>
 <li><p>设置排列顺序，非常常用！！<br>flex-direction: row（默认）|| column ;</p>
 </li>
 <li><p>是否换行<br>flex-wrap: nowrap(默认不换行) || wrap ;</p>
 </li>
-<li><p>justify-content: center || space-between</p>
+<li><p>主轴方向 Main Asix（水平的）的对齐<br>justify-content: center || space-between(两端对齐)<br>注意：若设置了margin的auto，该值失效。</p>
+</li>
+</ol>
+<h4 id="flex-items-常用的属性："><a href="#flex-items-常用的属性：" class="headerlink" title="flex-items 常用的属性："></a>flex-items 常用的属性：</h4><ol>
+<li><p>灵活性（这里还是有点不明白，之前补充）<br>flex-glow 是否填充可用空间，默认 0；<br>flex-shrink 是否收缩，默认 1；<br>flex-basis 指定Flex项目的初始大小，默认auto；</p>
+</li>
+<li><p>缩写：<br>flex：flex-glow flex-shrink flex-basis;<br>flex: 0 1 auto; // 默认行为<br>flex: 0 0 auto; // 相当于 flex: none;<br>flex: 1 1 auto; // 相当于 flex: auto;</p>
 </li>
 </ol>
 ]]></content>
@@ -1370,71 +1374,6 @@ Resolve：
   </entry>
   
   <entry>
-    <title>快速排序</title>
-    <link href="http://yoursite.com/2016/11/11/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
-    <id>http://yoursite.com/2016/11/11/快速排序/</id>
-    <published>2016-11-11T00:55:29.000Z</published>
-    <updated>2017-02-03T14:00:13.425Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>选一基准元素 point</li>
-<li>分区操作(partition)：小于point放左边，大于point放右边，point最后的位置就是排序完成的位置。</li>
-<li>重复步骤1.2<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">function quickSort(array) &#123;</div><div class="line"></div><div class="line">	//交换元素位置</div><div class="line">	function swap(arr, i, k) &#123;</div><div class="line">		var temp = arr[i];</div><div class="line">		arr[i] = arr[k];</div><div class="line">		arr[k] = temp;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//分区操作，左小右大</div><div class="line">	function partition(arr, left, right) &#123;</div><div class="line"></div><div class="line">		var sortIndex = left;</div><div class="line">		var point = arr[right];//直接选最右的作为基准元素</div><div class="line"></div><div class="line">		for (var i = left; i &lt; right; i++) &#123;</div><div class="line"></div><div class="line">			if (arr[i] &lt;= point) &#123;</div><div class="line">				swap(arr, i, sortIndex);</div><div class="line">				sortIndex++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		swap(arr, sortIndex, right);//将基准元素放置在最后的正确位置</div><div class="line">		//console.log(arr);</div><div class="line">		return sortIndex;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	function sort(arr, left, right) &#123;</div><div class="line">		if (left &gt; right) &#123;</div><div class="line">			return;</div><div class="line">		&#125;</div><div class="line">		var sortIndex = partition(arr, left, right);</div><div class="line">		sort(arr,left,sortIndex-1);</div><div class="line">		sort(arr, sortIndex + 1, right);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	sort(arr, 0, arr.length - 1);</div><div class="line"></div><div class="line">	return array;</div><div class="line">&#125;</div><div class="line"></div><div class="line">quickSort(arr);</div></pre></td></tr></table></figure>
-<p><strong>算法分析</strong></p>
-<p>快速排序的时间主要耗费在划分操作上，对长度为 k 的区间进行划分，共需 k-1 次关键字的比较。</p>
-<p><strong>最坏时间复杂度</strong></p>
-<p>最坏情况是每次划分选取的基准都是当前无序区中关键字最小(或最大)的记录，划分的结果是基准左边的子区间为空(或右边的子区间为空)， 而划分所得的另一个非空的子区间中记录数目，仅仅比划分前的无序区中记录个数减少一个。 因此，快速排序必须做 n-1 次划分， 第i次划分开始时区间长度为 n-i+1，所需的比较次数为 n-i(1≤i≤n-1)，故总的比较次数达到最大值：Cmax = n(n-1)/2=O(n^2)</p>
-<p>如果按上面给出的划分算法，每次取当前无序区的第 1 个记录为基准，那么当文件的记录已按递增序(或递减序)排列时， 每次划分所取的基准就是当前无序区中关键字最小(或最大)的记录，则快速排序所需的比较次数反而最多。</p>
-<p><strong>最好时间复杂度</strong></p>
-<p>在最好情况下，每次划分所取的基准都是当前无序区的”中值”记录，划分的结果是基准的左、右两个无序子区间的长度大致相等。 总的关键字比较次数：O(nlgn)</p>
-<p>注意： 用递归树来分析最好情况下的比较次数更简单。因为每次划分后左、右子区间长度大致相等，故递归树的高度为 O(lgn)， 而递归树每一层上各结点所对应的划分过程中所需要的关键字比较次数总和不超过n，故整个排序过程所需要的关键字比较总次数 C(n)=O(nlgn)。</p>
-<p>因为快速排序的记录移动次数不大于比较的次数，所以快速排序的最坏时间复杂度应为 O(n^2)，最好时间复杂度为 O(nlgn)。</p>
-<p><strong>平均时间复杂度</strong></p>
-<p>尽管快速排序的最坏时间为 O(n^2)，但就平均性能而言，它是基于关键字比较的内部排序算法中速度最快者，快速排序亦因此而得名。 它的平均时间复杂度为 O(nlgn)。</p>
-<p><strong>基准关键字的选取</strong></p>
-<p>在当前无序区中选取划分的基准关键字是决定算法性能的关键。</p>
-<ul>
-<li>”三者取中”的规则</li>
-</ul>
-<p>“三者取中”规则，即在当前区间里，将该区间首、尾和中间位置上的关键字比较，取三者之中值所对应的记录作为基准， 在划分开始前将该基准记录和该区伺的第1个记录进行交换，此后的划分过程与上面所给的 Partition 算法完全相同。</p>
-<ul>
-<li>取位于 low 和 high 之间的随机数k(low≤k≤high)，用 R[k] 作为基准</li>
-</ul>
-<p>选取基准最好的方法是用一个随机函数产生一个取位于 low 和 high 之间的随机数 k(low≤k≤high)，用 R[k] 作为基准， 这相当于强迫R[low..high]中的记录是随机分布的。用此方法所得到的快速排序一般称为随机的快速排序。</p>
-<blockquote>
-<p>注意： 随机化的快速排序与一般的快速排序算法差别很小。但随机化后，算法的性能大大地提高了，尤其是对初始有序的文件， 一般不可能导致最坏情况的发生。算法的随机化不仅仅适用于快速排序，也适用于其它需要数据随机分布的算法。</p>
-</blockquote>
-<p><strong>空间复杂度</strong></p>
-<p>快速排序在系统内部需要一个栈来实现递归。若每次划分较为均匀，则其递归树的高度为 O(lgn)，故递归后需栈空间为 O(lgn)。 最坏情况下，递归树的高度为 O(n)，所需的栈空间为 O(n)。</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
-<li><a href="http://bubkoo.com/2014/01/12/sort-algorithm/quick-sort/" target="_blank" rel="external">常见排序算法 - 快速排序 (Quick Sort)</a></li>
-<li><a href="http://souly.cn/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/2016/04/07/%E7%90%86%E8%A7%A3%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" target="_blank" rel="external">理解快速排序算法</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;选一基准元素 point&lt;/li&gt;
-&lt;li&gt;分区操作(partition)：小于point放左边，大于point放右边，poin
-    
-    </summary>
-    
-      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Ajax 笔记</title>
     <link href="http://yoursite.com/2016/11/11/Ajax%20%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2016/11/11/Ajax 笔记/</id>
@@ -1595,6 +1534,71 @@ Resolve：
     <summary type="html">
     
       &lt;h2 id=&quot;工作原理&quot;&gt;&lt;a href=&quot;#工作原理&quot; class=&quot;headerlink&quot; title=&quot;工作原理&quot;&gt;&lt;/a&gt;工作原理&lt;/h2&gt;&lt;h3 id=&quot;创建-和-Code&quot;&gt;&lt;a href=&quot;#创建-和-Code&quot; class=&quot;headerlink&quot; title=
+    
+    </summary>
+    
+      <category term="Exercise" scheme="http://yoursite.com/categories/Exercise/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>快速排序</title>
+    <link href="http://yoursite.com/2016/11/11/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
+    <id>http://yoursite.com/2016/11/11/快速排序/</id>
+    <published>2016-11-11T00:55:29.000Z</published>
+    <updated>2017-02-03T14:00:13.425Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>选一基准元素 point</li>
+<li>分区操作(partition)：小于point放左边，大于point放右边，point最后的位置就是排序完成的位置。</li>
+<li>重复步骤1.2<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">function quickSort(array) &#123;</div><div class="line"></div><div class="line">	//交换元素位置</div><div class="line">	function swap(arr, i, k) &#123;</div><div class="line">		var temp = arr[i];</div><div class="line">		arr[i] = arr[k];</div><div class="line">		arr[k] = temp;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//分区操作，左小右大</div><div class="line">	function partition(arr, left, right) &#123;</div><div class="line"></div><div class="line">		var sortIndex = left;</div><div class="line">		var point = arr[right];//直接选最右的作为基准元素</div><div class="line"></div><div class="line">		for (var i = left; i &lt; right; i++) &#123;</div><div class="line"></div><div class="line">			if (arr[i] &lt;= point) &#123;</div><div class="line">				swap(arr, i, sortIndex);</div><div class="line">				sortIndex++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		swap(arr, sortIndex, right);//将基准元素放置在最后的正确位置</div><div class="line">		//console.log(arr);</div><div class="line">		return sortIndex;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	function sort(arr, left, right) &#123;</div><div class="line">		if (left &gt; right) &#123;</div><div class="line">			return;</div><div class="line">		&#125;</div><div class="line">		var sortIndex = partition(arr, left, right);</div><div class="line">		sort(arr,left,sortIndex-1);</div><div class="line">		sort(arr, sortIndex + 1, right);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	sort(arr, 0, arr.length - 1);</div><div class="line"></div><div class="line">	return array;</div><div class="line">&#125;</div><div class="line"></div><div class="line">quickSort(arr);</div></pre></td></tr></table></figure>
+<p><strong>算法分析</strong></p>
+<p>快速排序的时间主要耗费在划分操作上，对长度为 k 的区间进行划分，共需 k-1 次关键字的比较。</p>
+<p><strong>最坏时间复杂度</strong></p>
+<p>最坏情况是每次划分选取的基准都是当前无序区中关键字最小(或最大)的记录，划分的结果是基准左边的子区间为空(或右边的子区间为空)， 而划分所得的另一个非空的子区间中记录数目，仅仅比划分前的无序区中记录个数减少一个。 因此，快速排序必须做 n-1 次划分， 第i次划分开始时区间长度为 n-i+1，所需的比较次数为 n-i(1≤i≤n-1)，故总的比较次数达到最大值：Cmax = n(n-1)/2=O(n^2)</p>
+<p>如果按上面给出的划分算法，每次取当前无序区的第 1 个记录为基准，那么当文件的记录已按递增序(或递减序)排列时， 每次划分所取的基准就是当前无序区中关键字最小(或最大)的记录，则快速排序所需的比较次数反而最多。</p>
+<p><strong>最好时间复杂度</strong></p>
+<p>在最好情况下，每次划分所取的基准都是当前无序区的”中值”记录，划分的结果是基准的左、右两个无序子区间的长度大致相等。 总的关键字比较次数：O(nlgn)</p>
+<p>注意： 用递归树来分析最好情况下的比较次数更简单。因为每次划分后左、右子区间长度大致相等，故递归树的高度为 O(lgn)， 而递归树每一层上各结点所对应的划分过程中所需要的关键字比较次数总和不超过n，故整个排序过程所需要的关键字比较总次数 C(n)=O(nlgn)。</p>
+<p>因为快速排序的记录移动次数不大于比较的次数，所以快速排序的最坏时间复杂度应为 O(n^2)，最好时间复杂度为 O(nlgn)。</p>
+<p><strong>平均时间复杂度</strong></p>
+<p>尽管快速排序的最坏时间为 O(n^2)，但就平均性能而言，它是基于关键字比较的内部排序算法中速度最快者，快速排序亦因此而得名。 它的平均时间复杂度为 O(nlgn)。</p>
+<p><strong>基准关键字的选取</strong></p>
+<p>在当前无序区中选取划分的基准关键字是决定算法性能的关键。</p>
+<ul>
+<li>”三者取中”的规则</li>
+</ul>
+<p>“三者取中”规则，即在当前区间里，将该区间首、尾和中间位置上的关键字比较，取三者之中值所对应的记录作为基准， 在划分开始前将该基准记录和该区伺的第1个记录进行交换，此后的划分过程与上面所给的 Partition 算法完全相同。</p>
+<ul>
+<li>取位于 low 和 high 之间的随机数k(low≤k≤high)，用 R[k] 作为基准</li>
+</ul>
+<p>选取基准最好的方法是用一个随机函数产生一个取位于 low 和 high 之间的随机数 k(low≤k≤high)，用 R[k] 作为基准， 这相当于强迫R[low..high]中的记录是随机分布的。用此方法所得到的快速排序一般称为随机的快速排序。</p>
+<blockquote>
+<p>注意： 随机化的快速排序与一般的快速排序算法差别很小。但随机化后，算法的性能大大地提高了，尤其是对初始有序的文件， 一般不可能导致最坏情况的发生。算法的随机化不仅仅适用于快速排序，也适用于其它需要数据随机分布的算法。</p>
+</blockquote>
+<p><strong>空间复杂度</strong></p>
+<p>快速排序在系统内部需要一个栈来实现递归。若每次划分较为均匀，则其递归树的高度为 O(lgn)，故递归后需栈空间为 O(lgn)。 最坏情况下，递归树的高度为 O(n)，所需的栈空间为 O(n)。</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="http://bubkoo.com/2014/01/12/sort-algorithm/quick-sort/" target="_blank" rel="external">常见排序算法 - 快速排序 (Quick Sort)</a></li>
+<li><a href="http://souly.cn/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/2016/04/07/%E7%90%86%E8%A7%A3%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" target="_blank" rel="external">理解快速排序算法</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;选一基准元素 point&lt;/li&gt;
+&lt;li&gt;分区操作(partition)：小于point放左边，大于point放右边，poin
     
     </summary>
     

@@ -44,7 +44,7 @@
 实践思考我的Demo：flexbox练手——音乐界面布局De">
 <meta property="og:image" content="http://p1.bqimg.com/567571/3eb3709bf9bac17c.png">
 <meta property="og:image" content="http://i1.piimg.com/567571/228c43087e65f652.png">
-<meta property="og:updated_time" content="2017-02-20T13:51:15.728Z">
+<meta property="og:updated_time" content="2017-02-20T14:44:11.089Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="flexbox练手——音乐界面布局.md">
 <meta name="twitter:description" content="起源因为看了大漠老师的译文，边看边总结边动手，把flexbox的属性都跑了一遍，最后跟着做完了音乐界面布局的练习。
@@ -175,7 +175,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#起源"><span class="post-toc-number">1.</span> <span class="post-toc-text">起源</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实践思考"><span class="post-toc-number">2.</span> <span class="post-toc-text">实践思考</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#起源"><span class="post-toc-number">1.</span> <span class="post-toc-text">起源</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实践思考"><span class="post-toc-number">2.</span> <span class="post-toc-text">实践思考</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#我想说的"><span class="post-toc-number">2.0.1.</span> <span class="post-toc-text">我想说的</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#flex-container-中用得最多的属性（父元素）："><span class="post-toc-number">2.0.2.</span> <span class="post-toc-text">flex-container 中用得最多的属性（父元素）：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#flex-items-常用的属性："><span class="post-toc-number">2.0.3.</span> <span class="post-toc-text">flex-items 常用的属性：</span></a></li></ol></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -216,8 +216,7 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>
-<p>主要是想说:</p>
-<blockquote>
+<h4 id="我想说的"><a href="#我想说的" class="headerlink" title="我想说的"></a>我想说的</h4><blockquote>
 <p>Set a certain parent element to be a flex-container by using display: flex || inline-flex.<br>不知为啥，全天下来，这句话一直在脑子里面啊飘啊飘，大概是打过鸡血的缘故~~</p>
 </blockquote>
 <p>这个Demo里，一直嵌套，借文章一句“炫技”，囫囵吞枣，都用flexbox 布局。</p>
@@ -234,13 +233,18 @@
                 <div class="image-caption"></div>
             </figure>
 <hr>
-<p>flex-container 中用得最多的属性（父元素）：</p>
-<ol>
+<h4 id="flex-container-中用得最多的属性（父元素）："><a href="#flex-container-中用得最多的属性（父元素）：" class="headerlink" title="flex-container 中用得最多的属性（父元素）："></a>flex-container 中用得最多的属性（父元素）：</h4><ol>
 <li><p>设置排列顺序，非常常用！！<br>flex-direction: row（默认）|| column ;</p>
 </li>
 <li><p>是否换行<br>flex-wrap: nowrap(默认不换行) || wrap ;</p>
 </li>
-<li><p>justify-content: center || space-between</p>
+<li><p>主轴方向 Main Asix（水平的）的对齐<br>justify-content: center || space-between(两端对齐)<br>注意：若设置了margin的auto，该值失效。</p>
+</li>
+</ol>
+<h4 id="flex-items-常用的属性："><a href="#flex-items-常用的属性：" class="headerlink" title="flex-items 常用的属性："></a>flex-items 常用的属性：</h4><ol>
+<li><p>灵活性（这里还是有点不明白，之前补充）<br>flex-glow 是否填充可用空间，默认 0；<br>flex-shrink 是否收缩，默认 1；<br>flex-basis 指定Flex项目的初始大小，默认auto；</p>
+</li>
+<li><p>缩写：<br>flex：flex-glow flex-shrink flex-basis;<br>flex: 0 1 auto; // 默认行为<br>flex: 0 0 auto; // 相当于 flex: none;<br>flex: 1 1 auto; // 相当于 flex: auto;</p>
 </li>
 </ol>
 
@@ -250,7 +254,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-02-20T13:51:15.728Z" itemprop="dateUpdated">2017年2月20日 21:51</time>
+    最后更新时间：<time datetime="2017-02-20T14:44:11.089Z" itemprop="dateUpdated">2017年2月20日 22:44</time>
 </span><br>
 
 
